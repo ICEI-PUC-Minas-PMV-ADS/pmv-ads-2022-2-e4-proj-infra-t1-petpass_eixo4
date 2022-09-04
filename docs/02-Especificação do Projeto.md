@@ -200,14 +200,6 @@ O gerenciamento adequado de tarefas contribuirá para que o projeto alcance alto
 
 A equipe utilizará o conceito de metodologias ágeis para fazer o gerenciamento do projeto, tendo escolhido a metodologia Scrum como base para a definição do processo de desenvolvimento.
 
-### Divisão de Papéis
-
-A equipe está organizada da seguinte maneira:
-- **Scrum Master:** 
-- **Product Owner:** 
-- **Equipe de Desenvolvimento:** 
-- **Equipe de Design:** 
-
 ![Simple Project Timeline](img/02-project-timeline.png)
 
 ## Gestão de Orçamento
