@@ -1,46 +1,41 @@
 # Introdução
 
-Texto descritivo com a visão geral do projeto abordado. Inclui o contexto, o problema, os objetivos, a justificativa e o público-alvo do projeto.
+Ter a companhia de um animal de estimação está se tornando cada vez mais comum na rotina dos seres humanos. De acordo com o Instituto Brasileiro de Geografia e Estatística (IBGE), quase 140 milhões de lares brasileiros já contam com a presença dos pets – termo popular em inglês para animais de estimação. Todavia, os benefícios que o convívio com os animais traz aos seres humanos vai muito além da amizade leal e sincera que eles proporcionam.
+
+Um estudo divulgado pela Associação Americana do Coração mostrou que ter um pet ajuda a afastar problemas cardiovasculares, sendo que o risco de morte entre pessoas com doença cardíaca é até quatro vezes menor quando se convive com um animal de estimação (G1, 2021). Outra pesquisa, publicada na revista científica Journal of Gerontology: Medical Sciences, afirma que idosos donos de cachorros superam melhor a solidão, sendo, inclusive, uma atitude recomendada por muitos médicos; já que a companhia dos animais ajuda a manter atividades regulares, faz com que os idosos fiquem mais atentos à necessidade de se alimentar e alimentar seu animal e também tenham mais oportunidade de ver outras pessoas quando levam os pets para passear (G1, 2021).
+
+Além disso, diversas estudos já demonstraram que o convívio com animais de estimação faz bem para a saúde mental, pois o ser humano ativa o sistema límbico (responsável pelas emoções mais instintivas), fazendo com que ocorra a liberação das endorfinas, o que gera a sensação de tranquilidade, bem-estar, melhora da autoestima, entre outros fatores. Por este mesmo motivo, pessoas que convivem com cães, por exemplo, conseguem superar melhor a perda de um ente querido (G1, 2021).
+
+Uma das últimas descobertas científicas, publicada pela revista Science, mostra que os cachorros amam seus donos com o mesmo amor que um bebê sente pela mãe. Foi provado também, que a convivência com um pet produz elevada dose de oxitocina no corpo humano, a popularmente chamada “molécula do amor”. Em adição a isso, uma pesquisa realizada pela Edellman Intelligence em parceria com a HABRI e a Mars Petcare revelou que 80% das pessoas se sentem menos sozinhas na companhia de um pet. Ou seja, além da troca de carinho, cães e gatos também ajudam às pessoas a lidarem com problemas como a depressão, colaboram para a redução da timidez e facilitam a socialização (PREFEITURA DE SÃO PAULO, 2021).
+
+O convívio com os pets notoriamente traz diversos benefícios ao ser humano. Contudo, essa relação também traz grandes responsabilidades. Afinal, assim como nós, os pets são seres vivos e também estão suscetíveis a doenças e problemas de saúde. Por este motivo, é de suma importância manter o cartão de vacinação dos animais atualizado. Além disso, idas rotineiras ao veterinário devem fazer parte da vida do bichinho. Por fim, zelar pela saúde do melhor amigo animal é tarefa de seu responsável humano, que deve ter um controle adequado do histórico de vacinação e medicação do pet para proporcioná-lo uma melhor qualidade de vida.
 
 ## Problema
-Nesse momento você deve apresentar o problema que a sua aplicação deve  resolver. No entanto, não é a hora de comentar sobre a aplicação.
 
-Descreva também o contexto em que essa aplicação será usada, se  houver: empresa, tecnologias, etc. Novamente, descreva apenas o que de  fato existir, pois ainda não é a hora de apresentar requisitos  detalhados ou projetos.
+O presente projeto busca ajudar a solucionar um dos principais problemas enfrentados pelos responsáveis de pets: o descontrole sobre a carteira de vacinação do animal. Seja pelo não respeito ao cronograma de vacinação, seja pela simples perda do documento físico que relaciona os dados do bichinho e todas as vacinas já tomadas, além das que ainda necessitarão ser aplicadas.
 
-Nesse momento, o grupo pode optar por fazer uso  de ferramentas como Design Thinking, que permite um olhar de ponta a ponta para o problema.
-
-> **Links Úteis**:
-> - [Objetivos, Problema de pesquisa e Justificativa](https://medium.com/@versioparole/objetivos-problema-de-pesquisa-e-justificativa-c98c8233b9c3)
-> - [Matriz Certezas, Suposições e Dúvidas](https://medium.com/educa%C3%A7%C3%A3o-fora-da-caixa/matriz-certezas-suposi%C3%A7%C3%B5es-e-d%C3%BAvidas-fa2263633655)
-> - [Brainstorming](https://www.euax.com.br/2018/09/brainstorming/)
+A desorganização no cronograma de vacinação do pet pode prejudicar a saúde do animal e a vacinação inadequada aumenta o risco de transmissão de doenças. Por isso, é importante que o dono tenha fácil acesso ao histórico de vacinas utilizados, o que pode ser facilitado pela criação de um cartão digital de vacinação para pets, que permita um acompanhamento mais prático e dinâmico do cronograma e do status de vacinação desses animais por seus responsáveis.
 
 ## Objetivos
 
-Aqui você deve descrever os objetivos do trabalho indicando que o objetivo geral é desenvolver um software para solucionar o problema apresentado acima. 
+O objetivo geral deste trabalho é o desenvolvimento de uma aplicação interativa, no formato de carteira de vacinação digital, que possibilite facilitar a organização e melhorar o controle dos donos sobre o histórico vacinal de seus pets.
 
-Apresente também alguns (pelo menos 2) objetivos específicos dependendo de onde você vai querer concentrar a sua prática investigativa, ou como você vai aprofundar no seu trabalho.
- 
-> **Links Úteis**:
-> - [Objetivo geral e objetivo específico: como fazer e quais verbos utilizar](https://blog.mettzer.com/diferenca-entre-objetivo-geral-e-objetivo-especifico/)
+Como objetivos específicos, ressalta-se:
+
+- Fornecer os dados e as características básicas dos animais, associadas a um perfil individual para cada pet (como numa rede social);
+- Fornecer informações e datas das vacinas que foram aplicadas nos animais de forma organizada, conforme seu tempo de vida;
+- Permitir o controle mais eficiente da vacinação dos animais, melhorando sua qualidade de vida.
 
 ## Justificativa
 
-Descreva a importância ou a motivação para trabalhar com esta aplicação que você escolheu. Indique as razões pelas quais você escolheu seus objetivos específicos ou as razões para aprofundar em certos aspectos do software.
+A atenção ao calendário de vacinação e aos medicamentos prescritos pelo veterinário, desde o início da vida do pet, é uma das principais ferramentas que podem ser utilizadas para melhorar a saúde do pet, ampliando seu tempo e qualidade de vida. Sendo assim é importante manter essa atenção ao calendário, pois os pets devem ser vacinados ainda filhotes e, após adultos, faz-se necessário manter o acompanhamento regular de um veterinário. Para cães e gatos, por exemplo, é necessário ainda repetir as doses das vacinas pelo menos uma vez por ano, dependendo dos casos (PROTESTE!, 2017).
 
-O grupo de trabalho pode fazer uso de questionários, entrevistas e dados estatísticos, que podem ser apresentados, com o objetivo de esclarecer detalhes do problema que será abordado pelo grupo.
+De acordo com a veterinária Thayrine Marques Oshima, de Marília (SP), diferentemente das vacinas obrigatórias dos humanos, das quais a maioria são oferecidas gratuitamente pelo Programa Nacional de Imunização (PNI) e disponibilizadas no Sistema Único de Saúde (SUS), as doses de vacinas para os pets têm um custo. Por isso, antes de adotar um animal, os donos também precisam pensar nas despesas financeiras que serão gastas com a vacinação do pet; que deve ser feita em clínicas autorizadas e sempre por um médico veterinário (NUNES, 2021).
 
-> **Links Úteis**:
-> - [Como montar a justificativa](https://guiadamonografia.com.br/como-montar-justificativa-do-tcc/)
+Nesse cenário, é notória a responsabilidade que o ser humano adquire sobre a vida do pet, a partir do momento em que passa a tê-lo sob seus cuidados. Dessa forma, o indivíduo deve ser capaz de amá-lo e cuidá-lo como quem cuida de um filho, devendo ter um controle adequado da saúde do animal com acompanhamento médico-veterinário obrigatório durante toda a vida do pet. Esse cuidado se reflete na organização adequada do cronograma vacinal do bichinho e na devida atenção que se deve dar ao registro médico de vacinas e medicamentos aplicados. Assim, o responsável humano estará colaborando de forma crucial para uma melhor qualidade de vida do seu melhor amigo.
 
 ## Público-Alvo
 
-Descreva quem serão as pessoas que usarão a sua aplicação indicando os diferentes perfis. O objetivo aqui não é definir quem serão os clientes ou quais serão os papéis dos usuários na aplicação. A ideia é, dentro do possível, conhecer um pouco mais sobre o perfil dos usuários: conhecimentos prévios, relação com a tecnologia, relações
-hierárquicas, etc.
-
-Adicione informações sobre o público-alvo por meio de uma descrição textual, diagramas de personas e mapa de stakeholders.
-
-> **Links Úteis**:
-> - [Público-alvo](https://blog.hotmart.com/pt-br/publico-alvo/)
-> - [Como definir o público alvo](https://exame.com/pme/5-dicas-essenciais-para-definir-o-publico-alvo-do-seu-negocio/)
-> - [Público-alvo: o que é, tipos, como definir seu público e exemplos](https://klickpages.com.br/blog/publico-alvo-o-que-e/)
-> - [Qual a diferença entre público-alvo e persona?](https://rockcontent.com/blog/diferenca-publico-alvo-e-persona/)
+- **Faixa etária:** Acima de 18 anos
+- **Gênero:** Qualquer
+- **Perfil:** Pessoas ou instituições que tenham pets sob sua responsabilidade ou cuidados. Como exemplos, destacam-se: donos de pets, pessoas que adotam animais, instituições que resgatam animais de rua, clínicas veterinárias, hotéis de pets.
