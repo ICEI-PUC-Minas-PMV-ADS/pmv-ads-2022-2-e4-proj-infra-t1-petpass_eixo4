@@ -216,4 +216,4 @@ O processo de determinar o orçamento do projeto é uma tarefa que depende, alé
 
 Nesse contexto, segue abaixo o orçamento estimado para o desenvolvimento do projeto Pet Pass.
 
-![Orçamento](img/02-orcamento.png)
+![Custos](img/Custo.PNG)
