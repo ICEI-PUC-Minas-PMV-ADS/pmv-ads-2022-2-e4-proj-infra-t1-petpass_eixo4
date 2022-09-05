@@ -188,11 +188,12 @@ Para construir um bom diagrama deve-se partir de um conjunto de atividades defin
 
 O gráfico de Gantt ou diagrama de Gantt também é uma ferramenta visual utilizada para controlar e gerenciar o cronograma de atividades de um projeto. Com ele, é possível listar tudo que precisa ser feito para colocar o projeto em prática, dividir em atividades e estimar o tempo necessário para executá-las.
 
-![Diagrama de rede simplificado notação francesa (método francês)](img/02-diagrama-rede-simplificado.png)
+![Diagrama de Rede](img/Fluxos.PNG)
 
 A seguir encontr-se o diagrama de Gantt do projeto do Pet Pass mobile, utilizado com ferramenta de gerenciamento do cronograma do projeto.
 
-![Gráfico de Gantt](img/02-grafico-gantt.png)
+![Tarefas](img/TarefasGantt.PNG)
+![Grafico de Gantt](img/GraficoGantt.png)
 
 ## Gerenciamento de Equipe
 
