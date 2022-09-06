@@ -25,6 +25,16 @@ Uma API RESTful utiliza os verbos HTTP para realizar operações de CRUD (inser�
 
 Por fim, a API será composta de duas camadas: modelo e controlador.
 
+## Tecnologias utilizadas: ##
+
+A aplicação será desenvolvida utilizando as seguintes tecnologias:
+- Back-end: CSharp
+- Front-end móvel: React-Native
+- Front-end Web: React
+- Banco de Dados: 
+    - Dados de usuários, pets e vacinas: MySQL
+    - Notícias: MongoDB
+
 ![Arquitetura da Solução](img/arquitetura.png)
 
 ## Diagrama de Classes
