@@ -2,9 +2,30 @@
 
 <span style="color:red">Pré-requisitos: <a href="3-Projeto de Interface.md"> Projeto de Interface</a></span>
 
-Definição de como o software é estruturado em termos dos componentes que fazem parte da solução e do ambiente de hospedagem da aplicação.
+A aplicação Pet Pass prevê a disponibilização, para os usuários, de duas interfaces distintas: um front-end mobile e um front-end web. 
 
-![Arquitetura da Solução](img/02-mob-arch.png)
+Foi definida a utilização de um banco de dados relacional, de forma a garantir a consistência dos dados. Considerando, ainda, a natureza distribuída da aplicação, será utilizado o estilo arquitetural REST (REpresentational State Transfer), com o desenvolvimento de uma API RESTful.
+
+Uma API RESTful deve seguir alguns princípios, como (IBM, 2022):
+- **Interface uniforme**: requisiões para um mesmo recurso devem ser similares, independentemente da fonte da requisição.
+- **Arquitetura cliente-servidor**: as aplicações para cliente e servidor devem ser totalmente independentes uma da outra.
+- **Sem estado (statelessness)**: A requição deve incluir toda a informação necessária para processamento pelo servidor.
+- **Cache**: Recursos podem ser mantidos em cache tanto no cliente como no servidor. Quando um cliente recebe uma resposta de um servidor,
+- **Sistema em camadas**: requisições e respostas podem passar por diversas camadas.
+- **Código sob demanda (opcional)**: Código executável pode ser retornado nas respostas de um serviço.
+
+Uma API RESTful utiliza os verbos HTTP para realizar operações de CRUD (inserção, consulta, atualização e exclusão):
+
+| CRUD | HTTP |
+| ---- | ---- |
+| Create | POST |
+| Read | GET |
+| Update | PUT,PATCH |
+| Delete | DELETE |
+
+Por fim, a API será composta de duas camadas: modelo e controlador.
+
+![Arquitetura da Solução](img/arquitetura.png)
 
 ## Diagrama de Classes
 
