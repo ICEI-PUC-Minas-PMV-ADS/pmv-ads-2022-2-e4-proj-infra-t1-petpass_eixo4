@@ -3,12 +3,20 @@
 
 <span style="color:red">Pré-requisitos: <a href="2-Especificação do Projeto.md"> Documentação de Especificação</a></span>
 
-Descreva aqui a metodologia de trabalho do grupo para atacar o problema. Definições sobre os ambiente de trabalho utilizados pela  equipe para desenvolver o projeto. Abrange a relação de ambientes utilizados, a estrutura para gestão do código fonte, além da definição do processo e ferramenta através dos quais a equipe se organiza (Gestão de Times).
+A metodologia contempla a definição das ferramentas que serão utilizadas pela equipe, tanto para a gestão e manutenção dos códigos e demais artefatos, quanto para a divisão de tarefas e gerenciamento do projeto.
 
 ## Relação de Ambientes de Trabalho
 
-Os artefatos do projeto são desenvolvidos a partir de diversas plataformas e a relação dos ambientes com seu respectivo propósito deverá ser apresentada em uma tabela que especifica que detalha Ambiente, Plataforma e Link de Acesso. 
-Nota: Vide documento modelo do estudo de caso "Portal de Notícias" e defina também os ambientes e frameworks que serão utilizados no desenvolvimento de aplicações móveis.
+Os artefatos do projeto serão desenvolvidos a partir de duas plataformas listadas abaixo: 
+
+|Ambiente    |Plataforma          |
+|------------|--------------------|
+|Repositório de código fonte |[Github](https://github.com) |
+|Documentos do projeto | [Github](https://github.com) |
+|Projeto de Interface e  Wireframes| [Figma](https://www.figma.com) |
+|Gerenciamento do Projeto | [Github](https://github.com) e [ProjectLibre](https://www.projectlibre.com/) |
+|Modelagem de Processos | [BPMN.iO](https://demo.bpmn.io/) |
+
 
 ## Controle de Versão
 
@@ -31,36 +39,35 @@ etiquetas:
 - `enhancement`: uma funcionalidade precisa ser melhorada
 - `feature`: uma nova funcionalidade precisa ser introduzida
 
-Discuta como a configuração do projeto foi feita na ferramenta de versionamento escolhida. Exponha como a gerência de tags, merges, commits e branchs é realizada. Discuta como a gerência de issues foi realizada.
+Para fazer a gestão do código fonte do software desenvolvido neste projeto, a equipe utilizará um processo baseado no Git Flow, no qual todas as manutenções no código serão realizadas em branches separados, identificados como Hotfix, Release, Develop e Feature.
+Uma breve explicação sobre este processo é apresentada no vídeo [The gitflow workflow - in less than 5 mins](https://www.youtube.com/watch?v=1SXpE08hvGs). A imagem a seguir exemplifica a metodologia do Git Flow.
 
-> **Links Úteis**:
-> - [Microfundamento: Gerência de Configuração](https://pucminas.instructure.com/courses/87878/)
-> - [Tutorial GitHub](https://guides.github.com/activities/hello-world/)
-> - [Git e Github](https://www.youtube.com/playlist?list=PLHz_AreHm4dm7ZULPAmadvNhH6vk9oNZA)
->  - [Comparando fluxos de trabalho](https://www.atlassian.com/br/git/tutorials/comparing-workflows)
-> - [Understanding the GitHub flow](https://guides.github.com/introduction/flow/)
-> - [The gitflow workflow - in less than 5 mins](https://www.youtube.com/watch?v=1SXpE08hvGs)
+![Git_Flow](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e3-proj-mov-t1-petpass-mobile/blob/main/docs/img/Git%20Flow.png?raw=true)
 
 ## Gerenciamento de Projeto
 
 ### Divisão de Papéis
 
-Apresente a divisão de papéis entre os membros do grupo.
+A equipe está organizada da seguinte maneira:
 
-Exemplificação: A equipe utiliza metodologias ágeis, tendo escolhido o Scrum como base para definição do processo de desenvolvimento. A equipe está organizada da seguinte maneira:
-- Scrum Master: Felipe Domingos;
-- Product Owner: Rommel Carneiro;
-- Equipe de Desenvolvimento: Pedro Penna, Pedro Ivo, Rodrigo Richard;
-- Equipe de Design: Simone Nogueira.
-
-> **Links Úteis**:
-> - [11 Passos Essenciais para Implantar Scrum no seu Projeto](https://mindmaster.com.br/scrum-11-passos/)
-> - [Scrum em 9 minutos](https://www.youtube.com/watch?v=XfvQWnRgxG0)
-> - [Os papéis do Scrum e a verdade sobre cargos nessa técnica](https://www.atlassian.com/br/agile/scrum/roles)
+- **Scrum Master:**
+- **Product Owner:** 
+- **Equipe de Front-end:** Arthur Bernardo de Almeida Simões, Arthur Fernandes Roque Ferrarez e Luisa Helena Gonçalves Oliveira
+- **Equipe de Back-end:** Adilson Antonio Ferreira Junior, Pedro Von Der Heide, Renan Gonçalves De Souza e Rodrigo Lobenwein Resende
+- **Equipe Mobile:** Todo o time
 
 ### Processo
 
-Coloque  informações sobre detalhes da implementação do Scrum seguido pelo grupo. O grupo deverá fazer uso do recurso de gerenciamento de projeto oferecido pelo GitHub, que permite acompanhar o andamento do projeto, a execução das tarefas e o status de desenvolvimento da solução.
+Para a organização e distribuição das tarefas do projeto, a equipe utilizará o Github, estruturado com as seguintes listas: 
+
+- **Product Backlog:** é uma lista detalhada de tudo o que precisa ser realizado para transformar a visão do produto em realidade (MindMaster, 2021). Ou seja, recebe todas as tarefas (entregas) que serão feitas durante o projeto. Caso surja a necessidade de incorporar novas atividades ao projeto, estas devem ser adicionadas a esta lista.
+- **Sprint:** são as entregas que serão feitas ao longo do projeto para compor o Product Backlog. Ao final de cada Sprint terá sido concluída uma das tarefas da lista do Product Backlog. Os Sprints serão divididos em Sprints Backlogs, que são tarefas menores dentro de cada Sprint que determinarão o progresso do projeto.
+- **Kanban:** é um Scrum Board que mostra o progresso da realização das Sprints Backlogs. Este quadro é delimitado em: To Do, Doing e Done.
+- `To Do`: É a lista dos Sprints Backlogs que serão trabalhados no Sprint da vez.
+- `Doing (In progress)`: É a lista de tarefas que estão sendo executadas no momento pela equipe.
+- `Done`: É a lista de tarefas do Sprint que já foram concluídas e estão prontos para serem entregues ao usuário.
+
+Um exemplo do quadro Kanban montado pela equipe no Github é apresentado na imagem abaixo:
  
 > **Links Úteis**:
 > - [Planejamento e Gestáo Ágil de Projetos](https://pucminas.instructure.com/courses/87878/pages/unidade-2-tema-2-utilizacao-de-ferramentas-para-controle-de-versoes-de-software)
@@ -72,16 +79,14 @@ Coloque  informações sobre detalhes da implementação do Scrum seguido pelo g
 
 ### Ferramentas
 
-As ferramentas empregadas no projeto são:
+Relação das ferramentas empregadas no projeto e suas respectivas funções:
 
-- Editor de código.
-- Ferramentas de comunicação
-- Ferramentas de desenho de tela (_wireframing_)
+|Função     |Ferramentas          |
+|-----------|---------------------|
+|Editor de código |Github, Visual Studio Code, Expo | 
+|Ferramentas de comunicação |Github, Microsoft Teams, Discord |
+|Ferramentas de diagramação |Figma |
+|Ferramentas de modelagem de processos |Astah, BPMN.iO |
+|Ferramentas de gestão de projetos |Github, ProjectLibre, MS Excel |
 
 O editor de código foi escolhido porque ele possui uma integração com o sistema de versão. As ferramentas de comunicação utilizadas possuem integração semelhante e por isso foram selecionadas. Por fim, para criar diagramas utilizamos essa ferramenta por melhor captar as necessidades da nossa solução.
-
-Liste quais ferramentas foram empregadas no desenvolvimento do projeto, justificando a escolha delas, sempre que possível.
- 
-> **Possíveis Ferramentas que auxiliarão no gerenciamento**: 
-> - [Slack](https://slack.com/)
-> - [Github](https://github.com/)
