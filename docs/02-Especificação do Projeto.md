@@ -101,6 +101,19 @@ Para entender melhor o funcionamento interno dos processos que ocorrem dentro do
 
 ## Indicadores de Desempenho
 
+| Nº | Indicador | Objetivo | Descrição | Cálculo | Fonte de Dados | Perspectiva | Meta | Periodicidade |
+|----|-----------|----------|-----------|---------|----------------|-------------|------|---------------|
+|	1	|	Índice de avalição dos usuários	|	Verificar a aceitação do aplicativo móvel	|	Número de estrelas	|	Medir a média das avaliações (notas) dadas pelos usuários que baixaram e utilizaram o app	|	Play Store e Apple Store	|	Qualidade do produto	|	Avaliação acima de 4 estrelas	|	Trimestral	|
+|	2	|	Taxa de download do aplicativo	|	Verificar a quantidade de downloads do aplicativo	|	Avaliar a quantidade de pessoas que baixaram e utilizaram o app no último mês	|	Número de downloads por mês	|	Play Store e Apple Store	|	Difusão do produto e da marca	|	100 usuários por mês	|	Mensal	|
+|	3	|	Número de acessos ao site	|	Verificar a quantidade de pessoas que acessam a versão Web	|	Avaliar a quantidade de acessos únicos ao site	|	Acessos únicos por mês	|	Google Analytics	|	Difusão do produto e da marca	|	100 usuários por mês	|	Mensal	|
+|	4	|	Percentual de reclamações mobile	|	Verificar o índice de reclamações recebidas em relação ao app e respondê- las	|	Razão entre o número de reclamações e a quantidade de downloads	|	Verificar as reclamações recebidas	|	Play Store e Apple Store	|	Qualidade do produto	|	Nenhuma reclamação	|	Mensal	|
+|	5	|	Percentual de reclamações web	|	Verificar o índice de reclamações recebidas em relação à plataforma Web e respondê-las	|	Razão entre o número de reclamações e a quantidade de acessos únicos	|	Verificar as reclamações recebidas	|	Formulário de Contato	|	Qualidade do produto	|	Nenhuma reclamação	|	Mensal	|
+|	6	|	Taxa de resolução de problemas	|	Resolver as reclamações feitas pelos usuários	|	Verificar as reclamações feitas pelos usuários, identificar possíveis erros no sistema e resolvê-los	|	Indice de avaliação de resolução de problemas	|	Play Store, Apple Store, Formulário de contato	|	Qualidade do produto	|	100%	|	Mensal	|
+|	7	|	Período de inatividade		Verificar o tempo de inatividade dos usuários em relação ao app	|	Medir o intervalo de tempo médio que os usuários ficam sem utilizar o app	|	Média das diferenças entre as datas de acesso	|	Melhoria continua	|	Banco de Dados do aplicativo	|	Tempo minimo entre vacinações	|	Semestral	|
+
+
+
+
 Apresente aqui os principais indicadores de desempenho e algumas metas para o processo. Atenção: as informações necessárias para gerar os indicadores devem estar contempladas no diagrama de classe. Colocar no mínimo 5 indicadores. 
 
 Usar o seguinte modelo: 
@@ -131,6 +144,9 @@ A tabela abaixo apresenta os requisitos funcionais do projeto, identificando a p
 | RF-005 | O sistema deverá permitir a exclusão da conta do usuário responsável pelo pet, excluindo também qualquer perfil de pet vinculado a ela. | MÉDIA |
 | RF-006 | O sistema deverá permitir a edição das informações do usuário e dos pets cadastrados e das vacinas aplicadas. | ALTA |
 | RF-007 | O sistema deverá enviar notificações ao usuário assim que estiver próxima a data da próxima vacina de seu pet. | BAIXA |
+| RF-008 | O sistema deverá permitir o cadastro de instituições (clínicas, abrigos etc.). | BAIXA |
+| RF-009 | O sistema deverá permitir a publicação de notícias na página inicial pelo administrador. | BAIXA |
+| RF-010 | O sistema deverá permitir a inclusão de vacinas no perfil do pet pelo veterinário. | BAIXA |
 
 ### Requisitos não Funcionais
 
@@ -142,7 +158,7 @@ A tabela abaixo apresenta os requisitos não funcionais que o projeto deverá at
 | RNF-002 | A versão web deverá funcionar nos principais navegadores da web (Google Chrome, Mozila Firefox, Microsoft Edge) | MÉDIA |
 | RNF-003 | A interface web deverá utilizar linguagens front-end padrões (HMTM, CSS, JavaScript). | ALTA |
 | RNF-004 | O sistema deverá ser responsivo, permitindo sua utilização em computadores desktops, notebooks, tablets e para os smartphones (versão mobile) | ALTA |
-| RNF-005 | A versão mobile deverá funcionar nos principais sistemas Mobile, como Android e IOS | ALTA |
+| RNF-005 | A versão mobile deverá ser desenvolvida com React-Native, para funcionar nos principais sistemas Mobile, como Android e IOS | ALTA |
 | RNF-006 | A segurança no armazenamento e na manipulação dos dados do dono e do pet deve seguir as diretrizes da Lei Geral de Proteção de Dados (LGPD). | MÉDIA |
 | RNF-007 | O sistema deverá ser intuitivo e de fácil utilização, para atender também ao público idoso.| ALTA |
 | RNF-008 | O sistema deverá estar disponível para acesso 24h por dia, exceto quando em manutenção. | BAIXA |
