@@ -86,9 +86,9 @@ O fluxograma abaixo ilustra este processo:
 
 ### Descrição Geral da Proposta
 
-A proposta do Pet Pass mobile é tornar parte do processo de registro e acompanhamento do esquema vacinal dos pets mais automatizada, flexível e de fácil acesso. Com o Pet Pass, o proprio tutor do pet poderá fazer seu registro assim que adotar seu melhor amigo, levando, posteriormente, para o veterinário conferir as informações e adicionar os dados de vacinação. Todas as informações do pet poderão ficar armazenadas no aplicativo e relatórios atualizados poderão ser emitidos para o acampanhamento do veterinário, ou apresentação em aeroportos, hotéis, etc. Além disso o sistema também dará lembretes ao usuário sobre as datas das próximas vacinas.
+A proposta do Pet Pass é tornar parte do processo de registro e acompanhamento do esquema vacinal dos pets mais automatizada, flexível e de fácil acesso. Com o Pet Pass, o proprio tutor do pet poderá fazer seu registro assim que adotar seu melhor amigo, levando, posteriormente, para o veterinário conferir as informações e adicionar os dados de vacinação. Todas as informações do pet poderão ficar armazenadas no aplicativo e relatórios atualizados poderão ser emitidos para o acampanhamento do veterinário, ou apresentação em aeroportos, hotéis, etc. Além disso o sistema também dará lembretes ao usuário sobre as datas das próximas vacinas.
 
-O fluxograma abaixo ilustra o novo processo, utilizando o PetPass mobile como ferramenta:
+O fluxograma abaixo ilustra o novo processo, utilizando o PetPass como ferramenta:
 
 ![Processo com o Pet Pass](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e3-proj-mov-t1-petpass-mobile/blob/main/docs/img/Processo%20com%20Pet%20Pass_.PNG?raw=true)
 
@@ -164,7 +164,7 @@ As questões que limitam a execução deste projeto e que se configuram como obr
 
 O diagrama de casos de uso é o primeiro esboço da aplicação a ser desenvolvida, feito após a etapa elicitação de requisitos, que utiliza um modelo gráfico e uma tabela com as descrições sucintas dos casos de uso e dos atores. Ele contempla a fronteira do sistema e o detalhamento dos requisitos funcionais com a indicação dos atores, casos de uso e seus relacionamentos.
 
-A seguir, é representado o Diagrama de Casos de Uso do sistema Pet Pass mobile:
+A seguir, é representado o Diagrama de Casos de Uso do sistema Pet Pass:
 
 ![Diagrama de Casos de Uso](https://github.com/gabrielsantos-gsp/pmv-ads-2021-2-e2-proj-int-t3-petpass/blob/main/docs/img/Diagrama_Caso_de_Uso.png?raw=true)
 
@@ -172,9 +172,9 @@ A seguir, é representado o Diagrama de Casos de Uso do sistema Pet Pass mobile:
 
 A matriz de rastreabilidade é uma ferramenta usada para facilitar a visualização dos relacionamentos entre requisitos e outros artefatos ou objetos, permitindo a rastreabilidade entre os requisitos e os objetivos de negócio. A matriz contempla todos os elementos relevantes que fazem parte do sistema, bem como os *stakeholders* envolvidos no projeto.
 
-A figura a seguir mostra a matriz de rastreabilidade do projeto do PetPass mobile
+A figura a seguir mostra a matriz de rastreabilidade do projeto:
 
-![Exemplo de matriz de rastreabilidade](img/02-matriz-rastreabilidade.png)
+![Matriz de rastreabilidade](img/Matriz.PNG)
 
 # Gerenciamento de Projeto
 
@@ -190,7 +190,7 @@ O gráfico de Gantt ou diagrama de Gantt também é uma ferramenta visual utiliz
 
 ![Diagrama de Rede](img/Fluxos.PNG)
 
-A seguir encontr-se o diagrama de Gantt do projeto do Pet Pass mobile, utilizado com ferramenta de gerenciamento do cronograma do projeto.
+A seguir encontr-se o diagrama de Gantt do projeto do Pet Pass, utilizado com ferramenta de gerenciamento do cronograma do projeto.
 
 ![Tarefas](img/TarefasGantt.PNG)
 ![Grafico de Gantt](img/GraficoGantt.png)
