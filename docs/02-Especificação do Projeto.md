@@ -101,6 +101,8 @@ Para entender melhor o funcionamento interno dos processos que ocorrem dentro do
 
 ## Indicadores de Desempenho
 
+Seguem abaixo a relação dos indicadores de desempenho desenvolvidos para o projeto:
+
 | Nº | Indicador | Objetivo | Descrição | Cálculo | Fonte de Dados | Perspectiva | Meta | Periodicidade |
 |----|-----------|----------|-----------|---------|----------------|-------------|------|---------------|
 |	1	|	Índice de avalição dos usuários	|	Verificar a aceitação do aplicativo móvel	|	Número de estrelas	|	Medir a média das avaliações (notas) dadas pelos usuários que baixaram e utilizaram o app	|	Play Store e Apple Store	|	Qualidade do produto	|	Avaliação acima de 4 estrelas	|	Trimestral	|
@@ -109,17 +111,7 @@ Para entender melhor o funcionamento interno dos processos que ocorrem dentro do
 |	4	|	Percentual de reclamações mobile	|	Verificar o índice de reclamações recebidas em relação ao app e respondê- las	|	Razão entre o número de reclamações e a quantidade de downloads	|	Verificar as reclamações recebidas	|	Play Store e Apple Store	|	Qualidade do produto	|	Nenhuma reclamação	|	Mensal	|
 |	5	|	Percentual de reclamações web	|	Verificar o índice de reclamações recebidas em relação à plataforma Web e respondê-las	|	Razão entre o número de reclamações e a quantidade de acessos únicos	|	Verificar as reclamações recebidas	|	Formulário de Contato	|	Qualidade do produto	|	Nenhuma reclamação	|	Mensal	|
 |	6	|	Taxa de resolução de problemas	|	Resolver as reclamações feitas pelos usuários	|	Verificar as reclamações feitas pelos usuários, identificar possíveis erros no sistema e resolvê-los	|	Indice de avaliação de resolução de problemas	|	Play Store, Apple Store, Formulário de contato	|	Qualidade do produto	|	100%	|	Mensal	|
-|	7	|	Período de inatividade		Verificar o tempo de inatividade dos usuários em relação ao app	|	Medir o intervalo de tempo médio que os usuários ficam sem utilizar o app	|	Média das diferenças entre as datas de acesso	|	Melhoria continua	|	Banco de Dados do aplicativo	|	Tempo minimo entre vacinações	|	Semestral	|
-
-
-
-
-Apresente aqui os principais indicadores de desempenho e algumas metas para o processo. Atenção: as informações necessárias para gerar os indicadores devem estar contempladas no diagrama de classe. Colocar no mínimo 5 indicadores. 
-
-Usar o seguinte modelo: 
-
-![Indicadores de Desempenho](img/02-indic-desemp.png)
-Obs.: todas as informações para gerar os indicadores devem estar no diagrama de classe a ser apresentado a posteriori. 
+|	7	|	Período de inatividade		Verificar o tempo de inatividade dos usuários em relação ao app	|	Medir o intervalo de tempo médio que os usuários ficam sem utilizar o app	|	Média das diferenças entre as datas de acesso	|	Melhoria continua	|	Banco de Dados do aplicativo	|	Tempo minimo entre vacinações	|	Semestral	| 
 
 ## Requisitos
 
@@ -190,7 +182,7 @@ A matriz de rastreabilidade é uma ferramenta usada para facilitar a visualizaç
 
 A figura a seguir mostra a matriz de rastreabilidade do projeto:
 
-![Matriz de rastreabilidade](img/Matriz.PNG)
+![Matriz de rastreabilidade](img/Matriz_Rastreabilidade.PNG)
 
 # Gerenciamento de Projeto
 
@@ -217,7 +209,7 @@ O gerenciamento adequado de tarefas contribuirá para que o projeto alcance alto
 
 A equipe utilizará o conceito de metodologias ágeis para fazer o gerenciamento do projeto, tendo escolhido a metodologia Scrum como base para a definição do processo de desenvolvimento.
 
-![Simple Project Timeline](img/02-project-timeline.png)
+![Gerenciamento de Equipe](img/Gerenciamento_Equipe.png)
 
 ## Gestão de Orçamento
 
