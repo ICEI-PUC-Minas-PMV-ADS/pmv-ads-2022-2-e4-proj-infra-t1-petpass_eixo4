@@ -182,7 +182,7 @@ O diagrama de casos de uso é o primeiro esboço da aplicação a ser desenvolvi
 
 A seguir, é representado o Diagrama de Casos de Uso do sistema Pet Pass:
 
-![Diagrama de Casos de Uso](https://github.com/gabrielsantos-gsp/pmv-ads-2021-2-e2-proj-int-t3-petpass/blob/main/docs/img/Diagrama_Caso_de_Uso.png?raw=true)
+![Diagrama de Casos de Uso](img/PetPass_Diagrama_Casos_de_Uso.png)
 
 # Matriz de Rastreabilidade
 
