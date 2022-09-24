@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "0H8huBTes5WozH5NpIF+Cw5pvG20DmOOWjfM4KyrhSA=",
+  "Source": "PetPassBackend",
+  "BasePath": "_content/PetPassBackend",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
