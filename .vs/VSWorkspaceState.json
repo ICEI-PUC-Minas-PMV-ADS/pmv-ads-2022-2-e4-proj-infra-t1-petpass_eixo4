@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\src",
+    "\\src\\API",
+    "\\src\\API\\Models"
   ],
-  "SelectedNode": "\\E:\\pmv-ads-2022-2-e4-proj-infra-t1-petpass_eixo4",
+  "SelectedNode": "\\src\\API\\Models\\AppDbContext.cs",
   "PreviewInSolutionExplorer": false
 }

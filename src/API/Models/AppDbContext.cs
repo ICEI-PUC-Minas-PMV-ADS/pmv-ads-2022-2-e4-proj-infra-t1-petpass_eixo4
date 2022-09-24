@@ -9,6 +9,7 @@ namespace PetPassBackend.Models
 
         }
         public DbSet<Pet> Pets { get; set; }
-        public DbSet<Usuario> Usuarios { get; set; }
+
+        public DbSet<Vacina> Vacinas { get; set; }
     }
 }
