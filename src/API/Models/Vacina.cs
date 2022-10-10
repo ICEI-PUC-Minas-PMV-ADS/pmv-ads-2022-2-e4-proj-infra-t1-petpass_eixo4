@@ -3,7 +3,7 @@ using System.Xml.Linq;
 
 namespace PetPassBackend.Models
 {
-    public class Vacina
+    public class Vacina : LinksHATEOS
     {
         public int Id { get; set; }
 
@@ -19,6 +19,8 @@ namespace PetPassBackend.Models
         [Required(ErrorMessage = "Campo obrigatório")]
         [MaxLength(100)]
         public string Dose { get; set; }
+
+        public ICollection<RegistroVacina> RegistroVacinas { get; set; }
 
         public enum TipoAnimal
         {

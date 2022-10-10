@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PetPassBackend.Models
 {
-    public class Pet
+    public class Pet : LinksHATEOS
     {
         public int Id { get; set; }
 
@@ -30,6 +30,9 @@ namespace PetPassBackend.Models
         [Display(Name ="Data do Registro")]
         [DataType(DataType.Date)]
         public DateTime DataRegistro { get; set; }
+
+        public ICollection<UsuarioPet> Usuarios { get; set; }
+        public ICollection<RegistroVacina> RegistroVacinas { get; set; }
 
         public enum TipoPet
         {

@@ -21,7 +21,10 @@ namespace PetPassBackend.Controllers
         [HttpGet]
         public async Task<ActionResult> GetAll()
         {
-            var model = await _context.Pets.ToListAsync();
+            var model = await _context.Pets
+                .Include(c => c.Usuarios)
+                .Include(c => c.RegistroVacinas)
+                .ToListAsync();
 
             return Ok(model);
         }
@@ -30,10 +33,13 @@ namespace PetPassBackend.Controllers
         public async Task<ActionResult> GetById(int id)
         {
             var model = await _context.Pets
+                .Include(c => c.Usuarios)
+                .Include(c => c.RegistroVacinas)
                 .FirstOrDefaultAsync(v => v.Id == id);
 
             if (model == null) return NotFound();
 
+            GerarLinks(model);
             return Ok(model);
         }
 
@@ -75,6 +81,76 @@ namespace PetPassBackend.Controllers
 
             return NoContent();
         }
+        private void GerarLinks(Pet model)
+        {
+            model.Links.Add(new LinkDto(model.Id, Url.ActionLink(), rel: "self", metodo: "GET"));
+            model.Links.Add(new LinkDto(model.Id, Url.ActionLink(), rel: "update", metodo: "PUT"));
+            model.Links.Add(new LinkDto(model.Id, Url.ActionLink(), rel: "delete", metodo: "DELETE"));
+        }
+
+        [HttpPost("{id}/usuarios")]
+        public async Task<ActionResult> AddUsuario(int id, UsuarioPet model)
+        {
+            if (id != model.PetId) return BadRequest();
+
+            _context.UsuarioPets.Add(model);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction("GetById", new { id = model.PetId }, model);
+        }
+
+        [HttpDelete("{id}/usuarios/{usuarioId}")]
+        public async Task<ActionResult> DeleteUsuario(int id, int usuarioId)
+        {
+            var model = await _context.UsuarioPets
+                .Where(v => v.PetId == id && v.UsuarioId == usuarioId)
+                .FirstOrDefaultAsync();
+
+            if (model == null) return NotFound();
+
+            _context.UsuarioPets.Remove(model);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+        }
+
+        [HttpPost("{id}/vacinas")]
+        public async Task<ActionResult> AddVacina(int id, RegistroVacina model)
+        {
+            if (id != model.PetId) return BadRequest();
+
+            _context.RegistroVacinas.Add(model);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction("GetById", new { id = model.PetId }, model);
+        }
+
+        [HttpPut("{id}/vacinas/{vacinaId}")]
+        public async Task<ActionResult> UpdateVacina(int id, RegistroVacina model)
+        {
+            if (id != model.PetId) return BadRequest();
+
+            _context.RegistroVacinas.Update(model);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction("GetById", new { id = model.PetId }, model);
+        }
+
+        [HttpDelete("{id}/vacinas/{vacinaId}")]
+        public async Task<ActionResult> DeleteVacina(int id, int vacinaId)
+        {
+            var model = await _context.RegistroVacinas
+                .Where(v => v.PetId == id && v.VacinaId == vacinaId)
+                .FirstOrDefaultAsync();
+
+            if (model == null) return NotFound();
+
+            _context.RegistroVacinas.Remove(model);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+        }
+
 
     }
 }
