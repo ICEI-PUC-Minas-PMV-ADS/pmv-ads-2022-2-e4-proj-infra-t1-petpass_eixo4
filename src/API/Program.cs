@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using PetPassBackend.Models;
+using PetPassBackend.Services;
 using System.Text;
 using System.Text.Json.Serialization;
 
@@ -23,6 +24,11 @@ builder.Services.AddDbContext<AppDbContext>(
         .LogTo(Console.WriteLine, LogLevel.Information)
         .EnableSensitiveDataLogging()
         .EnableDetailedErrors());
+
+builder.Services.Configure<PetPassNewsDatabaseSettings>(
+    builder.Configuration.GetSection("PetPassNewsDatabase"));
+
+builder.Services.AddSingleton<NewsService>();
 
 builder.Services.AddAuthentication(options =>
 {
