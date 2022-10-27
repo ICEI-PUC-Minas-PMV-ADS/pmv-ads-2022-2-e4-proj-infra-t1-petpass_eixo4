@@ -64,6 +64,10 @@
     margin-bottom: 35px;
   }
 
+  .button-home-card {
+    min-width: 350px;
+  }
+
   .home-image-container svg {
     width: 500px;
   }
@@ -76,6 +80,10 @@
 
   .home-content-container {
     padding: 20px 20px 100px 20px;
+  }
+
+  .button-home-card {
+    min-width: 400px;
   }
 }
 

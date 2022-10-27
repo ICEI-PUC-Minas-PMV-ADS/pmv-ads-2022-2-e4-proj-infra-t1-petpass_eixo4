@@ -12,7 +12,7 @@ const Auth = () => {
                 <h1>Já conhece o PetPass?</h1>
                 <p>Com o PetPass você tem a carteira de vacinação do seu Pet sempre a mão.</p>
                 <img src={AuthImage} alt="Pet com seus donos" />
-                <a href="https://br.freepik.com/vetores-gratis/pessoas-de-ilustracao-plana-com-animais-de-estimacao_15292679.htm#query=ilustra%C3%A7%C3%A3o%20pets&position=0&from_view=search&track=sph">Imagem de pikisuperstar no Freepik</a> 
+                <a href="https://br.freepik.com/vetores-gratis/pessoas-de-ilustracao-plana-com-animais-de-estimacao_15292679.htm#query=ilustra%C3%A7%C3%A3o%20pets&position=0&from_view=search&track=sph">Imagem do Freepik</a> 
             </div>
             <div className="auth-form-container">
                 <Switch>
