@@ -4,6 +4,7 @@ import Pets from './pages/Pets';
 import Auth from './pages/Auth';
 import CadVacina from './pages/CadVacina';
 import CadPet from './pages/CadPet';
+import Usuario from './pages/Usuario';
 
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 
@@ -26,6 +27,9 @@ const Routes = () => (
       </Route>
       <Route path="/cadpet">
         <CadPet />
+      </Route>
+      <Route path="/usuario" exact>
+        <Usuario />
       </Route>
     </Switch>
   </BrowserRouter>
