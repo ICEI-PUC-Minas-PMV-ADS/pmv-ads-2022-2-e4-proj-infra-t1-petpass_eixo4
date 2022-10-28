@@ -1,32 +1,76 @@
-import './styles.css';
-import PetImage from '../../assets/images/cute-pet.jpg';
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import { DataGrid } from '@mui/x-data-grid';
+import ButtonFab from '../../components/ButtonFab/ButtonFab';
+import { Tooltip } from '@mui/material';
+import useData from '../../store/useData';
 
-const Pets = () => {
+const columns = [
+  { field: 'id', headerName: 'ID', width: 90 },
+  {
+    field: 'nomePet',
+    headerName: 'Nome do Pet',
+    width: 200,
+    editable: true,
+  },
+  {
+    field: 'tipo',
+    headerName: 'Tipo',
+    width: 200,
+    editable: true,
+  },
+  {
+    field: 'raca',
+    headerName: 'Raça',
+    width: 200,
+    editable: true,
+  },
+  {
+    field: 'sexo',
+    headerName: 'Sexo',
+    width: 200,
+    editable: true,
+  },
+  {
+    field: 'idade',
+    headerName: 'Idade',
+    type: 'number',
+    width: 200,
+    editable: true,
+    align: 'center',
+    headerAlign:'center',
+  },
+];
+
+
+export default function Pets() {
+  const { data: {pet} }  = useData();
+  const rows = [
+    { 
+      id: pet[0].id, 
+      nomePet: pet[0].nomePet, 
+      tipo: pet[0].tipo, 
+      raca: pet[0].raca, 
+      sexo: pet[0].sexo, 
+      idade: pet[0].idade
+    },
+  ];
+  
+
   return (
     <div className="pets-container">
-      <h1>Pets Cadastrados</h1>
-      <div className="base-card pets-card">
-        <div className="pets-content-container">
-          <div className="pet-image-container">
-          <img src={PetImage} alt="Pet" />
-          <a href="https://br.freepik.com/vetores-gratis/pastor-australiano-fofo_10576737.htm#query=Ilustra%C3%A7%C3%A3o%20cachorro&position=11&from_view=search&track=sph">Imagem no Freepik</a>
-          </div>
-          <div className="row card-data-pet">
-            <p className="col-sm-6">Nome: Bethoveen {}</p>
-            <p className="col-sm-6">Raça: Maltês {}</p>
-            <p className="col-sm-6">Sexo: Macho {}</p>
-            <p className="col-sm-6">Idade: 5 anos {}</p>
-            <p className="col-sm-6">Peso: 5 Kg {}</p>
-            <p className="col-sm-6">Data do cadastro: 20/10/22 {}</p>
-          </div>
-        </div>
-        <div className="base-card card-vaccine">
-            <h6>Relação de Vacinas:</h6>
-            <p>Gripe Canina - 1ª dose</p>
-          </div>
-      </div>
+      <h1 style={{marginLeft: 110, padding: 10, fontWeight: 'bold'}}>Pets Cadastrados</h1>
+      <Box sx={{ height: 470, width: '85%', marginLeft: '110px'}}>
+        <DataGrid
+          rows={rows} // Os dados reais viram aq
+          columns={columns}
+          pageSize={5}
+          rowsPerPageOptions={[5]}
+          disableSelectionOnClick
+          //checkboxSelection
+        />
+      </Box>
+        <ButtonFab/>
     </div>
   );
-};
-
-export default Pets;
+}

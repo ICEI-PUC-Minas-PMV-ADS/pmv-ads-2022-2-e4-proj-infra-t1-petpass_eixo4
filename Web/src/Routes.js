@@ -22,6 +22,9 @@ const Routes = () => (
       <Route path="/pets" exact>
         <Pets />
       </Route>
+      <Route path="/infopets" exact>
+        <Pets />
+      </Route>
       <Route path="/cadvacina">
         <CadVacina />
       </Route>
