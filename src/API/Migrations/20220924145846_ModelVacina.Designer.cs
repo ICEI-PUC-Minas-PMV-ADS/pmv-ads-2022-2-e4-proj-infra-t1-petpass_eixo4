@@ -10,7 +10,7 @@ using PetPassBackend.Models;
 
 namespace PetPassBackend.Migrations
 {
-    [DbContext(typeof(AppDbContext))]
+    [DbContext(typeof(RepositoryContext))]
     [Migration("20220924145846_ModelVacina")]
     partial class ModelVacina
     {

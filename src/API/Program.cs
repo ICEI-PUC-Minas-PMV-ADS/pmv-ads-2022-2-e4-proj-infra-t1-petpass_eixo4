@@ -1,7 +1,9 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using PetPassBackend.Contracts;
 using PetPassBackend.Models;
+using PetPassBackend.Repository;
 using PetPassBackend.Services;
 using System.Text;
 using System.Text.Json.Serialization;
@@ -10,20 +12,17 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
+builder.Services.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
+
 builder.Services.AddControllers()
     .AddJsonOptions(c => c.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 var serverVersion = new MySqlServerVersion(new Version(8, 0, 26));
 
-builder.Services.AddDbContext<AppDbContext>(
+builder.Services.AddDbContext<RepositoryContext>(
     dbContextOptions => dbContextOptions
-        .UseMySql(connectionString, serverVersion)
-        // The following three options help with debugging, but should
-        // be changed or removed for production.
-        .LogTo(Console.WriteLine, LogLevel.Information)
-        .EnableSensitiveDataLogging()
-        .EnableDetailedErrors());
+        .UseMySql(connectionString, serverVersion));
 
 builder.Services.Configure<PetPassNewsDatabaseSettings>(
     builder.Configuration.GetSection("PetPassNewsDatabase"));

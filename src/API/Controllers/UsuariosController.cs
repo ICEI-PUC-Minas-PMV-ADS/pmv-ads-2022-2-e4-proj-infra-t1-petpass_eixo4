@@ -16,9 +16,9 @@ namespace PetPassBackend.Controllers
     [ApiController]
     public class UsuariosController : ControllerBase
     {
-        private readonly AppDbContext _context;
+        private readonly RepositoryContext _context;
 
-        public UsuariosController(AppDbContext context)
+        public UsuariosController(RepositoryContext context)
         {
             _context = context;
         }
