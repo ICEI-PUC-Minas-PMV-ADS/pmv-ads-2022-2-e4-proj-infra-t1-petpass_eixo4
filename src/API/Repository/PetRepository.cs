@@ -5,22 +5,22 @@ using PetPassBackend.Models;
 
 namespace PetPassBackend.Repository
 {
-    public class PetRepository :RepositoryBase<Pet>, IPetRepository
+    public class PetRepository : RepositoryBase<Pet>, IPetRepository
     {
-        public PetRepository(RepositoryContext repositoryContext) :base(repositoryContext)
+        public PetRepository(RepositoryContext repositoryContext) : base(repositoryContext)
         {
 
         }
         public IEnumerable<Pet> GetAllPets()
         {
-            return (IEnumerable<Pet>)FindAll().OrderBy(p => p.NomePet).ToListAsync();
+            return (IEnumerable<Pet>)FindAll().OrderBy(p => p.Id).ToListAsync();
         }
 
         public Pet GetPetById(int petId)
         {
             return FindByCondition(p => p.Id.Equals(petId))
-                .Include(p=>p.Usuarios)
-                .Include(p=>p.RegistroVacinas)
+                .Include(p => p.Usuarios)
+                .Include(p => p.RegistroVacinas)
                 .FirstOrDefault();
         }
         public void CreatePet(Pet pet)

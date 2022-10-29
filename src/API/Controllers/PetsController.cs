@@ -24,10 +24,9 @@ namespace PetPassBackend.Controllers
         {
             try
             {
+                var model = _repository.Pet.GetAllPets();
 
-            var model = _repository.Pet.GetAllPets();
-
-            return Ok(model);
+                return Ok(model);
             }
             catch (Exception)
             {
@@ -52,7 +51,7 @@ namespace PetPassBackend.Controllers
             }
 
             //GerarLinks(model);
-            
+
         }
 
         [HttpPost]

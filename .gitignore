@@ -9,3 +9,5 @@ src/API/.vs/
 src/API/bin/
 src/API/obj/
 /.vs
+/src/UnitTests/bin/Debug/net6.0
+/src/UnitTests/obj

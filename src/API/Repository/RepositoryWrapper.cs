@@ -47,9 +47,9 @@ namespace PetPassBackend.Repository
         {
             _repoContext = repositoryContext;
         }
-        public void Save()
+        public async void Save()
         {
-            _repoContext.SaveChanges();
+            await _repoContext.SaveChangesAsync();
         }
 
     }
