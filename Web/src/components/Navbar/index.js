@@ -2,8 +2,38 @@ import './styles.css';
 import 'bootstrap/js/src/collapse.js';
 
 import { Link, NavLink } from 'react-router-dom';
+import { useContext, useEffect } from 'react';
+import history from '../../util/history';
+import { AuthContext } from '../../AuthContext';
+import { getTokenData, isAuthenticated } from '../../util/auth';
+import { removeAuthData } from '../../util/storage';
 
 const Navbar = () => {
+  const { authContextData, setAuthContextData } = useContext(AuthContext);
+
+  useEffect(() => {
+    if (isAuthenticated()) {
+      setAuthContextData({
+        authenticated: true,
+        tokenData: getTokenData(),
+      });
+    } else {
+      setAuthContextData({
+        authenticated: false,
+      });
+    }
+  }, [setAuthContextData]);
+
+  const handleLogoutClick = (event) => {
+    event.preventDefault();
+    removeAuthData();
+    setAuthContextData({
+      authenticated: false,
+    });
+    history.replace('/');
+    window.location = '';
+  };
+
   return (
     <nav className="navbar navbar-expand-md navbar-dark bg-primary main-nav">
       <div className="container-fluid main-container">
@@ -21,21 +51,31 @@ const Navbar = () => {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="dscatalog-navbar">
+        <div className="collapse navbar-collapse" id="petpass-navbar">
           <ul className="navbar-nav offset-md-8 main-menu">
-            <li>
-              <NavLink to="/" activeClassName="active" exact>
-                HOME
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/pets" activeClassName="active">PET</NavLink>
-            </li>
-            <li>
-              <NavLink to="/usuario" activeClassName="active">USUÁRIO</NavLink>
-            </li>
+            {authContextData.authenticated && (
+              <>
+                <li>
+                  <NavLink to="/pets" activeClassName="active">
+                    PET
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/usuario" activeClassName="active">
+                    USUÁRIO
+                  </NavLink>
+                </li>
+                <li>
+                  <a href="#logout" activeClassName="active" onClick={handleLogoutClick}>
+                    LOGOUT
+                  </a>
+                </li>
+              </>
+            )}
           </ul>
         </div>
+
+        
       </div>
     </nav>
   );

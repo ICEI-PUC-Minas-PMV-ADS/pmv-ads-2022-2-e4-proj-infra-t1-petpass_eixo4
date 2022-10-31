@@ -8,7 +8,8 @@ import PrintIcon from '@mui/icons-material/Print';
 import ShareIcon from '@mui/icons-material/Share';
 
 const actions = [
-  { icon: <SpeedDialIcon />, name: 'Adicionar pet' },
+  { icon: <SpeedDialIcon />, name: 'Adicionar Pet', href: '/cadpet' },
+  { icon: <SpeedDialIcon />, name: 'Adicionar Vacina', href: '/cadvacina' },
   // { icon: <SaveIcon />, name: 'Save' },
   // { icon: <PrintIcon />, name: 'Print' },
   // { icon: <ShareIcon />, name: 'Share' },
@@ -27,8 +28,8 @@ export default function ButtonFab() {
           <SpeedDialAction
             key={action.name}
             icon={action.icon}
-            tooltipTitle={action.name}
-            href='/cadpet'
+            c={action.name}
+            href={action.href}
           />
         ))}
       </SpeedDial>
