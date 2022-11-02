@@ -28,10 +28,10 @@ export const requestBackend = (config) => {
   const headers = config.withCredentials
     ? {
         ...config.headers,
-        Authorization: 'Bearer ' + getAuthData().access_token,
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + getAuthData().jwtToken,
       }
     : config.headers;
-
   return axios({ ...config, baseURL: BASE_URL, headers });
 };
 
@@ -51,11 +51,12 @@ axios.interceptors.request.use(
 axios.interceptors.response.use(
   function (response) {
     //
+    console.log(response);
     return response;
   },
   function (error) {
     if (error.response.status === 401) {
-      history.push('/auth');
+      history.push('/auth/login');
     }
     return Promise.reject(error);
   }

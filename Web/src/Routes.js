@@ -31,7 +31,7 @@ const Routes = () => (
       <Route path="/cadpet">
         <CadPet />
       </Route>
-      <Route path="/usuario" exact>
+      <Route path="/usuario">
         <Usuario />
       </Route>
     </Switch>

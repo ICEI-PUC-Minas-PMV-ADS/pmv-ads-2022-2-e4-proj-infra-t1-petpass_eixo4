@@ -66,7 +66,7 @@ const Navbar = () => {
                   </NavLink>
                 </li>
                 <li>
-                  <a href="#logout" activeClassName="active" onClick={handleLogoutClick}>
+                  <a href="#logout" onClick={handleLogoutClick}>
                     LOGOUT
                   </a>
                 </li>
@@ -74,8 +74,6 @@ const Navbar = () => {
             )}
           </ul>
         </div>
-
-        
       </div>
     </nav>
   );

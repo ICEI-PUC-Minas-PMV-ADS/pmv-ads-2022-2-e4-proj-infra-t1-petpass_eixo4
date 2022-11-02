@@ -15,6 +15,11 @@ export const isAuthenticated = () => {
   return tokenData && tokenData.exp * 1000 > Date.now() ? true : false;
 };
 
+export const getAuthenticatedUser = () => {
+  const tokenData = getTokenData();
+  return tokenData.nameid;
+};
+
 export const hasAnyRoles = (roles) => {
   if (roles.length === 0) {
     return true;
