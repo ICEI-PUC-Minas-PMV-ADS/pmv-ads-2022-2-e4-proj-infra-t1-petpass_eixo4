@@ -1,11 +1,21 @@
 import './styles.css';
 import PetImage from '../../assets/images/cute-pet.jpg';
 import { useHistory } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import useData from '../../store/useData';
 
 const InfoPets = () => {
   const history = useHistory();
 
   const [pet, setPet] = useState({});
+
+
+  const {
+    data: {
+      user: { id },
+    },
+  } = useData();
 
   useEffect(() => {
     axios
