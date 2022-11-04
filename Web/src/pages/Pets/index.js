@@ -2,65 +2,79 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import { DataGrid } from '@mui/x-data-grid';
 import ButtonFab from '../../components/ButtonFab/ButtonFab';
+import axios from 'axios';
+import { useState, useEffect } from 'react';
 import { Tooltip } from '@mui/material';
 import useData from '../../store/useData';
 import Card from '../../components/Card';
 import { useHistory } from 'react-router-dom';
 
 const columns = [
-  { field: 'id', headerName: 'ID', width: 90 },
   {
-    field: 'nomePet',
+    field: 'NomePet',
     headerName: 'Nome do Pet',
-    width: 200,
-    editable: true,
+    width: 150,
+    editable: false,
   },
   {
-    field: 'tipo',
+    field: 'Tipo',
     headerName: 'Tipo',
-    width: 200,
-    editable: true,
+    width: 150,
+    editable: false,
   },
   {
-    field: 'raca',
+    field: 'Raca',
     headerName: 'Raça',
-    width: 200,
-    editable: true,
+    width: 150,
+    editable: false,
   },
   {
-    field: 'sexo',
+    field: 'Sexo',
     headerName: 'Sexo',
-    width: 200,
-    editable: true,
+    width: 150,
+    editable: false,
   },
   {
-    field: 'idade',
+    field: 'Idade',
     headerName: 'Idade',
     type: 'number',
-    width: 200,
-    editable: true,
+    width: 150,
+    editable: false,
+    align: 'left',
+    headerAlign: 'left',
+  },
+  {
+    field: 'DataRegistro',
+    headerName: 'Data do Registro',
+    width: 150,
+    editable: false,
     align: 'center',
     headerAlign: 'center',
   },
 ];
 
 export default function Pets() {
+  const initialData = [
+    { id: 1, NomePet: '', Tipo: '', Sexo: '', Raca: '', Idade: null, DataRegistro: '' },
+  ];
 
-  const history = useHistory();
+  const [rows, setRows] = useState(initialData);
 
   const {
-    data: { pet },
-  } = useData();
-  const rows = [
-    {
-      id: pet[0].id,
-      nomePet: pet[0].nomePet,
-      tipo: pet[0].tipo,
-      raca: pet[0].raca,
-      sexo: pet[0].sexo,
-      idade: pet[0].idade,
+    data: {
+      user: { id },
     },
-  ];
+  } = useData();
+
+  useEffect(() => {
+      axios
+        .get(`https://localhost:7110/api/Pets/${id}`)
+        .then((res) => setRows(res.data))
+        .catch((err) => console.error(err));
+  }, []);
+
+
+  const history = useHistory();
 
   return (
     <div className="pets-container">
@@ -74,11 +88,11 @@ export default function Pets() {
           pageSize={5}
           rowsPerPageOptions={[5]}
           disableSelectionOnClick
-          checkboxSelection
+          // checkboxSelection
           onCellClick={() => history.push('/infoPet')}
         />
       </Box>
-      
+
       <div>
         <ButtonFab />
       </div>

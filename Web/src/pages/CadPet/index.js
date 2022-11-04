@@ -1,16 +1,60 @@
+import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import axios from 'axios';
 import './styles.css';
 
 const CadPet = () => {
 
+  const formInitialData =   {
+    nomePet: "",
+    tipo: "",
+    sexo: "",
+    raca: "",
+    peso: 0
+  }
+
+  const [data, setData] = useState(formInitialData);
+  const [buttonText, setButtonText] = useState('Salvar');
+  const [error, setError] = useState(false);
+
+
+  const onFormUpdate = (category, value) => {
+    setData({
+      ...data,
+      [category]: value
+    })
+  }
+
+
+  const finallyRequest = (response) => {
+    if(response) {
+      history.push('/pets')
+    }
+    setError(true)
+  }
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    setButtonText('Carregando...')
+    axios.post(`https://localhost:7110/api/Pets`)
+    .then(() => finallyRequest(true))
+    .catch(() => finallyRequest(false))
+    .finally(() => setButtonText('Salvar'))
+
+  }
+
+console.log(data)
+  
   const history = useHistory();
 
   return (
-    <div className="pet-crud-container">
+    <>
+<div className="pet-crud-container">
       <div className="base-card pet-crud-form-card">
         <h1 className="pet-crud-form-title">CADASTRAR PET</h1>
 
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="row pet-crud-inputs-container">
             <div className="col-xl-6">
               <div className="margin-botton-30">
@@ -19,6 +63,8 @@ const CadPet = () => {
                   className={`form-control base-input `}
                   placeholder="Nome"
                   name="name"
+                  value={data.nomePet}
+                  onChange={(e) => onFormUpdate('nomePet', e.target.value)}
                 />
                 <div className="invalid-feedback d-block">{}</div>
               </div>
@@ -29,6 +75,8 @@ const CadPet = () => {
                   className={`form-control base-input`}
                   placeholder="Tipo"
                   name="tipo"
+                  value={data.tipo}
+                  onChange={(e) => onFormUpdate('tipo', e.target.value)}
                 />
                 <div className="invalid-feedback d-block">{}</div>
               </div>
@@ -39,6 +87,8 @@ const CadPet = () => {
                   className={`form-control base-input`}
                   placeholder="Raça"
                   name="raca"
+                  value={data.raca}
+                  onChange={(e) => onFormUpdate('raca', e.target.value)}
                 />
                 <div className="invalid-feedback d-block">{}</div>
               </div>
@@ -49,6 +99,8 @@ const CadPet = () => {
                   className={`form-control base-input`}
                   placeholder="Sexo"
                   name="sexo"
+                    value={data.sexo}
+                  onChange={(e) => onFormUpdate('sexo', e.target.value)}
                 />
                 <div className="invalid-feedback d-block">{}</div>
               </div>
@@ -59,6 +111,8 @@ const CadPet = () => {
                   className={`form-control base-input`}
                   placeholder="Idade"
                   name="idade"
+                  value={data.idade}
+                  onChange={(e) => onFormUpdate('idade', e.target.value)}
                 />
                 <div className="invalid-feedback d-block">{}</div>
               </div>
@@ -71,17 +125,8 @@ const CadPet = () => {
                   className={`form-control base-input`}
                   placeholder="Peso"
                   name="peso"
-                />
-                <div className="invalid-feedback d-block">{}</div>
-              </div>
-
-              <label className="pet-label-form">Data do Registro:</label>
-              <div className="margin-botton-30">
-                <input
-                  type="date"
-                  className={`form-control base-input`}
-                  placeholder="Data do Registro"
-                  name="DataRegistro"
+                  value={data.peso}
+                  onChange={(e) => onFormUpdate('peso', e.target.value)}
                 />
                 <div className="invalid-feedback d-block">{}</div>
               </div>
@@ -109,13 +154,17 @@ const CadPet = () => {
                 CANCELAR
               </button>
               <button className="btn btn-outline-primary pet-crud-button button-rigth">
-                SALVAR
+                {buttonText}
               </button>
             </div>
           </div>
         </form>
+           {error ? (
+              <p>Algo deu errado, tente novamente</p>
+            ) : null}
       </div>
     </div>
+    </>
   );
 };
 
