@@ -9,7 +9,7 @@ namespace UnitTests.MockData
 {
     internal class PetMockData
     {
-        public static List<Pet> GetPets()
+        public static List<Pet> GetMockPets()
         {
             return new List<Pet>
             {
@@ -29,7 +29,7 @@ namespace UnitTests.MockData
                 {
                     Id = 3,
                     NomePet="Buana",
-                    Raca="Pooble"
+                    Raca="Poodle"
                 }
             };
         }

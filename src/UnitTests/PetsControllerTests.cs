@@ -2,6 +2,7 @@ using FluentAssertions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using MongoDB.Driver;
 using Moq;
 using PetPassBackend.Contracts;
 using PetPassBackend.Controllers;
@@ -17,7 +18,7 @@ namespace UnitTests
         {
             //Arrange
             var mockRepo = new Mock<IRepositoryWrapper>();
-            mockRepo.Setup(c => c.Pet.GetAllPets()).Returns(PetMockData.GetPets());
+            mockRepo.Setup(c => c.Pet.GetAllPets()).Returns(PetMockData.GetMockPets());
             var controller = new PetsController(mockRepo.Object);
             //Act
             var result = (OkObjectResult)controller.GetAll();
@@ -31,7 +32,7 @@ namespace UnitTests
         {
             //Arrange
             var mockRepo = new Mock<IRepositoryWrapper>();
-            mockRepo.Setup(c => c.Pet.GetAllPets()).Returns(PetMockData.GetPets());
+            mockRepo.Setup(c => c.Pet.GetAllPets()).Returns(PetMockData.GetMockPets());
             var controller = new PetsController(mockRepo.Object);
             //Act
             var result = (OkObjectResult)controller.GetAll();
@@ -43,14 +44,16 @@ namespace UnitTests
         }
 
         [Theory]
+        [InlineData(0)]
         [InlineData(1)]
         [InlineData(2)]
-        [InlineData(3)]
         public void GetById_IdValido_RetornaOk(int petId)
         {
             //Arrange
             var mockRepo = new Mock<IRepositoryWrapper>();
-            mockRepo.Setup(c => c.Pet.GetAllPets()).Returns(PetMockData.GetPets());
+            var petList = new List<Pet>();
+            petList = PetMockData.GetMockPets();
+            mockRepo.Setup(c => c.Pet.GetPetById(petId)).Returns(petList.ElementAt(petId)); //Não parece certo
             var controller = new PetsController(mockRepo.Object);
 
             //Act
@@ -59,5 +62,48 @@ namespace UnitTests
             //Assert
             result.StatusCode.Should().Be(200);
         }
+        [Fact]
+        public void Create_ObjetoValido_RetornaCreateResponse()
+        {
+            //Arrange
+            var mockRepo = new Mock<IRepositoryWrapper>();
+            var mockPet = new Pet
+            {
+                Id = 5,
+                NomePet = "Zeca",
+                Raca = "Pincher",
+            };
+            mockRepo.Setup(c => c.Pet.Create(mockPet));
+            var controller = new PetsController(mockRepo.Object);
+
+            //Act
+            var createResult = (CreatedAtActionResult)controller.Create(mockPet);
+
+            //Assert
+            createResult.StatusCode.Should().Be(201);
+
+        }
+        [Fact]
+        public void Remove_ObjetoValido_RetornaCodigo204()
+        {
+            //Arrange
+            var mockRepo = new Mock<IRepositoryWrapper>();
+            var mockPet = new Pet
+            {
+                Id = 0,
+                NomePet = "Zeca",
+                Raca = "Pincher",
+            };
+            mockRepo.Setup(c => c.Pet.Delete(mockPet));
+            var controller = new PetsController(mockRepo.Object);
+
+            //Act
+            var deleteResult = controller.Delete(mockPet.Id);
+
+            //Assert
+           // deleteResult.GetType().Should().Be(System.Type(OkResult));
+
+        }
+
     }
 }
