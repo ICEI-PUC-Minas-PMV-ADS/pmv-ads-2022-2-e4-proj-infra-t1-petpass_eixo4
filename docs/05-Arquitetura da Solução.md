@@ -37,6 +37,17 @@ A aplicação será desenvolvida utilizando as seguintes tecnologias:
 
 ![Arquitetura da Solução](img/arquitetura.png)
 
+## Refatoração
+
+Com a necessidade de se introduzir no projeto o teste de unidade, descobriu-se que a arquitetura utilizada é inadequada para tal (ver <a href="8-Plano de Testes de Software.md"> Plano de Testes de Software</a>).
+
+Assim, tornou-se necessária a refatoração do código para o padrão de projeto Repositório, incluindo uma camada entre o bando de dados e o modelo de negócios.
+
+O novo esquema pode ser visto abaixo:
+
+![Arquitetura da Solução refatorada](img/arquitetura_v2.png)
+
+
 ## Diagrama de Classes
 
 O diagrama de classes ilustra graficamente como será a estrutura do software, e como cada uma das classes da sua estrutura estarão interligadas. Essas classes servem de modelo para materializar os objetos que executarão na memória.
