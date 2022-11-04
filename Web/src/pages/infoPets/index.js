@@ -1,10 +1,25 @@
 import './styles.css';
 import PetImage from '../../assets/images/cute-pet.jpg';
+import { useHistory } from 'react-router-dom';
 
-const Pets = () => {
+const InfoPets = () => {
+  const history = useHistory();
+
   return (
     <div className="pets-container">
-      <h1>Pets Cadastrados</h1>
+      <div className="header">
+        <button 
+            className=" infoButton btn btn-outline-primary pet-crud-button button-rigth"
+            onClick={() => history.push('/cadPet')}
+          >
+            Editar</button>
+        <button 
+            className=" infoButton btn btn-outline-danger pet-crud-button"
+            onClick={() => history.push('/pets')}
+          >
+            Voltar</button>
+      </div>
+
       <div className="base-card pets-card">
         <div className="pets-content-container">
           <div className="pet-image-container">
@@ -29,4 +44,4 @@ const Pets = () => {
   );
 };
 
-export default Pets;
+export default InfoPets;

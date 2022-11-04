@@ -1,8 +1,9 @@
-
+import { useHistory } from 'react-router-dom';
 import './styles.css';
 
 
 const CadVacina = () => {
+  const history = useHistory();
   
   return (
     <div className="product-crud-container">
@@ -65,6 +66,7 @@ const CadVacina = () => {
           <div className="product-crud-buttons-container">
             <button
               className="btn btn-outline-danger product-crud-button"
+              onClick={() => history.push('/pets')}
             >
               CANCELAR
             </button>

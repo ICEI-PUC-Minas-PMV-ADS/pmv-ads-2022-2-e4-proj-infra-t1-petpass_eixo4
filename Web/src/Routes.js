@@ -7,6 +7,7 @@ import CadPet from './pages/CadPet';
 import Usuario from './pages/Usuario';
 
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import InfoPets from './pages/infoPets';
 
 const Routes = () => (
   <BrowserRouter>
@@ -22,13 +23,13 @@ const Routes = () => (
       <Route path="/pets" exact>
         <Pets />
       </Route>
-      <Route path="/infopets" exact>
-        <Pets />
+      <Route path="/infoPet" exact>
+        <InfoPets/>
       </Route>
-      <Route path="/cadvacina">
+      <Route path="/cadVacina">
         <CadVacina />
       </Route>
-      <Route path="/cadpet">
+      <Route path="/cadPet">
         <CadPet />
       </Route>
       <Route path="/usuario">

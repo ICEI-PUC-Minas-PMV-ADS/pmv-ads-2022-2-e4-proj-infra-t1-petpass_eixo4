@@ -5,6 +5,7 @@ import ButtonFab from '../../components/ButtonFab/ButtonFab';
 import { Tooltip } from '@mui/material';
 import useData from '../../store/useData';
 import Card from '../../components/Card';
+import { useHistory } from 'react-router-dom';
 
 const columns = [
   { field: 'id', headerName: 'ID', width: 90 },
@@ -44,6 +45,9 @@ const columns = [
 ];
 
 export default function Pets() {
+
+  const history = useHistory();
+
   const {
     data: { pet },
   } = useData();
@@ -70,7 +74,8 @@ export default function Pets() {
           pageSize={5}
           rowsPerPageOptions={[5]}
           disableSelectionOnClick
-          //checkboxSelection
+          checkboxSelection
+          onCellClick={() => history.push('/infoPet')}
         />
       </Box>
       
