@@ -17,7 +17,7 @@ namespace UnitTests
         {
             //Arrange
             var mockRepo = new Mock<IRepositoryWrapper>();
-            mockRepo.Setup(c => c.Pet.GetAllPets()).Returns(PetMockData.GetPets());
+            mockRepo.Setup(c => c.Pet.GetAllPets()).Returns(PetMockData.GetMockPets());
             var controller = new PetsController(mockRepo.Object);
             //Act
             var result = (OkObjectResult)controller.GetAll();
@@ -31,7 +31,7 @@ namespace UnitTests
         {
             //Arrange
             var mockRepo = new Mock<IRepositoryWrapper>();
-            mockRepo.Setup(c => c.Pet.GetAllPets()).Returns(PetMockData.GetPets());
+            mockRepo.Setup(c => c.Pet.GetAllPets()).Returns(PetMockData.GetMockPets());
             var controller = new PetsController(mockRepo.Object);
             //Act
             var result = (OkObjectResult)controller.GetAll();
@@ -43,14 +43,16 @@ namespace UnitTests
         }
 
         [Theory]
+        [InlineData(0)]
         [InlineData(1)]
         [InlineData(2)]
-        [InlineData(3)]
         public void GetById_IdValido_RetornaOk(int petId)
         {
             //Arrange
             var mockRepo = new Mock<IRepositoryWrapper>();
-            mockRepo.Setup(c => c.Pet.GetAllPets()).Returns(PetMockData.GetPets());
+            var petList = new List<Pet>();
+            petList = PetMockData.GetMockPets();
+            mockRepo.Setup(c => c.Pet.GetPetById(petId)).Returns(petList.ElementAt(petId));
             var controller = new PetsController(mockRepo.Object);
 
             //Act
