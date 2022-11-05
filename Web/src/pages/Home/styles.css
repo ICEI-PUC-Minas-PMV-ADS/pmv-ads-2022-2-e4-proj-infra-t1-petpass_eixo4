@@ -89,7 +89,7 @@
 
 @media (min-width: 992px) {
   .home-container {
-    font-size: 55px;
+    font-size: 45px;
     padding: 40px;
   }
 
@@ -103,12 +103,12 @@
 
   .home-content-container h1 {
     margin-bottom: 26px;
-    width: 700px;
+    width: 650px;
   }
 
   .home-content-container p {
     margin-bottom: 47px;
-    width: 700px;
+    width: 600px;
   }
 }
 
@@ -124,7 +124,7 @@
     text-align: left;
     flex-flow: wrap;
     align-content: space-between;
-    padding: 70px 30px;
+    padding: 70px 0 70px 50px;
     height: 480px;
     width: 650px;
   }
