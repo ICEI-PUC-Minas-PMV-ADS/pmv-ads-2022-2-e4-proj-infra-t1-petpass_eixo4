@@ -34,7 +34,7 @@ const Users = () => {
             {page?.map((item) => (
               <div key={item}>
                 <p>Nome: {item.nome}</p>
-                <p>Perfil: {item.perfil === 0 ? 'Usuário' : 'Administrador'}</p>
+                <p>Perfil: {item.perfil < 2 ? (item.perfil === 1 ? 'Administrador' : 'Usuário' ) : 'Instituição'}</p>
               </div>
             ))}
           </div>

@@ -140,7 +140,7 @@ const Register = () => {
             type="radio"
             name="perfil"
             id="inlineRadio2"
-            value="3"
+            value="2"
           />
           <label className="form-check-label" htmlFor="inlineRadio2">Instituição</label>
         </div>
