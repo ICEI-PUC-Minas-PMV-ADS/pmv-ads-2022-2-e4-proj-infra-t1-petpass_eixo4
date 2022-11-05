@@ -7,29 +7,36 @@ import { requestBackend } from '../../../util/requests.js';
 import './styles.css';
 
 const Register = () => {
-
   const location = useLocation();
 
   const { from } = location.state || { from: { pathname: '/auth/login' } };
 
   const [hasError, setHasError] = useState(false);
 
-  const { register, watch, handleSubmit, formState : {errors} } = useForm();
+  const {
+    register,
+    watch,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
   const history = useHistory();
 
   const onSubmit = (formData) => {
 
+    console.log(formData['perfil'])
+
     const data = {
-        Nome: formData['username'],
-        Password: formData['password'],
-      };
+      Nome: formData['username'],
+      Password: formData['password'],
+      Perfil: parseInt(formData['perfil'])
+    };
 
     const params = {
-        method: 'POST',
-        url: `/api/Usuarios/`,
-        data 
-      };
+      method: 'POST',
+      url: `/api/Usuarios/`,
+      data,
+    };
 
     requestBackend(params)
       .then((response) => {
@@ -54,50 +61,90 @@ const Register = () => {
       <form onSubmit={handleSubmit(onSubmit)} autoComplete="new-password">
         <div className="mb-4">
           <input
-          {...register('username', {
-            required: 'Campo obrigatório.'
-          })}
+            {...register('username', {
+              required: 'Campo obrigatório.',
+            })}
             type="text"
-            className={`form-control base-input ${errors.username ? 'is-invalid' : ''}`}
+            className={`form-control base-input ${
+              errors.username ? 'is-invalid' : ''
+            }`}
             placeholder="Nome"
             name="username"
             autoComplete="new-password"
           />
-          <div className="invalid-feedback d-block">{errors.username?.message}</div>
+          <div className="invalid-feedback d-block">
+            {errors.username?.message}
+          </div>
         </div>
         <div className="mb-4">
           <input
-          {...register('password', {
-            required: 'Campo obrigatório.'
-          })}
+            {...register('password', {
+              required: 'Campo obrigatório.',
+            })}
             type="password"
-            className={`form-control base-input ${errors.password ? 'is-invalid' : ''}`}
+            className={`form-control base-input ${
+              errors.password ? 'is-invalid' : ''
+            }`}
             placeholder="Senha"
             name="password"
             autoComplete="new-password"
           />
-          <div className="invalid-feedback d-block">{errors.password?.message}</div>
+          <div className="invalid-feedback d-block">
+            {errors.password?.message}
+          </div>
         </div>
 
         <div className="mb-4">
           <input
-          {...register('confirm_password', {
-            required: 'Campo obrigatório.',
-            validate: (val) => {
+            {...register('confirm_password', {
+              required: 'Campo obrigatório.',
+              validate: (val) => {
                 if (watch('password') !== val) {
-                    return "As senhas não conferem!";
+                  return 'As senhas não conferem!';
                 }
-            },
-          })}
+              },
+            })}
             type="password"
-            className={`form-control base-input ${errors.confirm_password ? 'is-invalid' : ''}`}
-            placeholder="Confirmação da senha"
+            className={`form-control base-input ${
+              errors.confirm_password ? 'is-invalid' : ''
+            }`}
+            placeholder="Confirme sua senha"
             name="confirm_password"
             autoComplete="new-password"
           />
-          <div className="invalid-feedback d-block">{errors.confirm_password?.message}</div>
+          <div className="invalid-feedback d-block">
+            {errors.confirm_password?.message}
+          </div>
         </div>
-        
+
+        <div className="form-check form-check-inline">
+          <input
+          {...register('perfil', {
+            required: 'Campo obrigatório.',
+          })}
+            className="form-check-input"
+            type="radio"
+            name="perfil"
+            id="inlineRadio1"
+            value="0"
+            checked
+          />
+          <label className="form-check-label" htmlFor="inlineRadio1">Usuário</label>
+        </div>
+        <div className="form-check form-check-inline">
+          <input
+          {...register('perfil', {
+            required: 'Campo obrigatório.',
+          })}
+            className="form-check-input"
+            type="radio"
+            name="perfil"
+            id="inlineRadio2"
+            value="3"
+          />
+          <label className="form-check-label" htmlFor="inlineRadio2">Instituição</label>
+        </div>
+
         <div className="register-submit">
           <ButtonIcon text="ENVIAR" />
         </div>
