@@ -5,9 +5,7 @@ import { requestBackend } from '../../util/requests.js';
 import { useEffect, useState } from 'react';
 import { getAuthenticatedUser } from '../../util/auth';
 
-
 const Users = () => {
-
   const [page, setPage] = useState();
 
   useEffect(() => {
@@ -33,19 +31,21 @@ const Users = () => {
             </a>
           </div>
           <div className="row card-data-user">
-            {page?.map((item) => (<div key={item}>
-              <p>Nome: {item.nome}</p>
-              <p>Perfil: {item.perfil === 0 ? "Administrador" : "Usuario" }</p>
-            </div>
+            {page?.map((item) => (
+              <div key={item}>
+                <p>Nome: {item.nome}</p>
+                <p>Perfil: {item.perfil === 0 ? 'Usuário' : 'Administrador'}</p>
+              </div>
             ))}
           </div>
         </div>
         <div className="base-card card-pet">
-          <h6>Relação de Pets:</h6>
-          {page?.map((item) => (<div key={item}>
-              <p>{item.pets}</p>
+          <h6>Pets cadastrados:</h6>
+          {page?.map((item) => (
+            <div key={item}>
+              <p>{item.pets.length}</p>
             </div>
-            ))}
+          ))}
         </div>
       </div>
     </div>

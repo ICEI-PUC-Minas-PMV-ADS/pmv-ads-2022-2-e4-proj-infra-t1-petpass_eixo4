@@ -1,6 +1,7 @@
 import AuthImage from '../../assets/images/people-with-pets.png'
 import { Route, Switch } from 'react-router-dom';
 import Login from './Login/index.js';
+import Register from './Register';
 
 import './styles.css'
 
@@ -19,6 +20,9 @@ const Auth = () => {
                     <Route path="/auth/login">
                         <Login />
                     </Route>   
+                    <Route path="/auth/register">
+                        <Register />
+                    </Route>  
                 </Switch>
             </div>
         </div>

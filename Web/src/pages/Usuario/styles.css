@@ -1,6 +1,7 @@
 .user-card {
     border-radius: 20px;
     min-height: 500px;
+    margin-bottom: 20px;
   }
   
   .user-container {
@@ -47,7 +48,7 @@
     margin: 20px;
     padding: 20px;
     background-color: #E1E1E1;
-    min-height: 300px;
+    min-height: 220px;
   }
   
   .card-pet p {

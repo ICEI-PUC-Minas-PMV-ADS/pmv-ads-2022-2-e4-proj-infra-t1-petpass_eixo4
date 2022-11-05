@@ -57,7 +57,7 @@ const Login = () => {
           })}
             type="text"
             className={`form-control base-input ${errors.username ? 'is-invalid' : ''}`}
-            placeholder="Email"
+            placeholder="Nome"
             name="username"
           />
           <div className="invalid-feedback d-block">{errors.username?.message}</div>
@@ -69,12 +69,12 @@ const Login = () => {
           })}
             type="password"
             className={`form-control base-input ${errors.password ? 'is-invalid' : ''}`}
-            placeholder="Password"
+            placeholder="Senha"
             name="password"
           />
           <div className="invalid-feedback d-block">{errors.password?.message}</div>
         </div>
-        <Link to="/auth/recover" className="login-link-recover">
+        <Link to="/auth/register" className="login-link-recover">
           Esqueci a senha?
         </Link>
         <div className="login-submit">
