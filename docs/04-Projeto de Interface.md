@@ -26,6 +26,25 @@ As referências abaixo irão auxiliá-lo na geração do artefato “Diagramas d
 
 São protótipos usados em design de interface para sugerir a estrutura de um site web e seu relacionamentos entre suas páginas. Um wireframe web é uma ilustração semelhante do layout de elementos fundamentais na interface.
  
+ A imagem abaixo mostra uma visão geral dos Wireframes da aplicação Pet Pass e seu fluxo de usuário:
+ 
+ ![image](https://user-images.githubusercontent.com/83302547/200139059-f91abc2e-7c53-47ff-b8a5-517305962db9.png)
+
+## Telas iniciais:
+ ## Homepage: Tela de apresentação, que também proporciona ao usuário o conhecimento inicial das funcionalidades e objetivos do projeto.
+ ## Tela de Login: Tela responsável pela autenticação de clientes cadastrados no sistema. Caso o cliente tenha esquecido a senha de acesso ele será direcionado a tela para recuperação.
+ 
+ ![image](https://user-images.githubusercontent.com/83302547/200139136-3cfe3daf-b471-45a9-a4b9-2f027c69d777.png)
+
+## Telas internas:
+Dão uma visão geral da aplicação, após autenticação do usuário. Na imagem abaixo são mostradas três telas: Tela de Pets cadastrados; tela para cadastro de um ou mais Pets; Tela com maiores detalhes do Pet.
+
+![image](https://user-images.githubusercontent.com/83302547/200139240-0647e893-85ed-4319-a8be-31f18593e8bf.png)
+
+Tela para cadastro de vacinas:
+
+![image](https://user-images.githubusercontent.com/83302547/200139285-bab68db4-fd74-4303-9afb-3c27706d7835.png)
+ 
 > **Links Úteis**:
 > - [Protótipos vs Wireframes](https://www.nngroup.com/videos/prototypes-vs-wireframes-ux-projects/)
 > - [Ferramentas de Wireframes](https://rockcontent.com/blog/wireframes/)
