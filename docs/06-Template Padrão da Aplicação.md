@@ -4,6 +4,17 @@
 
 Layout padrão da aplicação que será utilizado em todas as páginas com a definição de identidade visual, aspectos de responsividade e iconografia.
 
+A aplicação do Pet Pass apresenta abaixo o template padrão. Tratando-se de identidade visual, nosso foco foi manter o mesmo padrão para todas as telas, criando assim harmonia de informações durante a execução, promovendo conforto visual e boa usabilidade.
+
+Segue abaixo o template padrão das telas iniciais.
+
+![image](https://user-images.githubusercontent.com/83302547/200139564-7d3b8b38-120d-4733-8929-00d6f17c1849.png)
+
+Segue abaixo o template padrão das telas internas da aplicação.
+
+![image](https://user-images.githubusercontent.com/83302547/200139599-750f5257-7f70-44fe-95ae-7417d54289d4.png)
+
+
 > **Links Úteis**:
 >
 > - [CSS Website Layout (W3Schools)](https://www.w3schools.com/css/css_website_layout.asp)
