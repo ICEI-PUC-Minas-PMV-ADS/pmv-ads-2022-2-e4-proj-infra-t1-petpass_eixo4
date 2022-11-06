@@ -42,12 +42,19 @@ São protótipos usados em design de interface para sugerir a estrutura de um si
 ## Telas internas:
 Dão uma visão geral da aplicação, após autenticação do usuário. Na imagem abaixo são mostradas três telas: Tela de Pets cadastrados; tela para cadastro de um ou mais Pets; Tela com maiores detalhes do Pet.
 
-![image](https://user-images.githubusercontent.com/83302547/200189499-4f3a4f44-ffda-4b98-9276-d5edfb6a6591.png) 
+![image](https://user-images.githubusercontent.com/83302547/200189693-6e0a87a0-a3b1-455f-9718-8c1c650d52e1.png)
+![image](https://user-images.githubusercontent.com/83302547/200189712-0233da6d-22c3-4d08-aa79-e520013f9841.png)
+![image](https://user-images.githubusercontent.com/83302547/200189749-dc383d6c-fd1b-42d0-8569-815578d0d486.png)
 
 Tela para cadastro de vacinas:
 
 ![image](https://user-images.githubusercontent.com/83302547/200139285-bab68db4-fd74-4303-9afb-3c27706d7835.png)
  
+ Tela com informações do usuário:
+ 
+ ![image](https://user-images.githubusercontent.com/83302547/200189776-c867fb0e-b6e9-4945-8025-d549417e16d0.png)
+
+
 > **Links Úteis**:
 > - [Protótipos vs Wireframes](https://www.nngroup.com/videos/prototypes-vs-wireframes-ux-projects/)
 > - [Ferramentas de Wireframes](https://rockcontent.com/blog/wireframes/)
