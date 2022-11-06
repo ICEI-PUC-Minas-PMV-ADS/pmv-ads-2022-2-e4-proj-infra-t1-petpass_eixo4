@@ -28,7 +28,7 @@ São protótipos usados em design de interface para sugerir a estrutura de um si
  
  A imagem abaixo mostra uma visão geral dos Wireframes da aplicação Pet Pass e seu fluxo de usuário:
  
- ![image](https://user-images.githubusercontent.com/83302547/200139059-f91abc2e-7c53-47ff-b8a5-517305962db9.png)
+![image](https://user-images.githubusercontent.com/83302547/200189432-f5602ed3-0e97-41a3-aca7-af04abd330b8.png)
 
 ## Telas iniciais:
   Homepage: Tela de apresentação, que também proporciona ao usuário o conhecimento inicial das funcionalidades e objetivos do projeto.
