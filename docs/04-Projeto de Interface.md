@@ -46,7 +46,7 @@ Dão uma visão geral da aplicação, após autenticação do usuário. Na image
 ![image](https://user-images.githubusercontent.com/83302547/200189712-0233da6d-22c3-4d08-aa79-e520013f9841.png)
 ![image](https://user-images.githubusercontent.com/83302547/200189749-dc383d6c-fd1b-42d0-8569-815578d0d486.png)
 
-Tela para cadastro de vacinas:
+ Tela para cadastro de vacinas:
 
 ![image](https://user-images.githubusercontent.com/83302547/200139285-bab68db4-fd74-4303-9afb-3c27706d7835.png)
  
@@ -54,7 +54,13 @@ Tela para cadastro de vacinas:
  
  ![image](https://user-images.githubusercontent.com/83302547/200189776-c867fb0e-b6e9-4945-8025-d549417e16d0.png)
 
-
+ Tela de Notícias: 
+   
+   A princípio, o botão de notícias redirecionará à um site com atualizado com as últimas notícias sobre Pets:
+   
+   https://gauchazh.clicrbs.com.br/ultimas-noticias/tag/animais/
+   
+   
 > **Links Úteis**:
 > - [Protótipos vs Wireframes](https://www.nngroup.com/videos/prototypes-vs-wireframes-ux-projects/)
 > - [Ferramentas de Wireframes](https://rockcontent.com/blog/wireframes/)
