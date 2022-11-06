@@ -10,9 +10,12 @@ Segue abaixo o template padrão das telas iniciais.
 
 ![image](https://user-images.githubusercontent.com/83302547/200139564-7d3b8b38-120d-4733-8929-00d6f17c1849.png)
 
+![image](https://user-images.githubusercontent.com/83302547/200189829-17231e70-52c9-4291-876d-9e62fccf2274.png)
+
+
 Segue abaixo o template padrão das telas internas da aplicação.
 
-![image](https://user-images.githubusercontent.com/83302547/200139599-750f5257-7f70-44fe-95ae-7417d54289d4.png)
+![image](https://user-images.githubusercontent.com/83302547/200189854-577884a3-3fd0-4101-84be-506d9907d628.png)
 
 
 > **Links Úteis**:
