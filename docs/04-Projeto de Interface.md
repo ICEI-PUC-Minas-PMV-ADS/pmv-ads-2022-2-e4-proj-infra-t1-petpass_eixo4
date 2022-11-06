@@ -34,7 +34,9 @@ São protótipos usados em design de interface para sugerir a estrutura de um si
   Homepage: Tela de apresentação, que também proporciona ao usuário o conhecimento inicial das funcionalidades e objetivos do projeto.
   Tela de Login: Tela responsável pela autenticação de clientes cadastrados no sistema. Caso o cliente tenha esquecido a senha de acesso ele será direcionado a tela para recuperação.
  
- ![image](https://user-images.githubusercontent.com/83302547/200189521-b31b4f45-1ba2-4529-b584-0e4d335af210.png)![image](https://user-images.githubusercontent.com/83302547/200139136-3cfe3daf-b471-45a9-a4b9-2f027c69d777.png)![image](https://user-images.githubusercontent.com/83302547/200189528-6f39933e-34c9-413b-a2cb-9f1023ba012a.png)
+ ![image](https://user-images.githubusercontent.com/83302547/200189521-b31b4f45-1ba2-4529-b584-0e4d335af210.png)
+ ![image](https://user-images.githubusercontent.com/83302547/200139136-3cfe3daf-b471-45a9-a4b9-2f027c69d777.png)
+ ![image](https://user-images.githubusercontent.com/83302547/200189528-6f39933e-34c9-413b-a2cb-9f1023ba012a.png)
 
 
 ## Telas internas:
