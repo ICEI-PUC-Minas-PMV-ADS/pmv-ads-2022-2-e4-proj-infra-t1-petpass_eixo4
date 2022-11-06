@@ -15,7 +15,12 @@ Segue abaixo o template padrão das telas iniciais.
 
 Segue abaixo o template padrão das telas internas da aplicação.
 
-![image](https://user-images.githubusercontent.com/83302547/200189854-577884a3-3fd0-4101-84be-506d9907d628.png)
+![image](https://user-images.githubusercontent.com/83302547/200189896-d8bea60a-9cd0-471c-852a-fee5c49672d6.png)
+![image](https://user-images.githubusercontent.com/83302547/200189910-1900bf4d-d912-43b1-a59d-62d950266c13.png)
+![image](https://user-images.githubusercontent.com/83302547/200189920-4934ebae-c9b1-42f8-ae8c-51fa34196316.png)
+![image](https://user-images.githubusercontent.com/83302547/200189926-cc5649ab-f031-4057-ac7e-4375d249c18a.png)
+![image](https://user-images.githubusercontent.com/83302547/200189939-84c01be2-b265-4e0f-9a66-3908dbd83451.png)
+
 
 
 > **Links Úteis**:
