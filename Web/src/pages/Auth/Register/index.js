@@ -146,7 +146,7 @@ const Register = () => {
         </div>
 
         <div className="register-submit">
-          <ButtonIcon text="ENVIAR" />
+          <ButtonIcon text="CADASTRAR" />
         </div>
       </form>
     </div>
