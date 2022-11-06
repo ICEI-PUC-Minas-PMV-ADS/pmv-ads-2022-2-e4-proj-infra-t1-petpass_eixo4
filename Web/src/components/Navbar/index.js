@@ -66,12 +66,19 @@ const Navbar = () => {
                   </NavLink>
                 </li>
                 <li>
+                  <a href="https://gauchazh.clicrbs.com.br/ultimas-noticias/tag/animais/"
+                     target="_blank" rel="noopener noreferrer"
+                     activeClassName="active">
+                    NOTÍCIAS
+                  </a>
+                </li>
+                <li>
                   <a href="#logout" onClick={handleLogoutClick}>
                     LOGOUT
                   </a>
                 </li>
               </>
-            )}
+             )}
           </ul>
         </div>
       </div>
