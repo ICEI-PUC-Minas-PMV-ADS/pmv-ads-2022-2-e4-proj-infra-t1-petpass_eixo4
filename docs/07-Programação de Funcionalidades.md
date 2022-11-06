@@ -17,3 +17,17 @@ Conforme detalhado em <a href="8-Plano de Testes de Software.md"> Plano de Teste
 
 A refatoração incluiu:
 - Criação da camada (diretório) Repositório, onde foram colocadas interfaces de Repositório para cada Entidade
+- Criação da camada Contracts onde foram colocadas as interfaces de Repositório para cada Entidade:
+    - IPetRepository.cs
+    - IRepositoryBase.cs
+    - IRepositoryWrapper.cs
+    - IUsuarioRepository.cs
+    - IVacinarepository.cs
+- Criação da camada (diretório) Repositório, onde foram colocadas as classes de Repositório para cada Entidade, implementando as interfaces de Contracts:
+    - PetRepository.cs
+    - RepositoryBase.cs
+    - RepositoryWrapper.cs
+    - UsuarioRepository.cs
+    - Vacinarepository.cs
+- Alteração da classe de contexto AppContext.cs para RepositoryContext.cs
+- Alteração de todos os controladores para injeção do repositório no lugar do contexto.
