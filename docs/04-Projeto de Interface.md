@@ -34,12 +34,13 @@ São protótipos usados em design de interface para sugerir a estrutura de um si
   Homepage: Tela de apresentação, que também proporciona ao usuário o conhecimento inicial das funcionalidades e objetivos do projeto.
   Tela de Login: Tela responsável pela autenticação de clientes cadastrados no sistema. Caso o cliente tenha esquecido a senha de acesso ele será direcionado a tela para recuperação.
  
- ![image](https://user-images.githubusercontent.com/83302547/200139136-3cfe3daf-b471-45a9-a4b9-2f027c69d777.png)
+ ![image](https://user-images.githubusercontent.com/83302547/200189521-b31b4f45-1ba2-4529-b584-0e4d335af210.png)![image](https://user-images.githubusercontent.com/83302547/200139136-3cfe3daf-b471-45a9-a4b9-2f027c69d777.png)![image](https://user-images.githubusercontent.com/83302547/200189528-6f39933e-34c9-413b-a2cb-9f1023ba012a.png)
+
 
 ## Telas internas:
 Dão uma visão geral da aplicação, após autenticação do usuário. Na imagem abaixo são mostradas três telas: Tela de Pets cadastrados; tela para cadastro de um ou mais Pets; Tela com maiores detalhes do Pet.
 
-![image](https://user-images.githubusercontent.com/83302547/200139240-0647e893-85ed-4319-a8be-31f18593e8bf.png)
+![image](https://user-images.githubusercontent.com/83302547/200189499-4f3a4f44-ffda-4b98-9276-d5edfb6a6591.png) 
 
 Tela para cadastro de vacinas:
 
