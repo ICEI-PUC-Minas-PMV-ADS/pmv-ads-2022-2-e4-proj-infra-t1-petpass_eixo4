@@ -1,0 +1,13 @@
+.pets-card {
+  border-radius: 20px;
+}
+
+.pets-container {
+  padding:40px;
+}
+
+.pets-container h1 {
+  font-size: 1px;
+  font-weight: 700;
+  margin: 30px;
+}
