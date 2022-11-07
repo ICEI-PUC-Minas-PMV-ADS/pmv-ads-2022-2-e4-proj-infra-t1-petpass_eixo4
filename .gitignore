@@ -1,5 +1,17 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+.vscode
+src/API/.vs/PetPassBackend
+src/API/bin/Debug/net6.0
 src/API/.vs/
 src/API/bin/
 src/API/obj/
-
 node_modules/
+
+/.vs
+/src/UnitTests/bin/Debug/net6.0
+/src/UnitTests/obj
+
+
