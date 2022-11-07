@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using PetPassBackend.Contracts;
 using PetPassBackend.Models;
 
 namespace PetPassBackend.Controllers
@@ -9,65 +10,82 @@ namespace PetPassBackend.Controllers
     [ApiController]
     public class VacinasController : ControllerBase
     {
-        private readonly AppDbContext _context;
+        private readonly IRepositoryWrapper _repository;
 
-        public VacinasController(AppDbContext context)
+        public VacinasController(IRepositoryWrapper context)
         {
-            _context = context;
+            _repository = context;
         }
 
         [HttpGet]
-        public async Task<ActionResult> GetAll()
+        public IActionResult GetAll()
         {
-            var model = await _context.Vacinas.ToListAsync();
+            try
+            {
 
-            return Ok(model);
+                var model = _repository.Vacina.GetAllVacinas();
+
+                return Ok(model);
+            }
+            catch (Exception)
+            {
+                return StatusCode(500, "Erro interno do servidor");
+            }
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult> GetById(int id)
+        public IActionResult GetById(int id)
         {
-            var model = await _context.Vacinas
-                .FirstOrDefaultAsync(v => v.Id == id);
+            try
+            {
+                var model = _repository.Vacina.GetVacinaById(id);
 
-            if (model == null) return NotFound();
+                if (model == null) return NotFound();
 
-            return Ok(model);
+                return Ok(model);
+            }
+            catch (Exception)
+            {
+                return StatusCode(500, "Erro interno do servidor");
+            }
+
+            //GerarLinks(model);
+
         }
 
         [HttpPost]
-        public async Task<ActionResult> Create(Vacina model)
+        public IActionResult Create(Vacina model)
         {
-            _context.Vacinas.Add(model);
-            await _context.SaveChangesAsync();
+            _repository.Vacina.CreateVacina(model);
+            _repository.Save();
 
             return CreatedAtAction("GetById", new { id = model.Id }, model);
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult> Update(int id, Vacina model)
+        public IActionResult Update(int id, Vacina model)
         {
             if (id != model.Id) return BadRequest();
 
-            var modelDb = await _context.Vacinas.AsNoTracking().FirstOrDefaultAsync(v => v.Id == id);
+            var modelDb = _repository.Vacina.GetVacinaById(id);
 
             if (modelDb == null) return NotFound();
 
-            _context.Vacinas.Update(model);
-            await _context.SaveChangesAsync();
+            _repository.Vacina.Update(model);
+            _repository.Save();
 
             return NoContent();
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult> Delete(int id)
+        public IActionResult Delete(int id)
         {
-            var model = await _context.Vacinas.FindAsync(id);
+            var model = _repository.Vacina.GetVacinaById(id);
 
             if (model == null) return NotFound();
 
-            _context.Vacinas.Remove(model);
-            await _context.SaveChangesAsync();
+            _repository.Vacina.DeleteVacina(model);
+            _repository.Save();
 
             return NoContent();
         }

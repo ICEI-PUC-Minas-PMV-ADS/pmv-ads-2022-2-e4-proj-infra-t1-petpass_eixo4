@@ -2,9 +2,9 @@
 
 namespace PetPassBackend.Models
 {
-    public class AppDbContext : DbContext
+    public class RepositoryContext : DbContext
     {
-        public AppDbContext(DbContextOptions options) : base(options)
+        public RepositoryContext(DbContextOptions options) : base(options)
         {
 
         }
