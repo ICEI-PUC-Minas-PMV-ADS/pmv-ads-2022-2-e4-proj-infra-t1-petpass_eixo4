@@ -13,3 +13,10 @@ PROTESTE!; Saiba quais vacinas seu pet deve receber. Portal PROTESTE!, out-2017.
 TEIXEIRA, Fabricio; O que é o SUS (System Usability Scale) e como usá-lo em seu site. UX Collective, ago-2015. Disponível em: https://brasil.uxdesign.cc/o-que-%C3%A9-o-sus-system-usability-scale-e-como-us%C3%A1-lo-em-seu-site-6d63224481c8. Acessado em: 06-12-2021.
 
 What is a REST API? | IBM. (n.d.). Disponível em https://www.ibm.com/cloud/learn/rest-apis. Acessado em: 30/08/2022.
+
+PRESSMAN, Roger. Engenharia de Software, 2016. E-book.
+GOMES, Luiz A. F. Microfundamento Teste de Software. Puc Minas, 2022.
+
+SCOTT, Allen. Testability and Entity Framework 4.0., mai-2010. Disponível em https://learn.microsoft.com/en-us/ef/ef6/fundamentals/testing/testability-article. Acessado em 26/10/2022.
+
+SANJAY. Repository Pattern in ASP.NET Core with Adapter Pattern, set-2021. Disponível em https://procodeguide.com/programming/repository-pattern-in-aspnet-core/. Acessado em 03/11/2022.
