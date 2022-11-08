@@ -30,6 +30,12 @@ namespace UnitTests.MockData
                     Id = 3,
                     NomePet="Buana",
                     Raca="Poodle"
+                },
+                new Pet
+                {
+                    Id = 19,
+                    NomePet="Golias",
+                    Raca="Fila"
                 }
             };
         }
