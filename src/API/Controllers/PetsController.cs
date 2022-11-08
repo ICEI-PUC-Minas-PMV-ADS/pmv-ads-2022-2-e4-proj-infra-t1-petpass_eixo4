@@ -43,6 +43,7 @@ namespace PetPassBackend.Controllers
 
                 if (model == null) return NotFound();
 
+                //GerarLinks(model);
                 return Ok(model);
             }
             catch (Exception)
@@ -50,7 +51,6 @@ namespace PetPassBackend.Controllers
                 return StatusCode(500, "Erro interno do servidor");
             }
 
-            //GerarLinks(model);
 
         }
 
@@ -92,12 +92,12 @@ namespace PetPassBackend.Controllers
 
             return NoContent();
         }
-        //private void GerarLinks(Pet model)
-        //{
-        //    model.Links.Add(new LinkDto(model.Id, Url.ActionLink(), rel: "self", metodo: "GET"));
-        //    model.Links.Add(new LinkDto(model.Id, Url.ActionLink(), rel: "update", metodo: "PUT"));
-        //    model.Links.Add(new LinkDto(model.Id, Url.ActionLink(), rel: "delete", metodo: "DELETE"));
-        //}
+        private void GerarLinks(Pet model)
+        {
+            model.Links.Add(new LinkDto(model.Id, Url.ActionLink(), rel: "self", metodo: "GET"));
+            model.Links.Add(new LinkDto(model.Id, Url.ActionLink(), rel: "update", metodo: "PUT"));
+            model.Links.Add(new LinkDto(model.Id, Url.ActionLink(), rel: "delete", metodo: "DELETE"));
+        }
 
         //[HttpPost("{id}/usuarios")]
         //public async Task<ActionResult> AddUsuario(int id, UsuarioPet model)

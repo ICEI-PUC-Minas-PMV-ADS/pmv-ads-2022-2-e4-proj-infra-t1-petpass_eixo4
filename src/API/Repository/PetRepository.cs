@@ -13,7 +13,7 @@ namespace PetPassBackend.Repository
         }
         public IEnumerable<Pet> GetAllPets()
         {
-            return (IEnumerable<Pet>)FindAll().OrderBy(p => p.Id).ToListAsync();
+            return (IEnumerable<Pet>)FindAll().OrderBy(p => p.Id).ToList();
         }
 
         public Pet GetPetById(int petId)
@@ -29,11 +29,11 @@ namespace PetPassBackend.Repository
         }
         public void UpdatePet(Pet pet)
         {
-            Create(pet);
+            Update(pet);
         }
         public void DeletePet(Pet pet)
         {
-            Create(pet);
+            Delete(pet);
         }
     }
 }

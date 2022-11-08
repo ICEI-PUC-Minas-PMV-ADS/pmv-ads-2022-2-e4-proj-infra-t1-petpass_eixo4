@@ -35,7 +35,7 @@ namespace PetPassBackend.Controllers
         public async Task<ActionResult> GetById(int id)
         {
             var model = await _context.Usuarios
-                .Include(c=>c.Pets)
+                .Include(c => c.Pets)
                 .FirstOrDefaultAsync(v => v.Id == id);
 
             if (model == null) return NotFound();

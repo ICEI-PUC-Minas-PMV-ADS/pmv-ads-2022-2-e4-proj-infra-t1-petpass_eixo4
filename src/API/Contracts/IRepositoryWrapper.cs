@@ -5,6 +5,6 @@
         IPetRepository Pet { get; }
         IVacinaRepository Vacina { get; }
         IUsuarioRepository Usuario { get; }
-        void Save();
+        Task Save();
     }
 }

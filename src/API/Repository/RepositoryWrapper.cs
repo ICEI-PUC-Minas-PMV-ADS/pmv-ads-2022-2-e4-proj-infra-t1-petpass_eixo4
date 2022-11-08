@@ -14,7 +14,7 @@ namespace PetPassBackend.Repository
         {
             get
             {
-                if (_pet ==null)
+                if (_pet == null)
                 {
                     _pet = new PetRepository(_repoContext);
                 }
@@ -25,7 +25,7 @@ namespace PetPassBackend.Repository
         {
             get
             {
-                if (_vacina ==null)
+                if (_vacina == null)
                 {
                     _vacina = new VacinaRepository(_repoContext);
                 }
@@ -36,7 +36,7 @@ namespace PetPassBackend.Repository
         {
             get
             {
-                if (_usuario ==null)
+                if (_usuario == null)
                 {
                     _usuario = new UsuarioRepository(_repoContext);
                 }
@@ -47,7 +47,7 @@ namespace PetPassBackend.Repository
         {
             _repoContext = repositoryContext;
         }
-        public async void Save()
+        public async Task Save()
         {
             await _repoContext.SaveChangesAsync();
         }

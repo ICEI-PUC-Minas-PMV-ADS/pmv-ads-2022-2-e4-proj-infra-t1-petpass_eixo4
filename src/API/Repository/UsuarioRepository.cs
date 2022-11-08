@@ -26,11 +26,11 @@ namespace PetPassBackend.Repository
         }
         public void UpdateUsuario(Usuario usuario)
         {
-            Create(usuario);
+            Update(usuario);
         }
         public void DeleteUsuario(Usuario usuario)
         {
-            Create(usuario);
+            Delete(usuario);
         }
 
         public void Authenticate(AuthenticateDto model)

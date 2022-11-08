@@ -2,7 +2,7 @@
 
 namespace PetPassBackend.Contracts
 {
-    public interface IUsuarioRepository :IRepositoryBase<Usuario>
+    public interface IUsuarioRepository : IRepositoryBase<Usuario>
     {
         IEnumerable<Usuario> GetAllUsuarios();
         Usuario GetUsuarioById(int id);
