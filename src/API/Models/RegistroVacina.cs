@@ -1,11 +1,18 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PetPassBackend.Models
 {
     public class RegistroVacina
     {
+        [Key]
+        public int RegistroVacinaId { get; set; }
         public int PetId { get; set; }
+
+        [ForeignKey("PetId")]
         public Pet Pet { get; set; }
+        
+        [ForeignKey("VacinaId")]
         public int VacinaId { get; set; }
         public Vacina Vacina { get; set; }
 

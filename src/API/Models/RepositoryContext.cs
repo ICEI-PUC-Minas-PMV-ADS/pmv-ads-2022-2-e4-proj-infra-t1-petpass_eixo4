@@ -20,8 +20,6 @@ namespace PetPassBackend.Models
                 .HasForeignKey(c => c.PetId);
 
             builder.Entity<RegistroVacina>()
-                .HasKey(c => new { c.PetId, c.VacinaId });
-            builder.Entity<RegistroVacina>()
                 .HasOne(c => c.Pet).WithMany(c => c.RegistroVacinas)
                 .HasForeignKey(c => c.PetId);
             builder.Entity<RegistroVacina>()
