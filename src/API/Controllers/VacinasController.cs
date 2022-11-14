@@ -22,7 +22,6 @@ namespace PetPassBackend.Controllers
         {
             try
             {
-
                 var model = _repository.Vacina.GetAllVacinas();
 
                 return Ok(model);
@@ -56,10 +55,20 @@ namespace PetPassBackend.Controllers
         [HttpPost]
         public IActionResult Create(Vacina model)
         {
-            _repository.Vacina.CreateVacina(model);
-            _repository.Save();
+            try
+            {
+                if (!ModelState.IsValid) return BadRequest();
 
-            return CreatedAtAction("GetById", new { id = model.Id }, model);
+                _repository.Vacina.CreateVacina(model);
+                _repository.Save();
+
+                return CreatedAtAction("GetById", new { id = model.Id }, model);
+            }
+            catch (Exception)
+            {
+                return StatusCode(500, "Erro interno do servidor");
+            }
+
         }
 
         [HttpPut("{id}")]

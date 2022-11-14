@@ -3,10 +3,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PetPassBackend.Models
 {
-    public class RegistroVacina
+    public class RegistroVacina : LinksHATEOS
     {
         [Key]
-        public int RegistroVacinaId { get; set; }
+        public int Id { get; set; }
         public int PetId { get; set; }
 
         [ForeignKey("PetId")]

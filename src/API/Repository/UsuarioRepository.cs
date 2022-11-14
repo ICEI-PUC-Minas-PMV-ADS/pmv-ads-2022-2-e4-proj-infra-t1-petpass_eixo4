@@ -11,7 +11,7 @@ namespace PetPassBackend.Repository
         }
         public IEnumerable<Usuario> GetAllUsuarios()
         {
-            return (IEnumerable<Usuario>)FindAll().OrderBy(p => p.Nome).ToListAsync();
+            return FindAll().OrderBy(p => p.Nome).ToList();
         }
 
         public Usuario GetUsuarioById(int usuarioId)

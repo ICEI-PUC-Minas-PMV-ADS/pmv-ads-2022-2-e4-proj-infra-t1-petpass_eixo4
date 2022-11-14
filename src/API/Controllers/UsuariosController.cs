@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using PetPassBackend.Contracts;
 using PetPassBackend.Models;
 using System.Data;
 using System.IdentityModel.Tokens.Jwt;
@@ -11,32 +12,29 @@ using System.Text;
 
 namespace PetPassBackend.Controllers
 {
-    [Authorize(Roles = "Administrador")]
     [Route("api/[controller]")]
     [ApiController]
     public class UsuariosController : ControllerBase
     {
-        private readonly RepositoryContext _context;
+        private readonly IRepositoryWrapper _repository;
 
-        public UsuariosController(RepositoryContext context)
+        public UsuariosController(IRepositoryWrapper repository)
         {
-            _context = context;
+            _repository = repository;
         }
 
         [HttpGet]
-        public async Task<ActionResult> GetAll()
+        public ActionResult GetAll()
         {
-            var model = await _context.Usuarios.Include(c => c.Pets).ToListAsync();
+            var model = _repository.Usuario.GetAllUsuarios();
 
             return Ok(model);
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult> GetById(int id)
+        public ActionResult GetById(int id)
         {
-            var model = await _context.Usuarios
-                .Include(c => c.Pets)
-                .FirstOrDefaultAsync(v => v.Id == id);
+            var model = _repository.Usuario.GetUsuarioById(id);
 
             if (model == null) return NotFound();
 
@@ -55,8 +53,8 @@ namespace PetPassBackend.Controllers
                 Perfil = model.Perfil
             };
 
-            _context.Usuarios.Add(novo);
-            await _context.SaveChangesAsync();
+            _repository.Usuario.Create(novo);
+            await _repository.Save();
 
             return CreatedAtAction("GetById", new { id = novo.Id }, novo);
         }
@@ -65,7 +63,7 @@ namespace PetPassBackend.Controllers
         public async Task<ActionResult> Update(int id, UsuarioDto model)
         {
             if (id != model.Id) return BadRequest();
-            var modelDb = await _context.Usuarios.AsNoTracking().FirstOrDefaultAsync(v => v.Id == id);
+            var modelDb = _repository.Usuario.GetUsuarioById(id);
             if (modelDb == null) return NotFound();
 
             modelDb.Nome = model.Nome;
@@ -73,8 +71,8 @@ namespace PetPassBackend.Controllers
             modelDb.Perfil = model.Perfil;
 
 
-            _context.Usuarios.Update(modelDb);
-            await _context.SaveChangesAsync();
+            _repository.Usuario.Update(modelDb);
+            await _repository.Save();
 
             return NoContent();
         }
@@ -82,12 +80,12 @@ namespace PetPassBackend.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult> Delete(int id)
         {
-            var model = await _context.Usuarios.FindAsync(id);
+            var model = _repository.Usuario.GetUsuarioById(id);
 
             if (model == null) return NotFound();
 
-            _context.Usuarios.Remove(model);
-            await _context.SaveChangesAsync();
+            _repository.Usuario.Delete(model);
+            await _repository.Save();
 
             return NoContent();
         }
@@ -103,7 +101,7 @@ namespace PetPassBackend.Controllers
         [HttpPost("authenticate")]
         public async Task<ActionResult> Authentication(AuthenticateDto model)
         {
-            var usuarioDb = await _context.Usuarios.FindAsync(model.Id);
+            var usuarioDb = _repository.Usuario.GetUsuarioById(model.Id);
 
             if (usuarioDb == null || !BCrypt.Net.BCrypt.Verify(model.Password, usuarioDb.Password))
                 return Unauthorized();

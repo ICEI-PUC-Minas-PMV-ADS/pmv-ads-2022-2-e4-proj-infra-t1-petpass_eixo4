@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PetPassBackend.Models;
 
@@ -10,9 +11,10 @@ using PetPassBackend.Models;
 namespace PetPassBackend.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221109213723_UpdRegistroVacina")]
+    partial class UpdRegistroVacina
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -54,7 +56,7 @@ namespace PetPassBackend.Migrations
 
             modelBuilder.Entity("PetPassBackend.Models.RegistroVacina", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("RegistroVacinaId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
@@ -70,7 +72,7 @@ namespace PetPassBackend.Migrations
                     b.Property<int>("VacinaId")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.HasKey("RegistroVacinaId");
 
                     b.HasIndex("PetId");
 

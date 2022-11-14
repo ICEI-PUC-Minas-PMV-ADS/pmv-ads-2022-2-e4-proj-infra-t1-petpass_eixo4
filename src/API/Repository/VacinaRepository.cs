@@ -12,13 +12,13 @@ namespace PetPassBackend.Repository
         }
         public IEnumerable<Vacina> GetAllVacinas()
         {
-            return (IEnumerable<Vacina>)FindAll().ToListAsync();
+            return FindAll().ToList();
         }
 
         public Vacina GetVacinaById(int vacinaId)
         {
             return FindByCondition(p => p.Id.Equals(vacinaId))
-                .Include(p => p.RegistroVacinas)
+                .Include(p => p.PetsVacinados)
                 .FirstOrDefault();
         }
         public void CreateVacina(Vacina vacina)

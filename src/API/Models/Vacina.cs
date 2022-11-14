@@ -20,7 +20,7 @@ namespace PetPassBackend.Models
         [MaxLength(100)]
         public string Dose { get; set; }
 
-        public ICollection<RegistroVacina> RegistroVacinas { get; set; }
+        public ICollection<RegistroVacina> PetsVacinados { get; set; }
 
         public enum TipoAnimal
         {
