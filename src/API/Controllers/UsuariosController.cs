@@ -5,7 +5,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using PetPassBackend.Contracts;
 using PetPassBackend.Models;
-using System.Data;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -38,7 +37,7 @@ namespace PetPassBackend.Controllers
 
             if (model == null) return NotFound();
 
-            GerarLinks(model);
+            //GerarLinks(model);
             return Ok(model);
         }
 
@@ -90,12 +89,12 @@ namespace PetPassBackend.Controllers
             return NoContent();
         }
 
-        private void GerarLinks(Usuario model)
-        {
-            model.Links.Add(new LinkDto(model.Id, Url.ActionLink(), rel: "self", metodo: "GET"));
-            model.Links.Add(new LinkDto(model.Id, Url.ActionLink(), rel: "update", metodo: "PUT"));
-            model.Links.Add(new LinkDto(model.Id, Url.ActionLink(), rel: "delete", metodo: "DELETE"));
-        }
+        //private void GerarLinks(Usuario model)
+        //{
+        //    model.Links.Add(new LinkDto(model.Id, Url.ActionLink(), rel: "self", method: "GET"));
+        //    model.Links.Add(new LinkDto(model.Id, Url.ActionLink(), rel: "update", method: "PUT"));
+        //    model.Links.Add(new LinkDto(model.Id, Url.ActionLink(), rel: "delete", method: "DELETE"));
+        //}
 
         [AllowAnonymous]
         [HttpPost("authenticate")]
