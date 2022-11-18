@@ -9,15 +9,14 @@ namespace PetPassBackend.Repository
         private IPetRepository _pet;
         private IVacinaRepository _vacina;
         private IUsuarioRepository _usuario;
+        private IRegistroVacinaRepository _registro;
+        private IUsuarioPetRepository _usuarioPet;
 
         public IPetRepository Pet
         {
             get
             {
-                if (_pet ==null)
-                {
-                    _pet = new PetRepository(_repoContext);
-                }
+                _pet ??= new PetRepository(_repoContext);
                 return _pet;
             }
         }
@@ -25,10 +24,7 @@ namespace PetPassBackend.Repository
         {
             get
             {
-                if (_vacina ==null)
-                {
-                    _vacina = new VacinaRepository(_repoContext);
-                }
+                _vacina ??= new VacinaRepository(_repoContext);
                 return _vacina;
             }
         }
@@ -36,18 +32,31 @@ namespace PetPassBackend.Repository
         {
             get
             {
-                if (_usuario ==null)
-                {
-                    _usuario = new UsuarioRepository(_repoContext);
-                }
+                _usuario ??= new UsuarioRepository(_repoContext);
                 return _usuario;
+            }
+        }
+        public IRegistroVacinaRepository Registro
+        {
+            get
+            {
+                _registro ??= new RegistroVacinaRepository(_repoContext);
+                return _registro;
+            }
+        }
+        public IUsuarioPetRepository UsuariosPets
+        {
+            get
+            {
+                _usuarioPet ??= new UsuarioPetRepository(_repoContext);
+                return _usuarioPet;
             }
         }
         public RepositoryWrapper(RepositoryContext repositoryContext)
         {
             _repoContext = repositoryContext;
         }
-        public async void Save()
+        public async Task Save()
         {
             await _repoContext.SaveChangesAsync();
         }

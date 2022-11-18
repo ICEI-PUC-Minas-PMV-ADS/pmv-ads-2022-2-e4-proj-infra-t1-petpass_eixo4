@@ -24,10 +24,10 @@ namespace PetPassBackend.Models
 
     public enum Perfil
     {
-        [Display(Name = "Administrador")]
-        Administrador,
         [Display(Name = "Usuário")]
         Usuario,
+        [Display(Name = "Administrador")]
+        Administrador,
         [Display(Name ="Instituição")]
         Instituicao
     }

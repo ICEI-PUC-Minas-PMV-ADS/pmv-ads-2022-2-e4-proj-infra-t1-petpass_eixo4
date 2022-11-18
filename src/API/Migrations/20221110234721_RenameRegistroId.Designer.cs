@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PetPassBackend.Models;
 
@@ -10,9 +11,10 @@ using PetPassBackend.Models;
 namespace PetPassBackend.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221110234721_RenameRegistroId")]
+    partial class RenameRegistroId
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

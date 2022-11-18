@@ -8,7 +8,6 @@ namespace PetPassBackend.Contracts
         Vacina GetVacinaById(int id);
         void CreateVacina(Vacina vacina);
         void UpdateVacina(Vacina vacina);
-        void DeleteVacina(Vacina pevacinat);
-
+        void DeleteVacina(Vacina vacina);
     }
 }

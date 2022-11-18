@@ -8,6 +8,10 @@ namespace PetPassBackend.Models
         {
 
         }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.EnableSensitiveDataLogging();
+        }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<UsuarioPet>()
@@ -20,13 +24,11 @@ namespace PetPassBackend.Models
                 .HasForeignKey(c => c.PetId);
 
             builder.Entity<RegistroVacina>()
-                .HasKey(c => new { c.PetId, c.VacinaId });
-            builder.Entity<RegistroVacina>()
                 .HasOne(c => c.Pet).WithMany(c => c.RegistroVacinas)
-                .HasForeignKey(c => c.PetId);
+                .HasForeignKey(c => c.PetId).OnDelete(DeleteBehavior.Cascade);
             builder.Entity<RegistroVacina>()
-                .HasOne(c => c.Vacina).WithMany(c => c.RegistroVacinas)
-                .HasForeignKey(c => c.VacinaId);
+                .HasOne(c => c.Vacina).WithMany(c => c.PetsVacinados)
+                .HasForeignKey(c => c.VacinaId).OnDelete(DeleteBehavior.Cascade);
         }
         public DbSet<Pet> Pets { get; set; }
         public DbSet<Vacina> Vacinas { get; set; }

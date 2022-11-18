@@ -11,7 +11,7 @@ namespace PetPassBackend.Repository
         }
         public IEnumerable<Usuario> GetAllUsuarios()
         {
-            return (IEnumerable<Usuario>)FindAll().OrderBy(p => p.Nome).ToListAsync();
+            return FindAll().OrderBy(p => p.Nome).ToList();
         }
 
         public Usuario GetUsuarioById(int usuarioId)
@@ -26,11 +26,11 @@ namespace PetPassBackend.Repository
         }
         public void UpdateUsuario(Usuario usuario)
         {
-            Create(usuario);
+            Update(usuario);
         }
         public void DeleteUsuario(Usuario usuario)
         {
-            Create(usuario);
+            Delete(usuario);
         }
 
         public void Authenticate(AuthenticateDto model)

@@ -1,10 +1,12 @@
 ﻿namespace PetPassBackend.Contracts
 {
-    public interface IRepositoryWrapper
+    public interface IRepositoryWrapper 
     {
         IPetRepository Pet { get; }
         IVacinaRepository Vacina { get; }
         IUsuarioRepository Usuario { get; }
-        void Save();
+        IRegistroVacinaRepository Registro { get; }
+        IUsuarioPetRepository UsuariosPets { get; }
+        Task Save();
     }
 }

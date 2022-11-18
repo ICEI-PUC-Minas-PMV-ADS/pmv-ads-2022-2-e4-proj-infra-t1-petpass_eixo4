@@ -4,7 +4,7 @@ using PetPassBackend.Models;
 
 namespace PetPassBackend.Repository
 {
-    public class VacinaRepository :RepositoryBase<Vacina>,IVacinaRepository
+    public class VacinaRepository : RepositoryBase<Vacina>, IVacinaRepository
     {
         public VacinaRepository(RepositoryContext repositoryContext) : base(repositoryContext)
         {
@@ -12,13 +12,13 @@ namespace PetPassBackend.Repository
         }
         public IEnumerable<Vacina> GetAllVacinas()
         {
-            return (IEnumerable<Vacina>)FindAll().ToListAsync();
+            return FindAll().ToList();
         }
 
         public Vacina GetVacinaById(int vacinaId)
         {
             return FindByCondition(p => p.Id.Equals(vacinaId))
-                .Include(p => p.RegistroVacinas)
+                .Include(p => p.PetsVacinados)
                 .FirstOrDefault();
         }
         public void CreateVacina(Vacina vacina)
@@ -27,11 +27,11 @@ namespace PetPassBackend.Repository
         }
         public void UpdateVacina(Vacina vacina)
         {
-            Create(vacina);
+            Update(vacina);
         }
         public void DeleteVacina(Vacina vacina)
         {
-            Create(vacina);
+            Delete(vacina);
         }
 
     }

@@ -6,6 +6,7 @@ namespace PetPassBackend.Contracts
     {
         IEnumerable<Pet> GetAllPets();
         Pet GetPetById(int id);
+        Pet GetFullPetById(int id);
         void CreatePet(Pet pet);
         void UpdatePet(Pet pet);
         void DeletePet(Pet pet);

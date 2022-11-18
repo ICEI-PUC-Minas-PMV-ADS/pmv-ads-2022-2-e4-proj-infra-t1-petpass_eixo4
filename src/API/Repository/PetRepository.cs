@@ -13,14 +13,13 @@ namespace PetPassBackend.Repository
         }
         public IEnumerable<Pet> GetAllPets()
         {
-            return (IEnumerable<Pet>)FindAll().OrderBy(p => p.Id).ToListAsync();
+            return FindAll().OrderBy(p => p.Id)
+                .ToList();
         }
 
         public Pet GetPetById(int petId)
         {
             return FindByCondition(p => p.Id.Equals(petId))
-                .Include(p => p.Usuarios)
-                .Include(p => p.RegistroVacinas)
                 .FirstOrDefault();
         }
         public void CreatePet(Pet pet)
@@ -29,11 +28,20 @@ namespace PetPassBackend.Repository
         }
         public void UpdatePet(Pet pet)
         {
-            Create(pet);
+            Update(pet);
         }
         public void DeletePet(Pet pet)
         {
-            Create(pet);
+            Delete(pet);
+        }
+
+        Pet IPetRepository.GetFullPetById(int petId)
+        {
+            return FindByCondition(p => p.Id.Equals(petId))
+                .Include(p=>p.RegistroVacinas)
+                .ThenInclude(p=>p.Vacina)
+                .Include(p=>p.Usuarios)
+                .FirstOrDefault();
         }
     }
 }
