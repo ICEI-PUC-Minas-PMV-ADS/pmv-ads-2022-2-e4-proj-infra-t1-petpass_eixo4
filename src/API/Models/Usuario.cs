@@ -4,7 +4,7 @@ using System.Xml.Linq;
 
 namespace PetPassBackend.Models
 {
-    public class Usuario : LinksHATEOS
+    public class Usuario : LinksHATEOAS
     {
         [Key]
         public int Id { get; set; }

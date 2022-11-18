@@ -13,10 +13,12 @@ namespace PetPassBackend.Controllers
     public class PetsController : ControllerBase
     {
         private readonly IRepositoryWrapper _repository;
+        private readonly IUrlHelper _urlHelper;
 
-        public PetsController(IRepositoryWrapper repository)
+        public PetsController(IRepositoryWrapper repository, IUrlHelper urlHelper)
         {
             _repository = repository;
+            _urlHelper = urlHelper;
         }
 
         [HttpGet]
@@ -45,7 +47,6 @@ namespace PetPassBackend.Controllers
 
                 if (model == null) return NotFound();
 
-                GerarLinks(model);
                 return Ok(model);
             }
             catch (Exception e)
@@ -124,12 +125,12 @@ namespace PetPassBackend.Controllers
                     $"\n InnerException: {e.InnerException}");
             }
         }
-        private void GerarLinks(Pet model)
-        {
-            model.Links.Add(new LinkDto(model.Id, Url.ActionLink(), rel: "self", metodo: "GET"));
-            model.Links.Add(new LinkDto(model.Id, Url.ActionLink(), rel: "update", metodo: "PUT"));
-            model.Links.Add(new LinkDto(model.Id, Url.ActionLink(), rel: "delete", metodo: "DELETE"));
-        }
+        //private void GerarLinks(Pet model)
+        //{
+        //    model.Links.Add(new LinkDto(model.Id, _urlHelper.ActionLink(), rel: "self", method: "GET"));
+        //    model.Links.Add(new LinkDto(model.Id, _urlHelper.ActionLink(), rel: "update", method: "PUT"));
+        //    model.Links.Add(new LinkDto(model.Id, _urlHelper.ActionLink(), rel: "delete", method: "DELETE"));
+        //}
 
         [HttpPost("{id}/usuarios")]
         public async Task<ActionResult> AddUsuario(int id, UsuarioPet model)

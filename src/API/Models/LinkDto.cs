@@ -11,17 +11,16 @@ namespace PetPassBackend.Models
 
         public string Rel { get; set; }
 
-        public string Metodo { get; set; }
+        public string Method { get; set; }
 
-        public LinkDto(int id, string href, string rel, string metodo)
+        public LinkDto(string href, string rel, string method)
         {
-            Id = id;
             Href = href;
             Rel = rel;
-            Metodo = metodo;
+            Method = method;
         }
     }
-    public class LinksHATEOS
+    public class LinksHATEOAS
     {
         public List<LinkDto> Links { get; set; } = new List<LinkDto>();
     }

@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PetPassBackend.Models
 {
-    public class Pet : LinksHATEOS
+    public class Pet : LinksHATEOAS
     {
         public int Id { get; set; }
 

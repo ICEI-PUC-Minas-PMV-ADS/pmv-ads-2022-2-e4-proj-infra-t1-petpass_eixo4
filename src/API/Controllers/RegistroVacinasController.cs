@@ -73,7 +73,7 @@ namespace PetPassBackend.Controllers
 
                 if (model == null) return NotFound();
 
-                GerarLinks(model);
+                //GerarLinks(model);
                 return Ok(model);
             }
             catch (Exception)
@@ -127,11 +127,11 @@ namespace PetPassBackend.Controllers
 
             return NoContent();
         }
-        private void GerarLinks(RegistroVacina model)
-        {
-            model.Links.Add(new LinkDto(model.Id, Url.ActionLink(), rel: "self", metodo: "GET"));
-            model.Links.Add(new LinkDto(model.Id, Url.ActionLink(), rel: "update", metodo: "PUT"));
-            model.Links.Add(new LinkDto(model.Id, Url.ActionLink(), rel: "delete", metodo: "DELETE"));
-        }
+        //private void GerarLinks(RegistroVacina model)
+        //{
+        //    model.Links.Add(new LinkDto(model.Id, Url.ActionLink(), rel: "self", method: "GET"));
+        //    model.Links.Add(new LinkDto(model.Id, Url.ActionLink(), rel: "update", method: "PUT"));
+        //    model.Links.Add(new LinkDto(model.Id, Url.ActionLink(), rel: "delete", method: "DELETE"));
+        //}
     }
 }

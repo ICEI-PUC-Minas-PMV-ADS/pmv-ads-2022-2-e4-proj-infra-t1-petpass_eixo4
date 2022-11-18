@@ -35,7 +35,7 @@ namespace PetPassBackend.Repository
             Delete(pet);
         }
 
-        Pet IPetRepository.GetFullPetById(int petId)
+        public Pet GetFullPetById(int petId)
         {
             return FindByCondition(p => p.Id.Equals(petId))
                 .Include(p=>p.RegistroVacinas)

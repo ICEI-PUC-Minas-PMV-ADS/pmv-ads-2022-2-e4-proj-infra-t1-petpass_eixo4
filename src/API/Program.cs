@@ -1,4 +1,7 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
+using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using PetPassBackend.Contracts;
@@ -28,6 +31,9 @@ builder.Services.Configure<PetPassNewsDatabaseSettings>(
     builder.Configuration.GetSection("PetPassNewsDatabase"));
 
 builder.Services.AddSingleton<NewsService>();
+builder.Services.AddSingleton<IActionContextAccessor, ActionContextAccessor>()
+                .AddScoped(x => x.GetRequiredService<IUrlHelperFactory>()
+                .GetUrlHelper(x.GetRequiredService<IActionContextAccessor>().ActionContext));
 
 builder.Services.AddAuthentication(options =>
 {
