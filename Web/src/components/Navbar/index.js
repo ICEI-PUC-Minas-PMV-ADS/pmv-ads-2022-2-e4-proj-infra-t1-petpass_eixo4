@@ -68,7 +68,7 @@ const Navbar = () => {
                 <li>
                   <a href="https://gauchazh.clicrbs.com.br/ultimas-noticias/tag/animais/"
                      target="_blank" rel="noopener noreferrer"
-                     activeClassName="active">
+                     className="">
                     NOTÍCIAS
                   </a>
                 </li>

@@ -18,8 +18,8 @@
   .margin-botton-30 {
     margin-bottom: 30px;
   }
-  
-  .product-crud-inputs-container {
+
+  .select-type {
     margin-bottom: 30px;
   }
   
@@ -64,5 +64,9 @@
       .product-crud-button {
           margin-left: 30px;
           width: 250px;
+      }
+
+      .product-crud-form-card {
+        padding: 40px;
       }
     }
