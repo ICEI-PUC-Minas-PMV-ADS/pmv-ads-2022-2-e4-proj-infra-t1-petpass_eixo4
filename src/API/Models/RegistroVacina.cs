@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PetPassBackend.Models
 {
-    public class RegistroVacina : LinksHATEOS
+    public class RegistroVacina : LinksHATEOAS
     {
         [Key]
         public int Id { get; set; }

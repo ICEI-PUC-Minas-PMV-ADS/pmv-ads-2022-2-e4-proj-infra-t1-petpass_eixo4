@@ -9,18 +9,20 @@ using PetPassBackend.Controllers;
 using PetPassBackend.Models;
 using UnitTests.MockData;
 
-namespace UnitTests
+namespace UnitTests.UnitTests
 {
     public class PetsControllerTests
     {
         private readonly Mock<IRepositoryWrapper> _mockRepo;
         private readonly PetsController _controller;
         private readonly List<Pet> _petList;
+        private readonly IUrlHelper _urlHelper;
+
 
         public PetsControllerTests()
         {
             _mockRepo = new Mock<IRepositoryWrapper>();
-            _controller = new PetsController(_mockRepo.Object);
+            _controller = new PetsController(_mockRepo.Object, _urlHelper);
             _petList = PetMockData.GetMockPets();
         }
 
@@ -52,19 +54,19 @@ namespace UnitTests
         }
 
         [Theory]
-        [InlineData(3)]
         [InlineData(1)]
         [InlineData(2)]
+        [InlineData(3)]
         [InlineData(19)]
         public void GetById_IdValido_RetornaOk(int petId)
         {
             //Arrange
 
-            _mockRepo.Setup(c => c.Pet.GetPetById(petId)).Returns(() => _petList.Find(c => c.Id == petId));
+            _mockRepo.Setup(c => c.Pet.GetFullPetById(petId)).Returns(() => _petList.Find(c => c.Id == petId));
 
 
             //Act
-            var result = (ObjectResult)_controller.GetById(petId);
+            var result = _controller.GetById(petId) as ObjectResult;
 
             //Assert
             result.StatusCode.Should().Be(200);
@@ -93,7 +95,7 @@ namespace UnitTests
         public void GetById_IdValido_RetornaItemCorreto(int petId)
         {
             //Arrange
-            _mockRepo.Setup(c => c.Pet.GetPetById(petId)).Returns(() => _petList.Find(c => c.Id == petId));
+            _mockRepo.Setup(c => c.Pet.GetFullPetById(petId)).Returns(() => _petList.Find(c => c.Id == petId));
 
             //Act
             var okResult = _controller.GetById(petId) as OkObjectResult;
@@ -104,7 +106,7 @@ namespace UnitTests
         }
 
         [Fact]
-        public void Create_ObjetoValido_RetornaCreateResponse()
+        public async void Create_ObjetoValido_RetornaCreateResponse()
         {
             //Arrange
 
@@ -118,7 +120,7 @@ namespace UnitTests
 
 
             //Act
-            var createResult = (CreatedAtActionResult)_controller.Create(mockPet);
+            var createResult = await _controller.Create(mockPet) as CreatedAtActionResult;
 
             //Assert
             createResult.StatusCode.Should().Be(201);
@@ -126,7 +128,7 @@ namespace UnitTests
         }
 
         [Fact]
-        public void Create_ObjetoValido_RepostaContemItemCriado()
+        public async void Create_ObjetoValido_RepostaContemItemCriado()
         {
             //Arrange
 
@@ -140,7 +142,7 @@ namespace UnitTests
 
 
             //Act
-            var createResult = _controller.Create(mockPet) as CreatedAtActionResult;
+            var createResult = await _controller.Create(mockPet) as CreatedAtActionResult;
             var pet = createResult.Value as Pet;
 
             //Assert
@@ -148,7 +150,7 @@ namespace UnitTests
         }
 
         [Fact]
-        public void Delete_ObjetoValido_RetornaCodigo204()
+        public async void Delete_ObjetoValido_RetornaCodigo204()
         {
             //Arrange
             var petId = 1;
@@ -156,7 +158,7 @@ namespace UnitTests
 
 
             //Act
-            var deleteResult = (NoContentResult)_controller.Delete(petId);
+            var deleteResult = await _controller.Delete(petId) as NoContentResult;
 
             //Assert
             deleteResult.StatusCode.Should().Be(204);
@@ -164,7 +166,7 @@ namespace UnitTests
         }
 
         [Fact]
-        public void Delete_ObjetoInvalido_RetornaNotFound()
+        public async void Delete_ObjetoInvalido_RetornaNotFound()
         {
             //Arrange
             var petId = 11;
@@ -176,14 +178,14 @@ namespace UnitTests
 
 
             //Act
-            var deleteResult = (NotFoundResult)_controller.Delete(mockPet.Id);
+            var deleteResult = await _controller.Delete(mockPet.Id) as NotFoundResult;
 
             //Assert
             deleteResult.StatusCode.Should().Be(404);
         }
 
         [Fact]
-        public void Update_ObjetoInvalido_RetornaNotFound()
+        public async void Update_ObjetoInvalido_RetornaNotFound()
         {
             //Arrange
             var petId = 11;
@@ -195,14 +197,14 @@ namespace UnitTests
 
 
             //Act
-            var updateResult = (NotFoundResult)_controller.Update(petId,mockPet);
+            var updateResult = await _controller.Update(petId, mockPet) as NotFoundResult;
 
             //Assert
             updateResult.StatusCode.Should().Be(404);
         }
 
         [Fact]
-        public void Update_ObjetoValido_RetornaNoContent()
+        public async void Update_ObjetoValido_RetornaNoContent()
         {
             //Arrange
             var petId = 1;
@@ -214,14 +216,14 @@ namespace UnitTests
 
 
             //Act
-            var updateResult = (NoContentResult)_controller.Update(petId,mockPet);
+            var updateResult = await _controller.Update(petId, mockPet) as NoContentResult;
 
             //Assert
             updateResult.StatusCode.Should().Be(204);
         }
 
         [Fact]
-        public void Update_IdsDiferentes_RetornaBadRequest()
+        public async void Update_IdsDiferentes_RetornaBadRequest()
         {
             //Arrange
             var petId = 1;
@@ -232,7 +234,7 @@ namespace UnitTests
             _mockRepo.Setup(c => c.Pet.GetPetById(petId)).Returns(() => _petList.Find(c => c.Id == petId));
 
             //Act
-            var updateResult = (BadRequestResult)_controller.Update(petId,mockPet);
+            var updateResult = await _controller.Update(petId, mockPet) as BadRequestResult;
 
             //Assert
             updateResult.StatusCode.Should().Be(400);

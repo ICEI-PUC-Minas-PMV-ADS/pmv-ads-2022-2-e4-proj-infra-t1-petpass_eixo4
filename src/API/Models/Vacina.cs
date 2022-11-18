@@ -3,7 +3,7 @@ using System.Xml.Linq;
 
 namespace PetPassBackend.Models
 {
-    public class Vacina : LinksHATEOS
+    public class Vacina : LinksHATEOAS
     {
         public int Id { get; set; }
 
