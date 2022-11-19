@@ -11,13 +11,18 @@ namespace PetPassBackend.Repository
         }
         public IEnumerable<Usuario> GetAllUsuarios()
         {
-            return FindAll().OrderBy(p => p.Nome).ToList();
+            return FindAll().OrderBy(p => p.Email).ToList();
         }
 
         public Usuario GetUsuarioById(int usuarioId)
         {
             return FindByCondition(p => p.Id.Equals(usuarioId))
                 .Include(p => p.Pets)
+                .FirstOrDefault();
+        }
+        public Usuario GetUsuarioByEmail(string email)
+        {
+            return FindByCondition(p => p.Email.Equals(email))
                 .FirstOrDefault();
         }
         public void CreateUsuario(Usuario usuario)

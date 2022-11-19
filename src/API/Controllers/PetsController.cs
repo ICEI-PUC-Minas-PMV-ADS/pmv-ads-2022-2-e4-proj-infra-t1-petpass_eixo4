@@ -127,9 +127,9 @@ namespace PetPassBackend.Controllers
         }
         //private void GerarLinks(Pet model)
         //{
-        //    model.Links.Add(new LinkDto(model.Id, _urlHelper.ActionLink(), rel: "self", method: "GET"));
-        //    model.Links.Add(new LinkDto(model.Id, _urlHelper.ActionLink(), rel: "update", method: "PUT"));
-        //    model.Links.Add(new LinkDto(model.Id, _urlHelper.ActionLink(), rel: "delete", method: "DELETE"));
+        //    model.Links.Add(new LinkDto(model.Email, _urlHelper.ActionLink(), rel: "self", method: "GET"));
+        //    model.Links.Add(new LinkDto(model.Email, _urlHelper.ActionLink(), rel: "update", method: "PUT"));
+        //    model.Links.Add(new LinkDto(model.Email, _urlHelper.ActionLink(), rel: "delete", method: "DELETE"));
         //}
 
         [HttpPost("{id}/usuarios")]

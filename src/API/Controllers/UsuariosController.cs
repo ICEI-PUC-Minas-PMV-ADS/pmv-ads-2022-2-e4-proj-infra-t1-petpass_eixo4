@@ -80,7 +80,7 @@ namespace PetPassBackend.Controllers
         {
             Usuario novo = new()
             {
-                Nome = model.Nome,
+                Email = model.Nome,
                 Password = BCrypt.Net.BCrypt.HashPassword(model.Password),
                 Perfil = model.Perfil
             };
@@ -98,7 +98,7 @@ namespace PetPassBackend.Controllers
             var modelDb = _repository.Usuario.GetUsuarioById(id);
             if (modelDb == null) return NotFound();
 
-            modelDb.Nome = model.Nome;
+            modelDb.Email = model.Nome;
             modelDb.Password = BCrypt.Net.BCrypt.HashPassword(model.Password);
             modelDb.Perfil = model.Perfil;
 
@@ -124,16 +124,16 @@ namespace PetPassBackend.Controllers
 
         //private void GerarLinks(Usuario model)
         //{
-        //    model.Links.Add(new LinkDto(model.Id, Url.ActionLink(), rel: "self", method: "GET"));
-        //    model.Links.Add(new LinkDto(model.Id, Url.ActionLink(), rel: "update", method: "PUT"));
-        //    model.Links.Add(new LinkDto(model.Id, Url.ActionLink(), rel: "delete", method: "DELETE"));
+        //    model.Links.Add(new LinkDto(model.Email, Url.ActionLink(), rel: "self", method: "GET"));
+        //    model.Links.Add(new LinkDto(model.Email, Url.ActionLink(), rel: "update", method: "PUT"));
+        //    model.Links.Add(new LinkDto(model.Email, Url.ActionLink(), rel: "delete", method: "DELETE"));
         //}
 
         [AllowAnonymous]
         [HttpPost("authenticate")]
-        public async Task<ActionResult> Authentication(AuthenticateDto model)
+        public ActionResult Authentication(AuthenticateDto model)
         {
-            var usuarioDb = _repository.Usuario.GetUsuarioById(model.Id);
+            var usuarioDb = _repository.Usuario.GetUsuarioByEmail(model.Email);
 
             if (usuarioDb == null || !BCrypt.Net.BCrypt.Verify(model.Password, usuarioDb.Password))
                 return Unauthorized();

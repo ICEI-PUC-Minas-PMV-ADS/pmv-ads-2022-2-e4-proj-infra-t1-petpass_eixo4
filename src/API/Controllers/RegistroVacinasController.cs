@@ -129,9 +129,9 @@ namespace PetPassBackend.Controllers
         }
         //private void GerarLinks(RegistroVacina model)
         //{
-        //    model.Links.Add(new LinkDto(model.Id, Url.ActionLink(), rel: "self", method: "GET"));
-        //    model.Links.Add(new LinkDto(model.Id, Url.ActionLink(), rel: "update", method: "PUT"));
-        //    model.Links.Add(new LinkDto(model.Id, Url.ActionLink(), rel: "delete", method: "DELETE"));
+        //    model.Links.Add(new LinkDto(model.Email, Url.ActionLink(), rel: "self", method: "GET"));
+        //    model.Links.Add(new LinkDto(model.Email, Url.ActionLink(), rel: "update", method: "PUT"));
+        //    model.Links.Add(new LinkDto(model.Email, Url.ActionLink(), rel: "delete", method: "DELETE"));
         //}
     }
 }

@@ -114,13 +114,13 @@ namespace UnitTests.UnitTests
             var mockUsuario = new Usuario
             {
                 Id = 5,
-                Nome = "Rodrigo",
+                Email = "Rodrigo",
                 Password = "12345",
                 Perfil=Perfil.Administrador
             };
             var mockUsuarioDto = new UsuarioDto()
             {
-                Nome=mockUsuario.Nome,
+                Nome=mockUsuario.Email,
                 Password = BCrypt.Net.BCrypt.HashPassword(mockUsuario.Password),
                 Perfil = mockUsuario.Perfil
             };
@@ -142,14 +142,14 @@ namespace UnitTests.UnitTests
             var mockUsuario = new Usuario
             {
                 Id = 5,
-                Nome = "Rodrigo",
+                Email = "Rodrigo",
                 Password = "12345",
                 Perfil = Perfil.Administrador
             };
 
             var mockUsuarioDto = new UsuarioDto()
             {
-                Nome = mockUsuario.Nome,
+                Nome = mockUsuario.Email,
                 Password = BCrypt.Net.BCrypt.HashPassword(mockUsuario.Password),
                 Perfil = mockUsuario.Perfil
             };
@@ -161,7 +161,7 @@ namespace UnitTests.UnitTests
             var usuario = createResult.Value as Usuario;
 
             //Assert
-            usuario.Nome.Should().Be("Rodrigo");
+            usuario.Email.Should().Be("Rodrigo");
         }
 
         [Fact]
