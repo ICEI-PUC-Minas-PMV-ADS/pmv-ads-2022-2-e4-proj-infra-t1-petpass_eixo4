@@ -41,6 +41,39 @@ namespace PetPassBackend.Controllers
             return Ok(model);
         }
 
+        [HttpGet("{id}/Pets")]
+        public ActionResult GetPetsList(int id)
+        {
+            var model = _repository.UsuariosPets.GetPetsUsuario(id);
+
+            if (model == null) return NotFound();
+
+            //GerarLinks(model);
+            return Ok(model);
+        }
+
+        [HttpPost("{id}/pets")]
+        public async Task<ActionResult> AddPet(int id, UsuarioPet model)
+        {
+            if (id != model.UsuarioId) return BadRequest();
+
+            _repository.UsuariosPets.CreateUsuarioPet(model);
+            await _repository.Save();
+
+            return CreatedAtAction("GetById", new { id = model.PetId }, model);
+        }
+
+        [HttpDelete("{id}/pets/{petId}")]
+        public async Task<ActionResult> DeletePet(int id, UsuarioPet model)
+        {
+            if (id != model.UsuarioId) return BadRequest();
+
+            _repository.UsuariosPets.DeleteUsuarioPet(model);
+            await _repository.Save();
+
+            return NoContent();
+        }
+
         [HttpPost]
         [AllowAnonymous]
         public async Task<ActionResult> Create(UsuarioDto model)

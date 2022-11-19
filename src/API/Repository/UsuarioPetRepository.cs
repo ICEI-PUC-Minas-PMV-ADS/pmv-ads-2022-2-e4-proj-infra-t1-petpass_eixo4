@@ -25,7 +25,7 @@ namespace PetPassBackend.Repository
             return FindAll().ToList();
         }
 
-        public IEnumerable<UsuarioPet> GetPetUsuarios(int usuarioId)
+        public IEnumerable<UsuarioPet> GetPetsUsuario(int usuarioId)
         {
             return FindByCondition(p => p.UsuarioId == usuarioId).Include(p => p.Pet).ToList();
         }
