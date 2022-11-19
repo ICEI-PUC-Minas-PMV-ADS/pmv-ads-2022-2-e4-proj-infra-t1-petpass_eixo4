@@ -25,13 +25,18 @@ export const requestBackendLogin = (loginData) => {
 };
 
 export const requestBackend = (config) => {
-  const headers = config.withCredentials
-    ? {
-        ...config.headers,
-        'Content-Type': 'application/json',
-        Authorization: 'Bearer ' + getAuthData().jwtToken,
-      }
-    : config.headers;
+  let headers = {
+    'Content-Type': 'application/json',
+    ...config.headers
+  };
+
+  if (config.withCredentials) {
+    headers = {
+      ...headers, 
+      'Authorization': 'Bearer ' + getAuthData().jwtToken
+    }
+  }
+
   return axios({ ...config, baseURL: BASE_URL, headers });
 };
 

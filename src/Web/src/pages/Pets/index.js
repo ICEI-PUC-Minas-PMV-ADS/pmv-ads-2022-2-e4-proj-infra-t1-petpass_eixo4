@@ -4,39 +4,38 @@ import { DataGrid } from '@mui/x-data-grid';
 import ButtonFab from '../../components/ButtonFab/ButtonFab';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import { Tooltip } from '@mui/material';
-import useData from '../../store/useData';
-import Card from '../../components/Card';
 import { useHistory } from 'react-router-dom';
 
 const columns = [
   {
-    field: 'NomePet',
+    field: 'nomePet',
     headerName: 'Nome do Pet',
     width: 150,
     editable: false,
   },
   {
-    field: 'Tipo',
+    field: 'tipo',
     headerName: 'Tipo',
     width: 150,
     editable: false,
+    valueGetter: ({ value }) => ["Cachorro", "Gato"][value],
   },
   {
-    field: 'Raca',
+    field: 'raca',
     headerName: 'Raça',
     width: 150,
     editable: false,
   },
   {
-    field: 'Sexo',
+    field: 'sexo',
     headerName: 'Sexo',
     width: 150,
     editable: false,
+    valueGetter: ({ value }) => ["Fêmea", "Macho"][value],
   },
   {
-    field: 'Idade',
-    headerName: 'Idade',
+    field: 'peso',
+    headerName: 'Peso',
     type: 'number',
     width: 150,
     editable: false,
@@ -44,31 +43,24 @@ const columns = [
     headerAlign: 'left',
   },
   {
-    field: 'DataRegistro',
+    field: 'dataRegistro',
     headerName: 'Data do Registro',
     width: 150,
     editable: false,
     align: 'center',
     headerAlign: 'center',
+    valueGetter: ({ value }) => new Date().toLocaleDateString()
   },
 ];
 
 export default function Pets() {
-  const initialData = [
-    { id: 1, NomePet: '', Tipo: '', Sexo: '', Raca: '', Idade: null, DataRegistro: '' },
-  ];
 
-  const [rows, setRows] = useState(initialData);
+  const [rows, setRows] = useState([]);
 
-  const {
-    data: {
-      user: { id },
-    },
-  } = useData();
 
   useEffect(() => {
       axios
-        .get(`https://localhost:7110/api/Pets/${id}`)
+        .get(`https://localhost:7110/api/Pets`)
         .then((res) => setRows(res.data))
         .catch((err) => console.error(err));
   }, []);
@@ -89,7 +81,7 @@ export default function Pets() {
           rowsPerPageOptions={[5]}
           disableSelectionOnClick
           // checkboxSelection
-          onCellClick={() => history.push('/infoPet')}
+          onRowClick={(event) => history.push('/infoPet', {id: event.id})}
         />
       </Box>
 
