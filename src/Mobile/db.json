@@ -1,0 +1,71 @@
+{
+  "pets": [
+    {
+      "name": "Bethoveen",
+      "tipo": "Cachorro",
+      "sexo": "Macho",
+      "raca": "Maltês",
+      "peso": "4.7",
+      "idade": "5",
+      "dataNascimento": "2022-06-23T02:08:10.087Z",
+      "dataRegistro": "2022-06-23T02:08:10.087Z",
+      "id": 1
+    },
+    {
+      "name": "Garfield",
+      "tipo": "Gato",
+      "sexo": "Macho",
+      "raca": "Laranja",
+      "peso": "6",
+      "idade": "7",
+      "dataNascimento": "2022-06-23T02:08:10.087Z",
+      "dataRegistro": "2022-06-23T02:08:10.087Z",
+      "id": 2
+    }
+  ],
+  "vacinas": [
+    {
+      "nome": "Bethoveen",
+      "vacina": "V8 ou V10",
+      "idade": "25",
+      "dataAplicacao": "2022-06-23T02:09:05.085Z",
+      "dose": "1",
+      "petId": 1,
+      "id": 1
+    },
+    {
+      "nome": "Bethoveen",
+      "vacina": "Gripe Canina",
+      "idade": "12",
+      "dataAplicacao": "2022-06-23T02:09:05.085Z",
+      "dose": "1",
+      "petId": 1,
+      "id": 2
+    }
+  ],
+  "users": [
+    {
+      "name": "Arthur",
+      "email": "Arthur@gmail.com",
+      "id": 1
+    },
+    {
+      "name": "arthur",
+      "email": "Ar@thur.com",
+      "password": "12312",
+      "id": 6
+    },
+    {
+      "name": "Fernado",
+      "email": "fernando@gmail,com",
+      "password": "85154120",
+      "id": 7
+    },
+    {
+      "name": "Arthur fernandes",
+      "email": "arthur@gmail.com",
+      "password": "12345",
+      "id": 8
+    }
+  ]
+}

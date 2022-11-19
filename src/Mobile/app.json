@@ -1,0 +1,14 @@
+{
+  "expo": {
+    "name": "PetPass",
+    "slug": "Projeto",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "android": {
+      "package": "com.pucMinas.petPass",
+         "versionCode": 1
+      }
+  }
+}
