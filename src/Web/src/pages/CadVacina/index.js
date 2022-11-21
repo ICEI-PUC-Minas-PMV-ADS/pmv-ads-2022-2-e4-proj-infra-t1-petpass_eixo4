@@ -50,7 +50,8 @@ const CadVacina = () => {
 
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="row product-crud-inputs-container">
-            <div className="margin-botton-30">
+            <div className="margin-botton-15">
+              <label className="label-form">Tipo</label>
               <select
                 {...register('tipoPet', {
                   required: 'Campo obrigatório.',
@@ -63,11 +64,12 @@ const CadVacina = () => {
                 <option value="1">Gato</option>
               </select>
 
-              <div className="margin-botton-30">
+              <div className="margin-botton-15">
+                <label className="label-form">Dose</label>
                 <input
-                {...register('dose', {
-                  required: 'Campo obrigatório.',
-                })}
+                  {...register('dose', {
+                    required: 'Campo obrigatório.',
+                  })}
                   type="text"
                   className={`form-control base-input`}
                   placeholder="Dose"
@@ -76,16 +78,19 @@ const CadVacina = () => {
                 <div className="invalid-feedback d-block">{}</div>
               </div>
 
-              <textarea
-              {...register('Descricao', {
-                required: 'Campo obrigatório.',
-              })}
-                rows={9}
-                className={`form-control base-input h-auto`}
-                placeholder="Descrição"
-                name="Descricao"
-              />
-              <div className="invalid-feedback d-block"></div>
+              <div className="margin-botton-15">
+                <label className="label-form">Descrição</label>
+                <textarea
+                  {...register('Descricao', {
+                    required: 'Campo obrigatório.',
+                  })}
+                  rows={5}
+                  className={`form-control base-input h-auto`}
+                  placeholder="Descrição"
+                  name="Descricao"
+                />
+                <div className="invalid-feedback d-block"></div>
+              </div>
             </div>
           </div>
 
@@ -97,7 +102,7 @@ const CadVacina = () => {
               CANCELAR
             </button>
             <button className="btn btn-outline-primary product-crud-button button-rigth">
-            {buttonText}
+              {buttonText}
             </button>
           </div>
         </form>

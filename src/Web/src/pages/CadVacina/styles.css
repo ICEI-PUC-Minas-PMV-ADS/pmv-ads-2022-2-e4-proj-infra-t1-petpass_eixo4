@@ -15,8 +15,8 @@
     margin-bottom: 30px;
   }
   
-  .margin-botton-30 {
-    margin-bottom: 30px;
+  .margin-botton-15 {
+    margin-bottom: 15px;
   }
 
   .select-type {
@@ -26,6 +26,7 @@
   .product-crud-buttons-container {
       display: flex;
       justify-content: space-between;
+      margin-top: 15px;
   }
   
   .product-crud-button {

@@ -15,15 +15,11 @@
     margin-bottom: 30px;
   }
   
-  .margin-botton-30 {
-    margin-bottom: 30px;
+  .margin-botton-15 {
+    margin-bottom: 15px;
   }
   
-  .pet-crud-inputs-container {
-    margin-bottom: 30px;
-  }
-
-  .pet-label-form {
+  .label-form {
     font-size: 16px;
     font-weight: 700;
     color: #9E9E9E;
@@ -33,6 +29,7 @@
   .pet-crud-buttons-container {
       display: flex;
       justify-content: space-between;
+      margin-top: 15px;
   }
   
   .pet-crud-button {

@@ -5,6 +5,7 @@ import ButtonFab from '../../components/ButtonFab/ButtonFab';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
+import { getAuthenticatedUser } from '../../util/auth';
 
 const columns = [
   {
@@ -18,7 +19,7 @@ const columns = [
     headerName: 'Tipo',
     width: 150,
     editable: false,
-    valueGetter: ({ value }) => ["Cachorro", "Gato"][value],
+    valueGetter: ({ value }) => ['Cachorro', 'Gato'][value],
   },
   {
     field: 'raca',
@@ -31,7 +32,7 @@ const columns = [
     headerName: 'Sexo',
     width: 150,
     editable: false,
-    valueGetter: ({ value }) => ["Fêmea", "Macho"][value],
+    valueGetter: ({ value }) => ['Fêmea', 'Macho'][value],
   },
   {
     field: 'peso',
@@ -49,22 +50,19 @@ const columns = [
     editable: false,
     align: 'center',
     headerAlign: 'center',
-    valueGetter: ({ value }) => new Date().toLocaleDateString()
+    valueGetter: ({ value }) => new Date().toLocaleDateString(),
   },
 ];
 
 export default function Pets() {
-
   const [rows, setRows] = useState([]);
 
-
   useEffect(() => {
-      axios
-        .get(`https://localhost:7110/api/Pets`)
-        .then((res) => setRows(res.data))
-        .catch((err) => console.error(err));
+    axios
+      .get(`https://localhost:7110/api/Usuarios/${getAuthenticatedUser()}/Pets`)
+      .then((res) => setRows(res.data.map(d => d.pet)))
+      .catch((err) => console.error(err));
   }, []);
-
 
   const history = useHistory();
 
@@ -81,7 +79,7 @@ export default function Pets() {
           rowsPerPageOptions={[5]}
           disableSelectionOnClick
           // checkboxSelection
-          onRowClick={(event) => history.push('/infoPet', {id: event.id})}
+          onRowClick={(event) => history.push('/infoPet', { id: event.id })}
         />
       </Box>
 

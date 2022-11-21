@@ -33,7 +33,7 @@ const Users = () => {
           <div className="row card-data-user">
             {page?.map((item) => (
               <div key={item}>
-                <p>Nome: {item.nome}</p>
+                <p>E-mail: {item.email}</p>
                 <p>Perfil: {item.perfil < 2 ? (item.perfil === 1 ? 'Administrador' : 'Usuário' ) : 'Instituição'}</p>
               </div>
             ))}

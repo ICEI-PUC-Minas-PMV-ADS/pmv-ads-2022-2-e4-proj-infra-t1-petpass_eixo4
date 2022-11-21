@@ -23,13 +23,12 @@ const Register = () => {
   const history = useHistory();
 
   const onSubmit = (formData) => {
-
-    console.log(formData['perfil'])
+    console.log(formData['perfil']);
 
     const data = {
       Nome: formData['username'],
       Password: formData['password'],
-      Perfil: parseInt(formData['perfil'])
+      Perfil: parseInt(formData['perfil']),
     };
 
     const params = {
@@ -60,6 +59,7 @@ const Register = () => {
       )}
       <form onSubmit={handleSubmit(onSubmit)} autoComplete="new-password">
         <div className="mb-4">
+          <label className="label-form-login">E-mail</label>
           <input
             {...register('username', {
               required: 'Campo obrigatório.',
@@ -77,6 +77,7 @@ const Register = () => {
           </div>
         </div>
         <div className="mb-4">
+          <label className="label-form-login">Senha</label>
           <input
             {...register('password', {
               required: 'Campo obrigatório.',
@@ -95,6 +96,7 @@ const Register = () => {
         </div>
 
         <div className="mb-4">
+          <label className="label-form-login">Confirme sua senha</label>
           <input
             {...register('confirm_password', {
               required: 'Campo obrigatório.',
@@ -119,9 +121,9 @@ const Register = () => {
 
         <div className="form-check form-check-inline">
           <input
-          {...register('perfil', {
-            required: 'Campo obrigatório.',
-          })}
+            {...register('perfil', {
+              required: 'Campo obrigatório.',
+            })}
             className="form-check-input"
             type="radio"
             name="perfil"
@@ -129,20 +131,24 @@ const Register = () => {
             value="0"
             checked
           />
-          <label className="form-check-label" htmlFor="inlineRadio1">Usuário</label>
+          <label className="form-check-label" htmlFor="inlineRadio1">
+            Usuário
+          </label>
         </div>
         <div className="form-check form-check-inline">
           <input
-          {...register('perfil', {
-            required: 'Campo obrigatório.',
-          })}
+            {...register('perfil', {
+              required: 'Campo obrigatório.',
+            })}
             className="form-check-input"
             type="radio"
             name="perfil"
             id="inlineRadio2"
             value="2"
           />
-          <label className="form-check-label" htmlFor="inlineRadio2">Instituição</label>
+          <label className="form-check-label" htmlFor="inlineRadio2">
+            Instituição
+          </label>
         </div>
 
         <div className="register-submit">

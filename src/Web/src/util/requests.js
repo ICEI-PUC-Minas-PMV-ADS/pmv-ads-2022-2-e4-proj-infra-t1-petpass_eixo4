@@ -11,7 +11,7 @@ export const requestBackendLogin = (loginData) => {
   };
 
   const data = {
-    id: loginData['username'],
+    email: loginData['username'],
     password: loginData['password'],
   };
 

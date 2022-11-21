@@ -12,6 +12,10 @@
     text-transform: uppercase;
     margin: 10px 0 40px 0;
   }
+
+  .label-form-login {
+    margin-bottom: 5px;
+  }
   
   .login-link-recover {
       font-size: 1em;
