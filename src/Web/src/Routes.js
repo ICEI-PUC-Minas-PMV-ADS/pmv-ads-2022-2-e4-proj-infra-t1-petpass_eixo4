@@ -5,9 +5,9 @@ import Auth from './pages/Auth';
 import CadVacina from './pages/CadVacina';
 import CadPet from './pages/CadPet';
 import Usuario from './pages/Usuario';
-
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import InfoPets from './pages/infoPets';
+import RegistroVacina from './pages/RegistroVacina';
 
 const Routes = () => (
   <BrowserRouter>
@@ -34,6 +34,9 @@ const Routes = () => (
       </Route>
       <Route path="/usuario">
         <Usuario />
+      </Route>
+      <Route path="/registroVacina">
+        <RegistroVacina />
       </Route>
     </Switch>
   </BrowserRouter>

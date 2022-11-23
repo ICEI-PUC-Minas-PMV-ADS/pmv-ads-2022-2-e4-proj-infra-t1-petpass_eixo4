@@ -8,12 +8,7 @@ const CadVacina = () => {
   const [buttonText, setButtonText] = useState('Salvar');
   const [error, setError] = useState(false);
 
-  const {
-    register,
-    watch,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  const { register, handleSubmit } = useForm();
 
   const finallyRequest = (response) => {
     if (response) {

@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import './styles.css';
 import { requestBackend } from '../../util/requests';
 import { useForm } from 'react-hook-form';
-
 import { getAuthenticatedUser } from '../../util/auth';
+
+import './styles.css';
 
 const CadPet = () => {
   const [buttonText, setButtonText] = useState('Salvar');

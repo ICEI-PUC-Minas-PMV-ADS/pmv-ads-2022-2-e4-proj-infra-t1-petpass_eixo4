@@ -1,7 +1,7 @@
 import './styles.css';
 import DogImage from '../../assets/images/cute-pet.jpg';
 import CatImage from '../../assets/images/cute-cat.jpg';
-import { useHistory, useLocation, useParams } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
@@ -60,11 +60,11 @@ const InfoPets = () => {
           <div className="row card-data-pet">
             <p className="col-sm-6">Nome: {pet.nomePet}</p>
             <p className="col-sm-6">
-              Tipo: {pet.tipo === 0 ? 'Cachorro' : 'Gato'}
+              Tipo: {['Cachorro', 'Gato'][pet.tipo]}
             </p>
             <p className="col-sm-6">Raça: {pet.raca}</p>
             <p className="col-sm-6">
-              Sexo: {pet.sexo === 0 ? 'Fêmea' : 'Macho'}
+              Sexo: {['Fêmea', 'Macho'][pet.sexo]}
             </p>
             <p className="col-sm-6">Peso: {pet.peso} kg</p>
             <p className="col-sm-6">
@@ -75,7 +75,11 @@ const InfoPets = () => {
         </div>
         <div className="base-card card-vaccine">
           <h6>Relação de Vacinas:</h6>
-          <p></p>
+          {pet.registroVacinas?.sort((a,b) => a.idade-b.idade).map((item) => (
+            <p key={item.id}>
+              {item.vacina.descricao} - Dose: {item.vacina.dose} - Idade: {item.idade} - Aplicação: {new Date(item.data).toLocaleDateString()}
+            </p>
+          ))}
         </div>
       </div>
     </div>
