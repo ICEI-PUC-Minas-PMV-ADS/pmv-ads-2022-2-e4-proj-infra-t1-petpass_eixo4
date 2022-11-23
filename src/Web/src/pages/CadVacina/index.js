@@ -41,7 +41,7 @@ const CadVacina = () => {
   return (
     <div className="product-crud-container">
       <div className="base-card product-crud-form-card">
-        <h1 className="product-crud-form-title">CADASTRAR VACINA</h1>
+        <h1 className="product-crud-form-title">Cadastro de Vacina</h1>
 
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="row product-crud-inputs-container">

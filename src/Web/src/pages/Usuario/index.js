@@ -21,7 +21,7 @@ const Users = () => {
 
   return (
     <div className="user-container">
-      <h1>Perfil do usuário</h1>
+      <h1>Meu Perfil</h1>
       <div className="base-card user-card">
         <div className="user-content-container">
           <div className="user-image-container">

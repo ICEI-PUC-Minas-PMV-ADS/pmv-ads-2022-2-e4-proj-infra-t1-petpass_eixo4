@@ -62,7 +62,7 @@ const CadPet = () => {
     <>
       <div className="pet-crud-container">
         <div className="base-card pet-crud-form-card">
-          <h1 className="pet-crud-form-title">CADASTRAR PET</h1>
+          <h1 className="pet-crud-form-title">Cadastro de Pet</h1>
 
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="row">

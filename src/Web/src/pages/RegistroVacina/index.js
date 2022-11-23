@@ -58,7 +58,7 @@ const RegistroVacina = () => {
     <>
       <div className="pet-crud-container">
         <div className="base-card pet-crud-form-card">
-          <h1 className="pet-crud-form-title">REGISTRAR VACINA</h1>
+          <h1 className="pet-crud-form-title">Aplicação de Vacina</h1>
 
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="row">

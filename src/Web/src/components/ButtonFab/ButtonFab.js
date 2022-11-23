@@ -8,8 +8,8 @@ import PetsIcon from '@mui/icons-material/Pets';
 
 
 const actions = [
-  { icon: <PetsIcon />, name: 'Adicionar Pet', href: '/cadPet' },
-  { icon: <VaccinesIcon />, name: 'Adicionar Vacina', href: '/cadVacina' },
+  { icon: <PetsIcon />, name: 'Cadastrar Pet', href: '/cadPet' },
+  { icon: <VaccinesIcon />, name: 'Cadastrar Vacina', href: '/cadVacina' },
 ];
 
 

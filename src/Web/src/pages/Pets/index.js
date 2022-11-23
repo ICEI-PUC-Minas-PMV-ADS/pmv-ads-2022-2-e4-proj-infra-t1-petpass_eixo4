@@ -53,16 +53,23 @@ const columns = [
     valueGetter: ({ value }) => new Date(value).toLocaleDateString(),
   },
   {
-    headerName: 'Ações',
-    width: 150,
+    headerName: 'Aplicar Vacina',
+    width: 180,
     editable: false,
     align: 'center',
     field: 'actions',
     type: 'actions',
     getActions: (params) => [
-      <GridActionsCellItem icon={<VaccinesIcon />} onClick={() => { history.push('/registroVacina', { id: params.id }); window.location = '';}} label="Aplicar Vacina" />,
-    ]
-  }
+      <GridActionsCellItem
+        icon={<VaccinesIcon />}
+        onClick={() => {
+          history.push('/registroVacina', { id: params.id });
+          window.location = '';
+        }}
+        label="Aplicar Vacina"
+      />,
+    ],
+  },
 ];
 
 export default function Pets() {
@@ -71,7 +78,7 @@ export default function Pets() {
   useEffect(() => {
     axios
       .get(`https://localhost:7110/api/Usuarios/${getAuthenticatedUser()}/Pets`)
-      .then((res) => setRows(res.data.map(d => d.pet)))
+      .then((res) => setRows(res.data.map((d) => d.pet)))
       .catch((err) => console.error(err));
   }, []);
 
@@ -80,7 +87,7 @@ export default function Pets() {
   return (
     <div className="pets-container">
       <h1 style={{ marginLeft: 110, padding: 10, fontWeight: 'bold' }}>
-        Pets Cadastrados
+        Meus Pets
       </h1>
       <Box style={{ height: 470, width: '85%', marginLeft: '110px' }}>
         <DataGrid
