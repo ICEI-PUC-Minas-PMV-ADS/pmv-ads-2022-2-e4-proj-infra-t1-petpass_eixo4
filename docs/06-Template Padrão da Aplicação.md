@@ -12,10 +12,6 @@ Segue abaixo o template padrão das telas iniciais.
 
 ![image](https://user-images.githubusercontent.com/83302547/200189829-17231e70-52c9-4291-876d-9e62fccf2274.png)
 
-## Template Padrão Mobile
-
-O escolha é por um padrão único para Web e Mobile, mantendo assim a identidade visual da aplicação.
-
 ![image](https://user-images.githubusercontent.com/83302547/203671444-7399dca8-820b-43d1-a86e-58c2429817df.png)
 
 Segue abaixo o template padrão das telas internas da aplicação.
@@ -26,7 +22,11 @@ Segue abaixo o template padrão das telas internas da aplicação.
 ![image](https://user-images.githubusercontent.com/83302547/200189926-cc5649ab-f031-4057-ac7e-4375d249c18a.png)
 ![image](https://user-images.githubusercontent.com/83302547/200189939-84c01be2-b265-4e0f-9a66-3908dbd83451.png)
 
+## Template Padrão Mobile
 
+O escolha é por um padrão único para Web e Mobile, mantendo assim a identidade visual da aplicação.
+
+![image](https://user-images.githubusercontent.com/83302547/203671444-7399dca8-820b-43d1-a86e-58c2429817df.png)
 
 > **Links Úteis**:
 >
