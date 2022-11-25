@@ -19,7 +19,7 @@ A seguir, tem-se o Diagrama de Fluxo contruído para a aplicação do Pet Pass.
 
 São protótipos usados em design de interface para sugerir a estrutura de um site web e seu relacionamentos entre suas páginas. Um wireframe web é uma ilustração semelhante do layout de elementos fundamentais na interface.
  
- A imagem abaixo mostra uma visão geral dos Wireframes da aplicação Pet Pass e seu fluxo de usuário:
+ A imagem abaixo mostra uma visão geral dos Wireframes da aplicação Pet Pass e seu fluxo de usuário (Versão WEB):
  
 ![image](https://user-images.githubusercontent.com/83302547/200189432-f5602ed3-0e97-41a3-aca7-af04abd330b8.png)
 
@@ -55,3 +55,39 @@ Dão uma visão geral da aplicação, após autenticação do usuário. Na image
    
    https://gauchazh.clicrbs.com.br/ultimas-noticias/tag/animais/
    
+ ## Protótipo versão Mobile
+ 
+ A imagem abaixo mostra uma visão geral dos Wireframes mobile da aplicação Pet Pass e seu fluxo de usuário:
+ 
+ ![image](https://user-images.githubusercontent.com/83302547/203671444-7399dca8-820b-43d1-a86e-58c2429817df.png)
+ 
+ ## Telas iniciais:
+Homepage: Tela de apresentação, que também proporciona ao usuário o conhecimento inicial das funcionalidades e objetivos do projeto.
+
+![image](https://user-images.githubusercontent.com/83302547/203671678-0771392d-78c0-45cb-bed4-ead0ece173af.png)
+
+Telas de Login e Cadastro: Telas responsáveis pelo cadstro e pela autenticação dos clientes que utilizam o sistema. 
+
+![image](https://user-images.githubusercontent.com/83302547/203671731-76c89051-d9b5-4d53-97f5-36c65405c1b9.png)
+![image](https://user-images.githubusercontent.com/83302547/203671759-1310687f-9808-46dd-aa22-3f11400b89fe.png)
+
+## Telas internas:
+Dão uma visão geral da aplicação, após autenticação do usuário. Na imagem abaixo são mostradas três telas: Tela de Pets cadastrados; Tela para cadastro de um ou mais Pets; Tela com maiores detalhes do Pet.
+
+![image](https://user-images.githubusercontent.com/83302547/203671880-e27ba1d3-b985-4964-b543-10df14442075.png)
+![image](https://user-images.githubusercontent.com/83302547/203671905-a555ef1e-e0ef-4309-9c4e-db4255d6fff1.png)
+![image](https://user-images.githubusercontent.com/83302547/203671953-9591381c-7dad-4ae0-9720-19250d3d0263.png)
+
+ Tela para cadastro de vacinas:
+ 
+ ![image](https://user-images.githubusercontent.com/83302547/203672061-6481fdc5-c7ab-480f-996d-dd500291c04d.png)
+
+ Tela com informações do usuário:
+ 
+ ![image](https://user-images.githubusercontent.com/83302547/200189776-c867fb0e-b6e9-4945-8025-d549417e16d0.png)
+ 
+ Tela de Notícias: 
+   
+   A princípio, o botão de notícias redirecionará à um site atualizado com as últimas notícias sobre Pets:
+   
+   https://gauchazh.clicrbs.com.br/ultimas-noticias/tag/animais/
