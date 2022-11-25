@@ -4,6 +4,7 @@ import CatImage from '../../assets/images/cute-cat.jpg';
 import { useHistory, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import EditIcon from '@mui/icons-material/Edit';
 
 const InfoPets = () => {
   const history = useHistory();
@@ -79,9 +80,10 @@ const InfoPets = () => {
                   className="btn-vaccine"
                   onClick={() => history.push('/registroVacina', {id: item.id})}
                 >
-                  {item.vacina.descricao} - Dose: {item.vacina.dose} - Idade:{' '}
+                  <EditIcon color="action"/> {item.vacina.descricao} - Dose: {item.vacina.dose} - Idade:{' '}
                   {item.idade} - Aplicação:{' '}
                   {new Date(item.data).toLocaleDateString()}
+                  
                 </button>
               </p>
             ))}
