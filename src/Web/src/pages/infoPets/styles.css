@@ -78,6 +78,10 @@
     letter-spacing: -0.015em;
   }
   
+  .btn-vaccine {
+    border: none;
+    background-color: #E1E1E1;
+  }
   
   @media (min-width: 576px) {
     .pets-container {

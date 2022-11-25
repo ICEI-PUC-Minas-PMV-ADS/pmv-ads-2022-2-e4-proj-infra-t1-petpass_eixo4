@@ -53,7 +53,7 @@ const columns = [
     valueGetter: ({ value }) => new Date(value).toLocaleDateString(),
   },
   {
-    headerName: 'Aplicar Vacina',
+    headerName: 'Ações',
     width: 180,
     editable: false,
     align: 'center',
@@ -63,7 +63,7 @@ const columns = [
       <GridActionsCellItem
         icon={<VaccinesIcon />}
         onClick={() => {
-          history.push('/registroVacina', { id: params.id });
+          history.push('/registroVacina', { petId: params.id });
           window.location = '';
         }}
         label="Aplicar Vacina"

@@ -7,14 +7,18 @@ import { requestBackend } from '../../util/requests';
 import './styles.css';
 
 const RegistroVacina = () => {
+
   const [buttonText, setButtonText] = useState('Salvar');
+
   const [error, setError] = useState(false);
 
-  const {
-    state: { id: petId },
-  } = useLocation();
+  const [petId, setPetId] = useState(useLocation()?.state?.petId);
 
-  const { register, handleSubmit } = useForm();
+  const regId = useLocation()?.state?.id;
+
+  const isEditing = regId ? true : false;
+
+  const { register, handleSubmit, setValue } = useForm();
 
   const [vacinas, setVacinas] = useState([]);
 
@@ -24,6 +28,21 @@ const RegistroVacina = () => {
       .then((res) => setVacinas(res.data))
       .catch((err) => console.error(err));
   }, []);
+
+  useEffect(() => {
+    if (isEditing) {
+      axios
+      .get(`https://localhost:7110/api/RegistroVacinas/${regId}`)
+      .then((res) => {
+        const vac = res.data;
+        setValue('vacinaId', vac.vacinaId);
+        setValue('idade', vac.idade);
+        setValue('data', vac.data.split('T')[0]);
+        setPetId(vac.petId);
+      })
+      .catch((err) => console.error(err)); 
+    }
+  }, [regId, isEditing, setValue, setPetId]);
 
   const finallyRequest = (response) => {
     if (response) {
@@ -35,8 +54,8 @@ const RegistroVacina = () => {
 
   const onSubmit = (formData) => {
     const params = {
-      method: 'POST',
-      url: `https://localhost:7110/api/RegistroVacinas`,
+      method: isEditing ? 'PUT' : 'POST',
+      url: isEditing ? `https://localhost:7110/api/RegistroVacinas/${regId}` : `https://localhost:7110/api/RegistroVacinas`,
       withCredentials: true,
       data: {
         ...formData,
@@ -44,6 +63,10 @@ const RegistroVacina = () => {
         vacinaId: parseInt(formData['vacinaId']),
       },
     };
+
+    if (isEditing) {
+      params.data = {...params.data, id: regId};
+    }
 
     setButtonText('Carregando...');
     requestBackend(params)

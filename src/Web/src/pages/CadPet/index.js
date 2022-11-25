@@ -1,16 +1,40 @@
-import { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useHistory, useLocation } from 'react-router-dom';
 import { requestBackend } from '../../util/requests';
 import { useForm } from 'react-hook-form';
 import { getAuthenticatedUser } from '../../util/auth';
 
 import './styles.css';
+import axios from 'axios';
 
 const CadPet = () => {
+  
   const [buttonText, setButtonText] = useState('Salvar');
+
   const [error, setError] = useState(false);
 
-  const { register, handleSubmit } = useForm();
+  const petId = useLocation()?.state?.id;
+
+  const isEditing = petId ? true : false;
+
+  const { register, handleSubmit, setValue } = useForm();
+
+  useEffect(() => {
+    if (isEditing) {
+      axios
+      .get(`https://localhost:7110/api/Pets/${petId}`)
+      .then((res) => {
+        const pet = res.data;
+        setValue('nomePet', pet.nomePet);
+        setValue('tipo', pet.tipo);
+        setValue('raca', pet.raca);
+        setValue('sexo', pet.sexo);
+        setValue('peso', pet.peso);
+        setValue('dataRegistro', pet.dataRegistro.split('T')[0]);
+      })
+      .catch((err) => console.error(err)); 
+    }
+  }, [petId, isEditing, setValue]);
 
   const finallyRequest = (response) => {
     if (response) {
@@ -39,8 +63,8 @@ const CadPet = () => {
 
   const onSubmit = (formData) => {
     const params = {
-      method: 'POST',
-      url: `https://localhost:7110/api/Pets`,
+      method: isEditing ? 'PUT' : 'POST',
+      url: isEditing ? `https://localhost:7110/api/Pets/${petId}` : `https://localhost:7110/api/Pets`,
       withCredentials: true,
       data: {
         ...formData,
@@ -49,9 +73,19 @@ const CadPet = () => {
       },
     };
 
+    if (isEditing) {
+      params.data = {...params.data, id: petId};
+    }
+
     setButtonText('Carregando...');
     requestBackend(params)
-      .then((response) => createLinkPetUser(response.data.id))
+      .then((response) => {
+        if (!isEditing) {
+          createLinkPetUser(response.data.id);
+        } else {
+          finallyRequest(true);
+        }
+      })
       .catch(() => setError(true))
       .finally(() => setButtonText('Salvar'));
   };
