@@ -182,14 +182,14 @@ namespace PetPassBackend.Controllers
         }
 
         [HttpDelete("{id}/vacinas/{registroId}")]
-        public ActionResult DeleteVacina(int registroId)
+        public async Task<ActionResult> DeleteVacina(int registroId)
         {
             RegistroVacina model = _repository.Registro.GetRegistroById(registroId);
 
             if (model == null) return NotFound();
 
             _repository.Registro.DeleteRegistro(model);
-            _repository.Save();
+            await _repository.Save();
 
             return NoContent();
         }

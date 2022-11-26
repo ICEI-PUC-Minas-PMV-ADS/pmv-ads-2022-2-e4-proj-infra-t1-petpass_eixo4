@@ -83,14 +83,14 @@ namespace PetPassBackend.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(RegistroVacina model)
+        public async Task<IActionResult> Create(RegistroVacina model)
         {
             try
             {
                 if (!ModelState.IsValid) return BadRequest();
 
                 _repository.Registro.CreateRegistro(model);
-                _repository.Save();
+                await _repository.Save();
 
                 return CreatedAtAction("GetById", new { id = model.Id }, model);
             }
@@ -101,7 +101,7 @@ namespace PetPassBackend.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult Update(int id, RegistroVacina model)
+        public async Task<IActionResult> Update(int id, RegistroVacina model)
         {
             if (id != model.Id) return BadRequest();
 
@@ -110,20 +110,20 @@ namespace PetPassBackend.Controllers
             if (modelDb == null) return NotFound();
 
             _repository.Registro.Update(model);
-            _repository.Save();
+            await _repository.Save();
 
             return NoContent();
         }
 
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
             var model = _repository.Registro.GetRegistroById(id);
 
             if (model == null) return NotFound();
 
             _repository.Registro.DeleteRegistro(model);
-            _repository.Save();
+            await _repository.Save();
 
             return NoContent();
         }
