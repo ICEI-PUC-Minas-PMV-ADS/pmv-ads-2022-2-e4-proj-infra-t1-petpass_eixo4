@@ -7,11 +7,9 @@ import { requestBackendLogin } from '../../../util/requests.js';
 import { saveAuthData } from '../../../util/storage.js';
 import { getTokenData } from '../../../util/auth.js';
 
-
 import './styles.css';
 
 const Login = () => {
-
   const location = useLocation();
 
   const { from } = location.state || { from: { pathname: '/pets' } };
@@ -20,7 +18,11 @@ const Login = () => {
 
   const [hasError, setHasError] = useState(false);
 
-  const { register, handleSubmit, formState : {errors} } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
   const history = useHistory();
 
@@ -51,28 +53,38 @@ const Login = () => {
       )}
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="mb-4">
+          <label className="label-form-login">E-mail</label>
           <input
-          {...register('username', {
-            required: 'Campo obrigatório.'
-          })}
+            {...register('username', {
+              required: 'Campo obrigatório.',
+            })}
             type="text"
-            className={`form-control base-input ${errors.username ? 'is-invalid' : ''}`}
-            placeholder="Nome"
+            className={`form-control base-input ${
+              errors.username ? 'is-invalid' : ''
+            }`}
+            placeholder="Email"
             name="username"
           />
-          <div className="invalid-feedback d-block">{errors.username?.message}</div>
+          <div className="invalid-feedback d-block">
+            {errors.username?.message}
+          </div>
         </div>
         <div className="mb-2">
+          <label className="label-form-login">Senha</label>
           <input
-          {...register('password', {
-            required: 'Campo obrigatório.'
-          })}
+            {...register('password', {
+              required: 'Campo obrigatório.',
+            })}
             type="password"
-            className={`form-control base-input ${errors.password ? 'is-invalid' : ''}`}
+            className={`form-control base-input ${
+              errors.password ? 'is-invalid' : ''
+            }`}
             placeholder="Senha"
             name="password"
           />
-          <div className="invalid-feedback d-block">{errors.password?.message}</div>
+          <div className="invalid-feedback d-block">
+            {errors.password?.message}
+          </div>
         </div>
         <Link to="/auth/register" className="login-link-recover">
           Esqueci a senha?

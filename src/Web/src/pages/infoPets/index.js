@@ -1,9 +1,10 @@
 import './styles.css';
 import DogImage from '../../assets/images/cute-pet.jpg';
 import CatImage from '../../assets/images/cute-cat.jpg';
-import { useHistory, useLocation, useParams } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import EditIcon from '@mui/icons-material/Edit';
 
 const InfoPets = () => {
   const history = useHistory();
@@ -26,7 +27,7 @@ const InfoPets = () => {
       <div className="header">
         <button
           className=" infoButton btn btn-outline-primary pet-crud-button button-rigth"
-          onClick={() => history.push('/cadPet')}
+          onClick={() => history.push('/cadPet', { id })}
         >
           Editar
         </button>
@@ -59,13 +60,9 @@ const InfoPets = () => {
           </div>
           <div className="row card-data-pet">
             <p className="col-sm-6">Nome: {pet.nomePet}</p>
-            <p className="col-sm-6">
-              Tipo: {pet.tipo === 0 ? 'Cachorro' : 'Gato'}
-            </p>
+            <p className="col-sm-6">Tipo: {['Cachorro', 'Gato'][pet.tipo]}</p>
             <p className="col-sm-6">Raça: {pet.raca}</p>
-            <p className="col-sm-6">
-              Sexo: {pet.sexo === 0 ? 'Fêmea' : 'Macho'}
-            </p>
+            <p className="col-sm-6">Sexo: {['Fêmea', 'Macho'][pet.sexo]}</p>
             <p className="col-sm-6">Peso: {pet.peso} kg</p>
             <p className="col-sm-6">
               Data do cadastro:{' '}
@@ -75,7 +72,21 @@ const InfoPets = () => {
         </div>
         <div className="base-card card-vaccine">
           <h6>Relação de Vacinas:</h6>
-          <p></p>
+          {pet.registroVacinas
+            ?.sort((a, b) => a.idade - b.idade)
+            .map((item) => (
+              <p key={item.id}>
+                <button
+                  className="btn-vaccine"
+                  onClick={() => history.push('/registroVacina', {id: item.id})}
+                >
+                  <EditIcon color="action"/> {item.vacina.descricao} - Dose: {item.vacina.dose} - Idade:{' '}
+                  {item.idade} - Aplicação:{' '}
+                  {new Date(item.data).toLocaleDateString()}
+                  
+                </button>
+              </p>
+            ))}
         </div>
       </div>
     </div>

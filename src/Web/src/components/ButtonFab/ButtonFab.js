@@ -3,18 +3,13 @@ import Box from '@mui/material/Box';
 import SpeedDial from '@mui/material/SpeedDial';
 import SpeedDialIcon from '@mui/material/SpeedDialIcon';
 import SpeedDialAction from '@mui/material/SpeedDialAction';
-import VaccinesIcon from '@mui/icons-material/Vaccines';
+import FeedIcon from '@mui/icons-material/Feed';
 import PetsIcon from '@mui/icons-material/Pets';
-import SaveIcon from '@mui/icons-material/Save';
-import PrintIcon from '@mui/icons-material/Print';
-import ShareIcon from '@mui/icons-material/Share';
+
 
 const actions = [
-  { icon: <PetsIcon />, name: 'Adicionar Pet', href: '/cadPet' },
-  { icon: <VaccinesIcon />, name: 'Adicionar Vacina', href: '/cadVacina' },
-  // { icon: <SaveIcon />, name: 'Save' },
-  // { icon: <PrintIcon />, name: 'Print' },
-  // { icon: <ShareIcon />, name: 'Share' },
+  { icon: <PetsIcon />, name: 'Cadastrar Pet', href: '/cadPet' },
+  { icon: <FeedIcon />, name: 'Cadastrar Vacina', href: '/cadVacina' },
 ];
 
 

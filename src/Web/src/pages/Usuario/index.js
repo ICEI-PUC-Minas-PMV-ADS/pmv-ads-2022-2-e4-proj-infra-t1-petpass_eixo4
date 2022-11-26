@@ -21,7 +21,7 @@ const Users = () => {
 
   return (
     <div className="user-container">
-      <h1>Perfil do usuário</h1>
+      <h1>Meu Perfil</h1>
       <div className="base-card user-card">
         <div className="user-content-container">
           <div className="user-image-container">
@@ -33,7 +33,7 @@ const Users = () => {
           <div className="row card-data-user">
             {page?.map((item) => (
               <div key={item}>
-                <p>Nome: {item.nome}</p>
+                <p>E-mail: {item.email}</p>
                 <p>Perfil: {item.perfil < 2 ? (item.perfil === 1 ? 'Administrador' : 'Usuário' ) : 'Instituição'}</p>
               </div>
             ))}

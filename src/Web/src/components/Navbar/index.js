@@ -37,22 +37,22 @@ const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-md navbar-dark bg-primary main-nav">
       <div className="container-fluid main-container">
-        <Link to="/" className="nav-logo-text">
+        <Link to="/" className="nav-logo-text col-md-2" >
           <h4>PetPass</h4>
         </Link>
         <button
           className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
-          data-bs-target="#dscatalog-navbar"
-          aria-controls="dscatalog-navbar"
+          data-bs-target="#petpass-navbar"
+          aria-controls="petpass-navbar"
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="petpass-navbar">
-          <ul className="navbar-nav offset-md-8 main-menu">
+        <div className="collapse navbar-collapse col-md-10 justify-content-end" id="petpass-navbar">
+          <ul className="navbar-nav main-menu">
             {authContextData.authenticated && (
               <>
                 <li>
