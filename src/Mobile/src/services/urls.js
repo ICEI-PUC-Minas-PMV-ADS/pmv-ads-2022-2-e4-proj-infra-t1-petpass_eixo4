@@ -1,0 +1,1 @@
+export const BASE_URL = 'http://rodrigopuc-001-site1.htempurl.com/api'

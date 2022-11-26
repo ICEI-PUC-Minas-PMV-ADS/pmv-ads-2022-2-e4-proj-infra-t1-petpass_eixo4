@@ -3,7 +3,7 @@ import history from './history';
 import { getAuthData } from './storage';
 
 export const BASE_URL =
-  process.env.REACT_APP_BACKEND_URL ?? 'https://localhost:7110';
+  process.env.REACT_APP_BACKEND_URL ?? 'http://rodrigopuc-001-site1.htempurl.com';
 
 export const requestBackendLogin = (loginData) => {
   let headers = {

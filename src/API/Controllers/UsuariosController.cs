@@ -140,7 +140,7 @@ namespace PetPassBackend.Controllers
 
             var jwt = GenerateJwtToken(usuarioDb);
 
-            return Ok(new { jwtToken = jwt });
+            return Ok(new { jwtToken = jwt,id=usuarioDb.Id });
         }
 
         private string GenerateJwtToken(Usuario model)

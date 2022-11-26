@@ -24,7 +24,7 @@ const RegistroVacina = () => {
 
   useEffect(() => {
     axios
-      .get(`https://localhost:7110/api/Vacinas`)
+      .get(`http://rodrigopuc-001-site1.htempurl.com/api/Vacinas`)
       .then((res) => setVacinas(res.data))
       .catch((err) => console.error(err));
   }, []);
@@ -32,7 +32,7 @@ const RegistroVacina = () => {
   useEffect(() => {
     if (isEditing) {
       axios
-      .get(`https://localhost:7110/api/RegistroVacinas/${regId}`)
+      .get(`http://rodrigopuc-001-site1.htempurl.com/api/RegistroVacinas/${regId}`)
       .then((res) => {
         const vac = res.data;
         setValue('vacinaId', vac.vacinaId);
@@ -55,7 +55,7 @@ const RegistroVacina = () => {
   const onSubmit = (formData) => {
     const params = {
       method: isEditing ? 'PUT' : 'POST',
-      url: isEditing ? `https://localhost:7110/api/RegistroVacinas/${regId}` : `https://localhost:7110/api/RegistroVacinas`,
+      url: isEditing ? `http://rodrigopuc-001-site1.htempurl.com/api/RegistroVacinas/${regId}` : `http://rodrigopuc-001-site1.htempurl.com/api/RegistroVacinas`,
       withCredentials: true,
       data: {
         ...formData,

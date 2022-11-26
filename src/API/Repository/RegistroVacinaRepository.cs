@@ -17,7 +17,8 @@ namespace PetPassBackend.Repository
 
         public IEnumerable<RegistroVacina> GetVacinasPet(int petId)
         {
-            return (IEnumerable<RegistroVacina>)FindByCondition(p=>p.PetId.Equals(petId))
+            return (IEnumerable<RegistroVacina>)FindByCondition(p => p.PetId.Equals(petId))
+                .Include(x => x.Vacina)
                 .ToList();
         }
 
@@ -31,7 +32,7 @@ namespace PetPassBackend.Repository
         {
             return FindByCondition(p => p.Id.Equals(registroId))
                 .Include(p => p.Pet)
-                .Include(p=>p.Vacina)
+                .Include(p => p.Vacina)
                 .FirstOrDefault();
         }
         public void CreateRegistro(RegistroVacina registro)

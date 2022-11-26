@@ -22,7 +22,7 @@ const CadPet = () => {
   useEffect(() => {
     if (isEditing) {
       axios
-      .get(`https://localhost:7110/api/Pets/${petId}`)
+      .get(`http://rodrigopuc-001-site1.htempurl.com/api/Pets/${petId}`)
       .then((res) => {
         const pet = res.data;
         setValue('nomePet', pet.nomePet);
@@ -47,7 +47,7 @@ const CadPet = () => {
   const createLinkPetUser = (petId) => {
     const params = {
       method: 'POST',
-      url: `https://localhost:7110/api/Pets/${petId}/usuarios`,
+      url: `http://rodrigopuc-001-site1.htempurl.com/api/Pets/${petId}/usuarios`,
       withCredentials: true,
       data: {
         petId,
@@ -64,7 +64,7 @@ const CadPet = () => {
   const onSubmit = (formData) => {
     const params = {
       method: isEditing ? 'PUT' : 'POST',
-      url: isEditing ? `https://localhost:7110/api/Pets/${petId}` : `https://localhost:7110/api/Pets`,
+      url: isEditing ? `http://rodrigopuc-001-site1.htempurl.com/api/Pets/${petId}` : `http://rodrigopuc-001-site1.htempurl.com/api/Pets`,
       withCredentials: true,
       data: {
         ...formData,
