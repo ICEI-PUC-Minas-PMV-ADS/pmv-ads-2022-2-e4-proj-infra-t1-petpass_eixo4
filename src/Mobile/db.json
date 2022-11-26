@@ -1,71 +1,105 @@
 {
-  "pets": [
-    {
-      "name": "Bethoveen",
-      "tipo": "Cachorro",
-      "sexo": "Macho",
-      "raca": "Maltês",
-      "peso": "4.7",
-      "idade": "5",
-      "dataNascimento": "2022-06-23T02:08:10.087Z",
-      "dataRegistro": "2022-06-23T02:08:10.087Z",
-      "id": 1
-    },
-    {
-      "name": "Garfield",
-      "tipo": "Gato",
-      "sexo": "Macho",
-      "raca": "Laranja",
-      "peso": "6",
-      "idade": "7",
-      "dataNascimento": "2022-06-23T02:08:10.087Z",
-      "dataRegistro": "2022-06-23T02:08:10.087Z",
-      "id": 2
-    }
-  ],
-  "vacinas": [
-    {
-      "nome": "Bethoveen",
-      "vacina": "V8 ou V10",
-      "idade": "25",
-      "dataAplicacao": "2022-06-23T02:09:05.085Z",
-      "dose": "1",
-      "petId": 1,
-      "id": 1
-    },
-    {
-      "nome": "Bethoveen",
-      "vacina": "Gripe Canina",
-      "idade": "12",
-      "dataAplicacao": "2022-06-23T02:09:05.085Z",
-      "dose": "1",
-      "petId": 1,
-      "id": 2
-    }
-  ],
   "users": [
     {
-      "name": "Arthur",
-      "email": "Arthur@gmail.com",
+      "email": "rodrigo@puc.br",
+      "password": "$2a$10$aOOMjRGXLJ0KnZC8FfOkZ..gLTTsyIL1T/ytgAbuoanEKExUZhaha",
+      "name": "Rodrigo",
+      "pets": [],
       "id": 1
     },
     {
-      "name": "arthur",
-      "email": "Ar@thur.com",
-      "password": "12312",
-      "id": 6
+      "email": "rodrigo@pucminas.br",
+      "password": "$2a$10$ZWVAnsJ6NB0DGcE2cKqJ3u8ke0bmupJMf4m8n9rdcRk.4PeOp3mDi",
+      "name": "rodrigo",
+      "pets": [],
+      "id": 2
     },
     {
-      "name": "Fernado",
-      "email": "fernando@gmail,com",
-      "password": "85154120",
+      "email": "123@qwe.com",
+      "password": "$2a$10$AyKlojBC4U6wwt/Xi1t.X.sxAAspVhmsxEm9rOO4fyFIEyU0u1omG",
+      "name": "Rodrigo",
+      "id": 3
+    }
+  ],
+  "pets": [
+    {
+      "tipo": 0,
+      "data": "18/02/2016",
+      "nomePet": "Lua",
+      "sexo": 0,
+      "raca": "Maltes",
+      "peso": "51",
+      "id": 1
+    },
+    {
+      "tipo": 1,
+      "data": "10/05/2022",
+      "nomePet": "Adam",
+      "sexo": 1,
+      "raca": "Siamês ",
+      "peso": "26",
+      "id": 2
+    }
+  ],
+  "registroVacinas": [],
+  "vacinas": [
+    {
+      "tipoPet": 1,
+      "descricao": "V8 (óctupla)",
+      "dose": "10 mg",
+      "id": 2
+    },
+    {
+      "tipoPet": 1,
+      "descricao": "V10 (déctupla)",
+      "dose": "50 mg",
+      "id": 3
+    },
+    {
+      "tipoPet": 0,
+      "descricao": "Raiva",
+      "dose": "5mg",
+      "id": 4
+    },
+    {
+      "id": 5,
+      "tipoPet": 1,
+      "descricao": "Desc5-atualizada",
+      "dose": "500mg",
+      "petsVacinados": null,
+      "links": []
+    },
+    {
+      "tipoVacina": 1,
+      "descricao": "V5",
+      "dose": "55",
       "id": 7
+    }
+  ],
+  "news": [
+    {
+      "id": "6348af797157f263b65c3372",
+      "data": "2022-10-13T03:00:00Z",
+      "titulo": "Noticia 1 Atualizada hoje",
+      "noticia": "Conteúdo notícia 1. A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents. I should be incapable of drawing a single stroke at the present moment; and yet I feel that I never was a greater artist than now. When, while the lovely valley teems with vapour around me, and the meridian sun strikes the upper surface of the impenetrable foliage of my trees, and but a few stray gleams steal into the inner sanctuary, I throw myself down among the tall grass by the trickling stream; and, as I lie close to the earth, a thousand unknown plants are noticed by me: when I hear the buzz of the little world among the stalks, and grow familiar with the countless indescribable forms of the insects and flies, then I feel t"
     },
     {
-      "name": "Arthur fernandes",
-      "email": "arthur@gmail.com",
-      "password": "12345",
-      "id": 8
+      "id": "6348afb07157f263b65c3373",
+      "data": "2022-10-01T03:00:00Z",
+      "titulo": "Noticia 2",
+      "noticia": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc"
+    },
+    {
+      "id": "634c6dc9f320480001ca7024",
+      "data": "2022-05-05T03:00:00Z",
+      "titulo": "Noticia 3",
+      "noticia": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex"
+    },
+    {
+      "id": "634c6de0f320480001ca7025",
+      "data": "2022-05-05T03:00:00Z",
+      "titulo": "Noticia 4",
+      "noticia": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex"
     }
   ]
 }

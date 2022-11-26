@@ -1,17 +1,17 @@
-import React from "react";
-import Routes from "./src/pages/routes";
-import { NavigationContainer } from "@react-navigation/native";
-import GlobalPlanContext from "./src/Hooks/GlobalState";
-import GlobalPetContext from "./src/Hooks/petGlobalState";
+import React, { useState } from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import UserProvider from './src/contexts/UserContext';
+import Route from './src/navigations/Route';
 
-export default function App() {
+import Register from './src/pages/Register';
+
+const App = () => {
   return (
-    <GlobalPlanContext>
-      <GlobalPetContext>
-        <NavigationContainer>
-          <Routes />
-        </NavigationContainer>
-      </GlobalPetContext>
-    </GlobalPlanContext>
+    <UserProvider>
+      <NavigationContainer>
+        <Route />
+      </NavigationContainer>
+    </UserProvider>
   );
-}
+};
+export default App;

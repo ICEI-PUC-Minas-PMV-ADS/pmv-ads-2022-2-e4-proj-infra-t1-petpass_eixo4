@@ -1,0 +1,1 @@
+export const BASE_URL = 'https://all-olives-lick-201-17-210-215.loca.lt'
