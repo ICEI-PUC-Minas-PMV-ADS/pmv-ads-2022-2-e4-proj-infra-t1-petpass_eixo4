@@ -64,32 +64,29 @@ Dão uma visão geral da aplicação, após autenticação do usuário. Na image
  ## Telas iniciais:
 Homepage: Tela de apresentação, que também proporciona ao usuário o conhecimento inicial das funcionalidades e objetivos do projeto.
 
-![Inicio](https://user-images.githubusercontent.com/83302547/204156796-550984cf-3692-4020-a993-646bfadb8980.jpeg)
+![image](https://user-images.githubusercontent.com/83302547/204157212-c649a370-ba3e-4389-b976-d9620cb7d5b5.png)
 
 Telas de Login e Cadastro: Telas responsáveis pelo cadstro e pela autenticação dos clientes que utilizam o sistema. 
 
-![Login](https://user-images.githubusercontent.com/83302547/204156800-24082b33-d3fa-405b-abd2-b20afcb522a3.jpeg)
-![Cadastro](https://user-images.githubusercontent.com/83302547/204156802-cf0e27c1-fc5d-450f-9c3e-d69c919af082.jpeg)
+![image](https://user-images.githubusercontent.com/83302547/204157219-0fe019d9-4b90-4792-9d99-b6db3ac35d1a.png)
+![image](https://user-images.githubusercontent.com/83302547/204157231-8bc2e3a8-96c6-44d5-b67c-be084edf19b3.png)
 
 ## Telas internas:
 Dão uma visão geral da aplicação, após autenticação do usuário. Na imagem abaixo são mostradas três telas: Tela de Pets cadastrados; Tela para cadastro de um ou mais Pets; Tela com maiores detalhes do Pet.
 
-![Petscad](https://user-images.githubusercontent.com/83302547/204156846-eab2a605-8cb8-4406-b499-bb80277dc006.jpeg)
-![Cadpet](https://user-images.githubusercontent.com/83302547/204156876-f1fe8c0b-c7cc-4cbb-a624-1a3ed630c99a.jpeg)
-![Petinfo](https://user-images.githubusercontent.com/83302547/204156880-67ff8ffa-7170-4e17-a593-f021b1010c2a.jpeg)
+![image](https://user-images.githubusercontent.com/83302547/204157177-f60703d2-59e9-4da5-8cf4-d52253b52a3a.png)
+![image](https://user-images.githubusercontent.com/83302547/204157121-2a5fc04f-b9ce-45c2-a3c3-bdbe77f7d59b.png)
+![image](https://user-images.githubusercontent.com/83302547/204157192-11fd527d-e473-410c-9ae3-fad59edb10e7.png)
 
  Tela para cadastro de vacinas:
  
- ![Cadvac](https://user-images.githubusercontent.com/83302547/204156930-9311b078-383d-46a1-8be7-7a97b6e86068.jpeg)
+ ![image](https://user-images.githubusercontent.com/83302547/204157109-6c63edb7-0f07-4e35-9c3c-7c8aa2db240c.png)
 
  Tela com informações das vacinas:
  
- ![Vacina](https://user-images.githubusercontent.com/83302547/204156947-0248d2d9-6701-462e-b868-d0f7bd7d1387.jpeg)
+ ![image](https://user-images.githubusercontent.com/83302547/204157091-d88d707a-8cff-4cb6-9724-a1467dc8bb7e.png)
  
  Tela de Notícias: 
    
- ![noticias](https://user-images.githubusercontent.com/83302547/204156961-3ebca011-cb33-474c-a8c8-88acea2af615.jpeg)
- 
- 
  ![image](https://user-images.githubusercontent.com/83302547/204157044-46eb5016-e63a-4c45-b2f7-a7ab375bb734.png)
 
