@@ -24,9 +24,9 @@ Segue abaixo o template padrão das telas internas da aplicação.
 
 ## Template Padrão Mobile
 
-O escolha é por um padrão único para Web e Mobile, mantendo assim a identidade visual da aplicação.
+O escolha é por um padrão bem próximo para Web e Mobile, mantendo assim a identidade visual da aplicação. Logicamente houveram algumas alterações para melhor adequação à dispositivos móveis.
 
-![image](https://user-images.githubusercontent.com/83302547/203671444-7399dca8-820b-43d1-a86e-58c2429817df.png)
+![image](https://user-images.githubusercontent.com/83302547/204158955-89780ee0-b49f-4116-a641-582428d69d02.png)
 
 > **Links Úteis**:
 >
