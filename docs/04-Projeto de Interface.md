@@ -64,30 +64,28 @@ Dão uma visão geral da aplicação, após autenticação do usuário. Na image
  ## Telas iniciais:
 Homepage: Tela de apresentação, que também proporciona ao usuário o conhecimento inicial das funcionalidades e objetivos do projeto.
 
-![image](https://user-images.githubusercontent.com/83302547/203671678-0771392d-78c0-45cb-bed4-ead0ece173af.png)
+![Inicio](https://user-images.githubusercontent.com/83302547/204156796-550984cf-3692-4020-a993-646bfadb8980.jpeg)
 
 Telas de Login e Cadastro: Telas responsáveis pelo cadstro e pela autenticação dos clientes que utilizam o sistema. 
 
-![image](https://user-images.githubusercontent.com/83302547/203671731-76c89051-d9b5-4d53-97f5-36c65405c1b9.png)
-![image](https://user-images.githubusercontent.com/83302547/203671759-1310687f-9808-46dd-aa22-3f11400b89fe.png)
+![Login](https://user-images.githubusercontent.com/83302547/204156800-24082b33-d3fa-405b-abd2-b20afcb522a3.jpeg)
+![Cadastro](https://user-images.githubusercontent.com/83302547/204156802-cf0e27c1-fc5d-450f-9c3e-d69c919af082.jpeg)
 
 ## Telas internas:
 Dão uma visão geral da aplicação, após autenticação do usuário. Na imagem abaixo são mostradas três telas: Tela de Pets cadastrados; Tela para cadastro de um ou mais Pets; Tela com maiores detalhes do Pet.
 
-![image](https://user-images.githubusercontent.com/83302547/203671880-e27ba1d3-b985-4964-b543-10df14442075.png)
-![image](https://user-images.githubusercontent.com/83302547/203671905-a555ef1e-e0ef-4309-9c4e-db4255d6fff1.png)
-![image](https://user-images.githubusercontent.com/83302547/203671953-9591381c-7dad-4ae0-9720-19250d3d0263.png)
+![Petscad](https://user-images.githubusercontent.com/83302547/204156846-eab2a605-8cb8-4406-b499-bb80277dc006.jpeg)
+![Cadpet](https://user-images.githubusercontent.com/83302547/204156876-f1fe8c0b-c7cc-4cbb-a624-1a3ed630c99a.jpeg)
+![Petinfo](https://user-images.githubusercontent.com/83302547/204156880-67ff8ffa-7170-4e17-a593-f021b1010c2a.jpeg)
 
  Tela para cadastro de vacinas:
  
- ![image](https://user-images.githubusercontent.com/83302547/203672061-6481fdc5-c7ab-480f-996d-dd500291c04d.png)
+ ![Cadvac](https://user-images.githubusercontent.com/83302547/204156930-9311b078-383d-46a1-8be7-7a97b6e86068.jpeg)
 
- Tela com informações do usuário:
+ Tela com informações das vacinas:
  
- ![image](https://user-images.githubusercontent.com/83302547/200189776-c867fb0e-b6e9-4945-8025-d549417e16d0.png)
+ ![Vacina](https://user-images.githubusercontent.com/83302547/204156947-0248d2d9-6701-462e-b868-d0f7bd7d1387.jpeg)
  
  Tela de Notícias: 
    
-   A princípio, o botão de notícias redirecionará à um site atualizado com as últimas notícias sobre Pets:
-   
-   https://gauchazh.clicrbs.com.br/ultimas-noticias/tag/animais/
+ ![noticias](https://user-images.githubusercontent.com/83302547/204156961-3ebca011-cb33-474c-a8c8-88acea2af615.jpeg)
