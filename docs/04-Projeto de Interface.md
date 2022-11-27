@@ -89,3 +89,7 @@ Dão uma visão geral da aplicação, após autenticação do usuário. Na image
  Tela de Notícias: 
    
  ![noticias](https://user-images.githubusercontent.com/83302547/204156961-3ebca011-cb33-474c-a8c8-88acea2af615.jpeg)
+ 
+ 
+ ![image](https://user-images.githubusercontent.com/83302547/204157044-46eb5016-e63a-4c45-b2f7-a7ab375bb734.png)
+
