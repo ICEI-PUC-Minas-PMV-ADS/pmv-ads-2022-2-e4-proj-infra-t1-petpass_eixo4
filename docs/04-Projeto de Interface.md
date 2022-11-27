@@ -59,7 +59,7 @@ Dão uma visão geral da aplicação, após autenticação do usuário. Na image
  
  A imagem abaixo mostra uma visão geral dos Wireframes mobile da aplicação Pet Pass e seu fluxo de usuário:
  
- ![image](https://user-images.githubusercontent.com/83302547/203671444-7399dca8-820b-43d1-a86e-58c2429817df.png)
+ ![Protótipo Mobile](img/Mobile-prototipo.JPG)
  
  ## Telas iniciais:
 Homepage: Tela de apresentação, que também proporciona ao usuário o conhecimento inicial das funcionalidades e objetivos do projeto.
