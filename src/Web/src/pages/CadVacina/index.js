@@ -6,9 +6,10 @@ import './styles.css';
 
 const CadVacina = () => {
   const [buttonText, setButtonText] = useState('Salvar');
+  
   const [error, setError] = useState(false);
 
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, formState: { errors } } = useForm();
 
   const finallyRequest = (response) => {
     if (response) {
@@ -66,11 +67,13 @@ const CadVacina = () => {
                     required: 'Campo obrigatório.',
                   })}
                   type="text"
-                  className={`form-control base-input`}
+                  className={`form-control base-input ${
+                    errors.dose ? 'is-invalid' : ''
+                  }`}
                   placeholder="Dose"
                   name="dose"
                 />
-                <div className="invalid-feedback d-block">{}</div>
+                <div className="invalid-feedback d-block">{errors.dose?.message}</div>
               </div>
 
               <div className="margin-botton-15">
@@ -80,21 +83,23 @@ const CadVacina = () => {
                     required: 'Campo obrigatório.',
                   })}
                   rows={5}
-                  className={`form-control base-input h-auto`}
+                  className={`form-control base-input h-auto ${
+                    errors.Descricao ? 'is-invalid' : ''
+                  }`}
                   placeholder="Descrição"
                   name="Descricao"
                 />
-                <div className="invalid-feedback d-block"></div>
+                <div className="invalid-feedback d-block">{errors.Descricao?.message}</div>
               </div>
             </div>
           </div>
 
           <div className="product-crud-buttons-container">
             <button
-              className="btn btn-outline-danger product-crud-button"
+              className="btn btn-outline-secondary product-crud-button"
               onClick={() => history.push('/pets')}
             >
-              CANCELAR
+              Cancelar
             </button>
             <button className="btn btn-outline-primary product-crud-button button-rigth">
               {buttonText}

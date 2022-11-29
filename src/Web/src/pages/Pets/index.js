@@ -53,7 +53,7 @@ const columns = [
     valueGetter: ({ value }) => new Date(value).toLocaleDateString(),
   },
   {
-    headerName: 'Ações',
+    headerName: 'Aplicar Vacina',
     width: 180,
     editable: false,
     align: 'center',

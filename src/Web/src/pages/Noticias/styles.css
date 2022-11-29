@@ -1,0 +1,42 @@
+.text-container {
+  margin: 40px;
+}
+
+.title-container {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.text-card {
+  padding: 40px 40px 20px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.text-card h5 {
+  margin-bottom: 20px;
+}
+
+.card-title {
+  font-weight: 700;
+}
+
+.card-data {
+  font-weight: 700;
+}
+
+.news-content-container {
+  padding: 30px 30px 30px 30px;
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.news-content-container img {
+  width: 250px;
+  height: 200px;
+  border-radius: 15px;
+}

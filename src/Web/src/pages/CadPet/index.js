@@ -17,7 +17,7 @@ const CadPet = () => {
 
   const isEditing = petId ? true : false;
 
-  const { register, handleSubmit, setValue } = useForm();
+  const { register, handleSubmit, setValue, formState: { errors } } = useForm();
 
   useEffect(() => {
     if (isEditing) {
@@ -107,11 +107,13 @@ const CadPet = () => {
                     required: 'Campo obrigatório.',
                   })}
                   type="text"
-                  className={`form-control base-input `}
+                  className={`form-control base-input ${
+                    errors.nomePet ? 'is-invalid' : ''
+                  }`}
                   placeholder="Nome"
                   name="nomePet"
                 />
-                <div className="invalid-feedback d-block">{}</div>
+                <div className="invalid-feedback d-block">{errors.nomePet?.message}</div>
               </div>
 
               <div className="margin-botton-15">
@@ -127,8 +129,6 @@ const CadPet = () => {
                   <option value="0">Cachorro</option>
                   <option value="1">Gato</option>
                 </select>
-
-                <div className="invalid-feedback d-block">{}</div>
               </div>
 
               <div className="margin-botton-15">
@@ -138,11 +138,13 @@ const CadPet = () => {
                     required: 'Campo obrigatório.',
                   })}
                   type="text"
-                  className={`form-control base-input`}
+                  className={`form-control base-input ${
+                    errors.raca ? 'is-invalid' : ''
+                  }`}
                   placeholder="Raça"
                   name="raca"
                 />
-                <div className="invalid-feedback d-block">{}</div>
+                <div className="invalid-feedback d-block">{errors.raca?.message}</div>
               </div>
 
               <div className="margin-botton-15">
@@ -158,7 +160,6 @@ const CadPet = () => {
                   <option value="0">Fêmea</option>
                   <option value="1">Macho</option>
                 </select>
-                <div className="invalid-feedback d-block">{}</div>
               </div>
 
               <div className="margin-botton-15">
@@ -168,11 +169,13 @@ const CadPet = () => {
                     required: 'Campo obrigatório.',
                   })}
                   type="double"
-                  className={`form-control base-input`}
+                  className={`form-control base-input ${
+                    errors.peso ? 'is-invalid' : ''
+                  }`}
                   placeholder="Peso"
                   name="peso"
                 />
-                <div className="invalid-feedback d-block">{}</div>
+                <div className="invalid-feedback d-block">{errors.peso?.message}</div>
               </div>
 
               <div className="margin-botton-15">
@@ -182,19 +185,21 @@ const CadPet = () => {
                     required: 'Campo obrigatório.',
                   })}
                   type="date"
-                  className={`form-control base-input`}
+                  className={`form-control base-input ${
+                    errors.dataRegistro ? 'is-invalid' : ''
+                  }`}
                   placeholder="Data de Registro"
                   name="dataRegistro"
                 />
-                <div className="invalid-feedback d-block">{}</div>
+                <div className="invalid-feedback d-block">{errors.dataRegistro?.message}</div>
               </div>
 
               <div className="pet-crud-buttons-container">
                 <button
-                  className="btn btn-outline-danger pet-crud-button"
+                  className="btn btn-outline-secondary pet-crud-button"
                   onClick={() => history.push('/pets')}
                 >
-                  CANCELAR
+                  Cancelar
                 </button>
                 <button className="btn btn-outline-primary pet-crud-button button-rigth">
                   {buttonText}
@@ -202,7 +207,7 @@ const CadPet = () => {
               </div>
             </div>
           </form>
-          {error ? <p>Algo deu errado, tente novamente</p> : null}
+          {error ? <p>Algo deu errado, tente novamente!</p> : null}
         </div>
       </div>
     </>

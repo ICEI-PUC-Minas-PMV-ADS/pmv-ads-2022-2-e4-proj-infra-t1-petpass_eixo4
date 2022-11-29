@@ -5,11 +5,15 @@ import { useHistory, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import EditIcon from '@mui/icons-material/Edit';
+import { requestBackend } from '../../util/requests';
+import { getAuthenticatedUser } from '../../util/auth';
 
 const InfoPets = () => {
   const history = useHistory();
 
   const [pet, setPet] = useState({});
+
+  const [error, setError] = useState(false);
 
   const {
     state: { id },
@@ -22,6 +26,30 @@ const InfoPets = () => {
       .catch((err) => console.error(err));
   }, [id]);
 
+  const finallyRequest = (response) => {
+    if (response) {
+      history.push('/pets');
+    } else {
+      setError(true);
+    }
+  };
+
+  const deletePet = (petId) => {
+    const params = {
+      method: 'DELETE',
+      url: `https://localhost:7110/api/Pets/${petId}`,
+      withCredentials: true,
+      data: {
+        petId,
+        usuarioId: getAuthenticatedUser(),
+      },
+    };
+
+    requestBackend(params)
+      .then(() => finallyRequest(true))
+      .catch(() => finallyRequest(false))
+  };
+
   return (
     <div className="pets-container">
       <div className="header">
@@ -33,6 +61,12 @@ const InfoPets = () => {
         </button>
         <button
           className=" infoButton btn btn-outline-danger pet-crud-button"
+          onClick={() => deletePet(id)}
+        >
+          Excluir
+        </button>
+        <button
+          className=" infoButton btn btn-outline-secondary pet-crud-button"
           onClick={() => history.push('/pets')}
         >
           Voltar
@@ -65,8 +99,7 @@ const InfoPets = () => {
             <p className="col-sm-6">Sexo: {['Fêmea', 'Macho'][pet.sexo]}</p>
             <p className="col-sm-6">Peso: {pet.peso} kg</p>
             <p className="col-sm-6">
-              Data do cadastro:{' '}
-              {new Date(pet.dataRegistro).toLocaleDateString()}
+              Data do cadastro: {new Date(pet.dataRegistro).toLocaleDateString()}
             </p>
           </div>
         </div>
@@ -83,11 +116,11 @@ const InfoPets = () => {
                   <EditIcon color="action"/> {item.vacina.descricao} - Dose: {item.vacina.dose} - Idade:{' '}
                   {item.idade} - Aplicação:{' '}
                   {new Date(item.data).toLocaleDateString()}
-                  
                 </button>
               </p>
             ))}
         </div>
+        <div className="message-error">{error ? <p>Algo deu errado, tente novamente!</p> : null}</div>
       </div>
     </div>
   );
