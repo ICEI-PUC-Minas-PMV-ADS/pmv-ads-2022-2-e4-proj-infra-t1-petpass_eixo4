@@ -14,6 +14,8 @@ const RegistroVacina = () => {
 
   const [petId, setPetId] = useState(useLocation()?.state?.petId);
 
+  const [tipoPet] = useState(useLocation()?.state?.tipoPet);
+
   const regId = useLocation()?.state?.id;
 
   const isEditing = regId ? true : false;
@@ -25,9 +27,12 @@ const RegistroVacina = () => {
   useEffect(() => {
     axios
       .get(`https://localhost:7110/api/Vacinas`)
-      .then((res) => setVacinas(res.data))
+      .then((res) => {
+        let vacinas = [...res.data].filter(e => e.tipoPet === tipoPet);
+        setVacinas(vacinas);
+      })
       .catch((err) => console.error(err));
-  }, []);
+  }, [tipoPet]);
 
   useEffect(() => {
     if (isEditing) {

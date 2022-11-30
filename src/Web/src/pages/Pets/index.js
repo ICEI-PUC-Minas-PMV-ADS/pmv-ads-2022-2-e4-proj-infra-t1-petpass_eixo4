@@ -62,8 +62,8 @@ const columns = [
     getActions: (params) => [
       <GridActionsCellItem
         icon={<VaccinesIcon />}
-        onClick={() => {
-          history.push('/registroVacina', { petId: params.id });
+        onClick={(e) => {
+          history.push('/registroVacina', { petId: params.id, tipoPet: params.row["tipo"] });
           window.location = '';
         }}
         label="Aplicar Vacina"
