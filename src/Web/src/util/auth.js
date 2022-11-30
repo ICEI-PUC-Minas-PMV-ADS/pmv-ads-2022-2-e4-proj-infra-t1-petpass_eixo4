@@ -27,13 +27,7 @@ export const hasAnyRoles = (roles) => {
 
   const tokenData = getTokenData();
   if (tokenData !== undefined) {
-    //return roles.some(role => tokenData.authorities.includes(roles));
-
-    for (var i = 0; i < roles.length; i++) {
-      if (tokenData.authorities.includes(roles[i])) {
-        return true;
-      }
-    }
+    return roles.includes(tokenData.role);
   }
 
   return false;
