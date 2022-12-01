@@ -53,11 +53,11 @@ const InfoPets = () => {
   return (
     <div className="pets-container">
       <div className="header">
-        <button
-          className=" infoButton btn btn-outline-primary pet-crud-button button-rigth"
-          onClick={() => history.push('/cadPet', { id })}
+      <button
+          className=" infoButton btn btn-outline-secondary pet-crud-button"
+          onClick={() => history.push('/pets')}
         >
-          Editar
+          Voltar
         </button>
         <button
           className=" infoButton btn btn-outline-danger pet-crud-button"
@@ -66,10 +66,10 @@ const InfoPets = () => {
           Excluir
         </button>
         <button
-          className=" infoButton btn btn-outline-secondary pet-crud-button"
-          onClick={() => history.push('/pets')}
+          className=" infoButton btn btn-outline-primary pet-crud-button button-rigth"
+          onClick={() => history.push('/cadPet', { id })}
         >
-          Voltar
+          Editar
         </button>
       </div>
 
