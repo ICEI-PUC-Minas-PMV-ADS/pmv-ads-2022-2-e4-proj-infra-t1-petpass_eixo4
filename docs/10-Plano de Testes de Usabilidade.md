@@ -2,7 +2,7 @@
 
 O teste de usabilidade permite avaliar a qualidade da interface com o usuário da aplicação interativa. Por meio dele, são recolhidos dados sobre comportamento, medindo e considerando as reações dos usuários diante de diferentes layouts e funcionalidades.
 
-A seguir, estão listados os parâmetros do Plano de Teste de Usabilidade que será adotado para a aplicação do Pet Pass.
+A seguir, estão listados os parâmetros do Plano de Teste de Usabilidade que será adotado para toda a aplicação Pet Pass - Web e Mobile.
 
 ### Modelo de teste:
 
