@@ -50,7 +50,7 @@ Abaixo é possivel visualizar o resultado geral de cada usuário apos a utiliza�
 
 ### **Usuário 3:**
 
-### **Douglas, 23 anos, possui 1 gato**
+### **Douglas, 43 anos, possui 1 gato**
 
 | **Perguntas**                                                                              | **Respostas**   | **Conversão**    |
 | ------------------------------------------------------------------------------------------ | --------------- | ---------------- |
