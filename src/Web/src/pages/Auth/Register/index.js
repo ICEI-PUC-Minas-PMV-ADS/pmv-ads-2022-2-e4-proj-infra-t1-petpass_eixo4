@@ -63,12 +63,18 @@ const Register = () => {
           <input
             {...register('username', {
               required: 'Campo obrigatório.',
+              validate: (val) => {
+                const emailRegex = new RegExp('^[a-zA-Z0-9_!#$%&’*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$');
+                if (!emailRegex.test(val)) {
+                  return 'Não é um endereço de e-mail válido!';
+                }
+              },
             })}
             type="text"
             className={`form-control base-input ${
               errors.username ? 'is-invalid' : ''
             }`}
-            placeholder="Nome"
+            placeholder="E-mail"
             name="username"
             autoComplete="new-password"
           />

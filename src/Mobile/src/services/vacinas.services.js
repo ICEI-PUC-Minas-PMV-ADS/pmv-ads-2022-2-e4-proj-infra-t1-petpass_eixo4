@@ -5,8 +5,11 @@ export const getVacinas = async () => {
   try {
     return await API.get(`${BASE_URL}/Vacinas`).then(
       (response) => {
+<<<<<<< HEAD
         //console.log(`${BASE_URL}/Vacinas`);
         //console.log('Vacinasservice: ',response.data);
+=======
+>>>>>>> 5fb5b85b36c7626a8a8e9e7ce274b52d39d0c069
         return response.data;
       },
       (error) => {

@@ -5,9 +5,11 @@ import Auth from './pages/Auth';
 import CadVacina from './pages/CadVacina';
 import CadPet from './pages/CadPet';
 import Usuario from './pages/Usuario';
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import InfoPets from './pages/infoPets';
 import RegistroVacina from './pages/RegistroVacina';
+import Noticias from './pages/Noticias';
+
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 
 const Routes = () => (
   <BrowserRouter>
@@ -37,6 +39,9 @@ const Routes = () => (
       </Route>
       <Route path="/registroVacina">
         <RegistroVacina />
+      </Route>
+      <Route path="/noticias">
+        <Noticias />
       </Route>
     </Switch>
   </BrowserRouter>
