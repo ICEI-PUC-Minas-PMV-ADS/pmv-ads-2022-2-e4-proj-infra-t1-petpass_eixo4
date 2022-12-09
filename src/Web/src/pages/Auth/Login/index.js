@@ -39,7 +39,7 @@ const Login = () => {
       })
       .catch((error) => {
         setHasError(true);
-        console.log('Erro', error);
+        console.log(error);
       });
   };
 

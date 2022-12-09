@@ -22,7 +22,7 @@ const CadVacina = () => {
   const onSubmit = (formData) => {
     const params = {
       method: 'POST',
-      url: `http://rodrigopuc-001-site1.htempurl.com/api/Vacinas`,
+      url: `https://localhost:7110/api/Vacinas`,
       withCredentials: true,
       data: {
         ...formData,

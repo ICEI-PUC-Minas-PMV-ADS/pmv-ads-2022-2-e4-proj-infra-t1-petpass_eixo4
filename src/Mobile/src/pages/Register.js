@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Text, StyleSheet, View, Alert } from 'react-native';
-import { TextInput, Button, Headline } from 'react-native-paper';
+import { ScrollView, StyleSheet, View, Alert,Text } from 'react-native';
+import { TextInput, Button, Headline,RadioButton  } from 'react-native-paper';
 
 import Container from '../components/ContainerAuth';
 import Body from '../components/Body';
@@ -17,22 +17,20 @@ const Register = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [profile, setProfile] = useState('');
 
   const handleRegister = () => {
     register({
-      name: name,
-      email: email,
+      nome: email,
       password: password,
+      perfil:profile
     }).then((res) => {
-      console.log(res);
 
       if (res) {
-        console.log(res);
         Alert.alert('Atenção', 'Usuário cadastrado com sucesso!', [
           { text: 'OK', onPress: () => navigation.goBack() },
         ]);
       } else {
-        console.log(res);
         Alert.alert(
           'Atenção',
           'Usuário não foi cadastrado! Tente novamente mais tarde'
@@ -43,63 +41,84 @@ const Register = () => {
 
   return (
     <Container>
-      <View style={styles.header}>
-        <Logo />
-      </View>
+      <ScrollView>
 
-      <Headline style={styles.title}>Crie sua conta</Headline>
+        <View style={styles.header}>
+          <Logo />
+        </View>
 
-      <Body>
-        <View style={{ paddingHorizontal: 20 }}>
-          <Text style={[styles.label, { marginBottom: 12, marginTop: 12 }]}>
-            Nome
-          </Text>
-          <Input
-            label="Nome"
-            value={name}
-            onChangeText={(text) => setName(text)}
-          />
-          <Text style={[styles.label, { marginBottom: 12, marginTop: 12 }]}>
-            Email
-          </Text>
-          <Input
-            label="Email"
-            value={email}
-            onChangeText={(text) => setEmail(text)}
-          />
-          <Text style={[styles.label, { marginBottom: 12, marginTop: 12 }]}>
-            Senha
-          </Text>
-        </View>
-        <View style={{ paddingHorizontal: 20 }}>
-          <Input
-            label="Senha"
-            value={password}
-            secureTextEntry
-            onChangeText={(text) => setPassword(text)}
-          />
-        </View>
-        <Button style={styles.button} mode="contained" onPress={handleRegister}>
-          Salvar
-        </Button>
-        <Button
-          style={styles.button}
-          mode="contained"
-          onPress={() => navigation.goBack()}>
-          Voltar
-        </Button>
-      </Body>
+        <Headline style={styles.title}>Crie sua conta</Headline>
+
+        <Body>
+          <View style={styles.input}>
+            <Input
+              label="Nome"
+              value={name}
+              onChangeText={(text) => setName(text)}
+            />
+          </View>
+          <View style={styles.input}>
+            <Input
+              label="Email"
+              value={email}
+              autoCapitalize="none"
+              keyboardType="email-address"
+              onChangeText={(text) => setEmail(text)}
+            />
+          </View>
+          <View style={styles.input}>
+            <Input
+              label="Senha"
+              value={password}
+              secureTextEntry
+              onChangeText={(text) => setPassword(text)}
+            />
+          </View>
+          <View style={styles.containerRadio}>
+            <View style={styles.containerRadioItem}>
+              <RadioButton
+                value={profile}
+                status={profile == 1 ? 'checked' : 'unchecked'}
+                onPress={() => setProfile(1)}
+              />
+              <Text>Usuário</Text>
+            </View>
+
+            <View style={styles.containerRadioItem}>
+            <RadioButton
+                value={profile}
+                status={profile == 2 ? 'checked' : 'unchecked'}
+                onPress={() => setProfile(2)}
+              />
+              <Text>Instituição</Text>
+            </View>
+          </View>
+
+          <Button style={styles.button} mode="contained" onPress={handleRegister}>
+            Salvar
+          </Button>
+          <Button
+            style={styles.button}
+            mode="contained"
+            onPress={() => navigation.goBack()}>
+            Voltar
+          </Button>
+        </Body>
+      </ScrollView>
     </Container>
   );
 };
 
 const styles = StyleSheet.create({
   button: {
-    margin: 20,
-    marginBottom: 8,
+    margin: 10,
     textColor: '#ffffff',
     fontWeight: '900',
     backgroundColor: '#2196f3',
+  },
+  input: {
+    marginBottom: 10,
+    paddingHorizontal: 20
   },
   header: {
     alignItems: 'center',
@@ -108,13 +127,28 @@ const styles = StyleSheet.create({
     color: '#DDE3F0',
     textAlign: 'center',
     fontSize: 40,
-    marginBottom: 30,
+    marginBottom: 5,
     lineHeight: 40,
   },
   label: {
     fontSize: 18,
     color: '#DDE3F0',
   },
+  containerRadio: {
+    flexDirection: 'row',
+    margin: 3,
+    alignItems: 'center',
+    justifyContent: 'space-evenly',
+  },
+  containerRadioItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-evenly',
+    color: 'red',
+    textColor: 'red',
+    backgroundColor: 'white',
+  },
+
 });
 
 export default Register;

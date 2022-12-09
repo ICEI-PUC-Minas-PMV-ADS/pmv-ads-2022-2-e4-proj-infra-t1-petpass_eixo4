@@ -1,1 +1,1 @@
-export const BASE_URL = 'http://rodrigopuc-001-site1.htempurl.com/api'
+export const BASE_URL = 'https://c54c-2804-14c-5b85-a1eb-30e2-685a-4a83-5e06.ngrok.io/api'

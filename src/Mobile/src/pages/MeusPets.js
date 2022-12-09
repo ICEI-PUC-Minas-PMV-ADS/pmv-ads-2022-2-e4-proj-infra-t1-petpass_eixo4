@@ -17,35 +17,30 @@ import { useIsFocused } from '@react-navigation/native';
 const MeusPets = () => {
   const navigation = useNavigation();
   const isFocused = useIsFocused();
-  const { id, setSigned,setId } = useUser();
+  const { signed, setSigned, name, setName, userId, setUserId } = useUser();
   const [pets, setPets] = useState([]);
 
   useEffect(() => {
-    setId(AsyncStorage.getItem('@USER_ID'));
-
-    
-    GetPetsUsuario(id).then((dados) => {
-      console.log('Meus pets - id: ', id);
-      console.log('dados: ', dados);
+    GetPetsUsuario(userId).then((dados) => {
       setPets(dados);
     });
-  }, [isFocused]);
+  }, [pets]);
 
   const renderItem = ({ item }) => (
     <List.Item
-      title={item.nomePet}
-      description={'Peso: ' + item.peso}
+      title={item.pet.nomePet}
+      description={'Peso: ' + item.pet.peso}
       left={(props) => (
         <List.Icon
           {...props}
           color="#949494"
-          icon={item.tipo == 0 ? 'dog' : 'cat'}
+          icon={item.pet.tipo == 0 ? 'dog' : 'cat'}
         />
       )}
       right={(props) => (
         <Text {...props} style={{ alignSelf: 'center' }}>
-          {item.raca}
-          {item.sexo == 0 ? ' macho' : ' femea'}
+          {item.pet.raca}
+          {item.pet.sexo == 0 ? ' macho' : ' femea'}
         </Text>
       )}
       onLongPress={() => navigation.navigate('CadastrarPet', { item })}

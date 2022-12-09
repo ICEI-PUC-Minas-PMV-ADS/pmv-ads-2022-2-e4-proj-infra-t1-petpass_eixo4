@@ -3,7 +3,7 @@ import history from './history';
 import { getAuthData } from './storage';
 
 export const BASE_URL =
-  process.env.REACT_APP_BACKEND_URL ?? 'http://rodrigopuc-001-site1.htempurl.com';
+  process.env.REACT_APP_BACKEND_URL ?? 'https://localhost:7110';
 
 export const requestBackendLogin = (loginData) => {
   let headers = {
@@ -55,8 +55,6 @@ axios.interceptors.request.use(
 // Add a response interceptor
 axios.interceptors.response.use(
   function (response) {
-    //
-    console.log(response);
     return response;
   },
   function (error) {

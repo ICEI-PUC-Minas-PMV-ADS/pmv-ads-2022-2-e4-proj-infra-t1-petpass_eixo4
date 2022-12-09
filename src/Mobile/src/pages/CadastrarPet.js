@@ -17,13 +17,8 @@ import Body from '../components/Body';
 import Input from '../components/Input';
 
 import { useNavigation } from '@react-navigation/native';
-<<<<<<< HEAD
 import { useUser } from '../contexts/UserContext';
 import { createPet, updatePet, deletePet, addUsuario } from '../services/pets.services';
-=======
-
-import { createPet, updatePet, deletePet } from '../services/pets.services';
->>>>>>> 5fb5b85b36c7626a8a8e9e7ce274b52d39d0c069
 
 const CadastrarPet = ({ route }) => {
   const navigation = useNavigation();
@@ -31,40 +26,22 @@ const CadastrarPet = ({ route }) => {
 
   const [date, setDate] = useState(new Date());
   const [show, setShow] = useState(false);
-<<<<<<< HEAD
-  const { id } = useUser();
-=======
-
->>>>>>> 5fb5b85b36c7626a8a8e9e7ce274b52d39d0c069
+  const { signed, setSigned, name, setName, userId, setUserId } = useUser();
   const [tipo, setTipo] = useState(null);
   const [nome, setNome] = useState(null);
   const [sexo, setSexo] = useState(null);
   const [raca, setRaca] = useState(null);
-<<<<<<< HEAD
   const [pesoPet, setPesoPet] = useState('');
   const [dataRegistro, setDataRegistro] = useState(moment(new Date()).format('DD/MM/YYYY'));
 
   useEffect(() => {
     if (item) {
-      setDataRegistro(moment(item.dataRegistro).format('DD/MM/YYYY'));
-      setNome(item.nomePet);
-      setTipo(item.tipo == 0 ? 'dog' : 'cat');
-      setSexo(item.sexo == 0 ? 'macho' : 'femea');
-      setPesoPet('' + item.peso);
-      setRaca(item.raca);
-=======
-  const [peso, setPeso] = useState(null);
-  const [data, setData] = useState(moment(new Date()).format('DD/MM/YYYY'));
-
-  useEffect(() => {
-    if (item) {
-      setData(item.data);
-      setNome(item.nomePet);
-      setTipo(item.tipo == 0 ? 'dog' : 'cat');
-      setSexo(item.sexo == 0 ? 'macho' : 'femea');
-      setRaca(item.raca);
-      setPeso(item.peso);
->>>>>>> 5fb5b85b36c7626a8a8e9e7ce274b52d39d0c069
+      setDataRegistro(moment(item.pet.dataRegistro).format('DD/MM/YYYY'));
+      setNome(item.pet.nomePet);
+      setTipo(item.pet.tipo == 0 ? 'dog' : 'cat');
+      setSexo(item.pet.sexo == 0 ? 'macho' : 'femea');
+      setPesoPet('' + item.pet.peso);
+      setRaca(item.pet.raca);
     }
   }, [item]);
 
@@ -72,64 +49,39 @@ const CadastrarPet = ({ route }) => {
     if (item) {
       updatePet({
         tipo: tipo == 'dog' ? 0 : 1,
-<<<<<<< HEAD
         dataRegistro: moment(new Date(dataRegistro)).format('YYYY-MM-DD'),
         nomePet: nome,
         sexo: sexo == 'macho' ? 0 : 1,
         raca: raca,
         peso: pesoPet,
-=======
-        data: data,
-        nomePet: nome,
-        sexo: sexo == 'macho' ? 0 : 1,
-        raca: raca,
-        peso:peso,
->>>>>>> 5fb5b85b36c7626a8a8e9e7ce274b52d39d0c069
-        id: item.id,
+        id: item.petId,
       }).then((res) => {
         navigation.goBack();
       });
     } else {
       createPet({
         tipo: tipo == 'dog' ? 0 : 1,
-<<<<<<< HEAD
         dataRegistro: moment(new Date(dataRegistro)).format('YYYY-MM-DD'),
         nomePet: nome,
         sexo: sexo == 'macho' ? 0 : 1,
         raca: raca,
         peso: pesoPet,
       }).then((res) => {
-        console.log('res: ', res);
-        console.log('resId: ', res.id);
-        console.log('userId: ', id);
         addUsuario(
           res.id,          
         {
           petId: res.id,
-          UsuarioId: id,
+          UsuarioId: userId,
         }
         ).then((resUser) => {
-          console.log('res usuario:',resUser)
           navigation.goBack();
         });
       });
     };
   }
-=======
-        data: data,
-        nomePet: nome,
-        sexo: sexo == 'macho' ? 0 : 1,
-        raca: raca,
-        peso:peso,
-      }).then((res) => {
-        navigation.goBack();
-      });
-    }
-  };
->>>>>>> 5fb5b85b36c7626a8a8e9e7ce274b52d39d0c069
 
   const handleExcluir = () => {
-    deletePet(item.id).then((res) => {
+    deletePet(item.petId).then((res) => {
       navigation.goBack();
     });
   };
@@ -190,7 +142,6 @@ const CadastrarPet = ({ route }) => {
             onTouchCancel={() => setShow(false)}
             onChange={(event, date) => {
               setShow(false);
-<<<<<<< HEAD
               setDataRegistro(moment(new Date(date)).format('DD/MM/YYYY'));
             }}
           />
@@ -202,52 +153,22 @@ const CadastrarPet = ({ route }) => {
             editable={false}
           />
         </TouchableOpacity>
-=======
-              setData(moment(date).format('DD/MM/YYYY'));
-            }}
-          />
-        )}
-
-        <TouchableOpacity onPress={() => setShow(true)}>
-          <Input
-            label="Data"
-            value={data}
-            left={<TextInput.Icon name="calendar" />}
-            editable={false}
-          />
-        </TouchableOpacity>
-
->>>>>>> 5fb5b85b36c7626a8a8e9e7ce274b52d39d0c069
         <Input
           label="Nome"
           value={nome}
           onChangeText={(text) => setNome(text)}
         />
-<<<<<<< HEAD
-=======
-
->>>>>>> 5fb5b85b36c7626a8a8e9e7ce274b52d39d0c069
         <Input
           label="Raça"
           value={raca}
           onChangeText={(text) => setRaca(text)}
         />
-<<<<<<< HEAD
         <Input
           label="Peso"
           value={'' + pesoPet}
           keyboardType='decimal-pad'
           onChangeText={(text) => setPesoPet(text)}
         />
-=======
-
-        <Input
-          label="Peso"
-          value={peso}
-          onChangeText={(text) => setPeso(text)}
-        />
-
->>>>>>> 5fb5b85b36c7626a8a8e9e7ce274b52d39d0c069
         <Button mode="contained" style={styles.button} onPress={handleSalvar}>
           Salvar
         </Button>
@@ -280,11 +201,7 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: '#0E1647',
-<<<<<<< HEAD
     marginTop: 16,
-=======
-    marginTop:16,
->>>>>>> 5fb5b85b36c7626a8a8e9e7ce274b52d39d0c069
     marginBottom: 8,
   },
 });

@@ -8,11 +8,8 @@ import Pet from '../pages/Pet';
 import CadastrarVacina from '../pages/CadastrarVacina';
 import News from '../pages/News';
 import ReadNews from '../pages/ReadNews';
-<<<<<<< HEAD
 import VacinasPet from '../pages/VacinasPet';
 import RegistrarVacina from '../pages/RegistrarVacina';
-=======
->>>>>>> 5fb5b85b36c7626a8a8e9e7ce274b52d39d0c069
 
 const Stack = createNativeStackNavigator();
 
@@ -68,7 +65,6 @@ const Main = () => {
           header: () => null,
         }}
       />
-<<<<<<< HEAD
       <Stack.Screen
         name="VacinasPet"
         component={VacinasPet}
@@ -83,8 +79,6 @@ const Main = () => {
           header: () => null,
         }}
       />
-=======
->>>>>>> 5fb5b85b36c7626a8a8e9e7ce274b52d39d0c069
     </Stack.Navigator>
   );
 };

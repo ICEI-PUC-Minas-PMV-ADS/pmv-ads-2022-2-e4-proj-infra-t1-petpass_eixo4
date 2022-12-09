@@ -77,7 +77,7 @@ export default function Pets() {
 
   useEffect(() => {
     axios
-      .get(`http://rodrigopuc-001-site1.htempurl.com/api/Usuarios/${getAuthenticatedUser()}/Pets`)
+      .get(`https://localhost:7110/api/Usuarios/${getAuthenticatedUser()}/Pets`)
       .then((res) => setRows(res.data.map((d) => d.pet)))
       .catch((err) => console.error(err));
   }, []);

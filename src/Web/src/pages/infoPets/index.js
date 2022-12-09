@@ -21,7 +21,7 @@ const InfoPets = () => {
 
   useEffect(() => {
     axios
-      .get(`http://rodrigopuc-001-site1.htempurl.com/api/Pets/${id}`)
+      .get(`https://localhost:7110/api/Pets/${id}`)
       .then((res) => setPet(res.data))
       .catch((err) => console.error(err));
   }, [id]);

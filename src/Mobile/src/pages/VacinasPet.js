@@ -13,14 +13,12 @@ import moment from 'moment';
 
 const VacinasPet = ({ route }) => {
   const { item } = route.params ? route.params : {};
-  //console.log('items vacinaPet: ',item);
   const navigation = useNavigation();
   const isFocused = useIsFocused();
   const [pets, setPets] = useState([]);
 
   useEffect(() => {
-    getVacinasPet(item.id).then((dados) => {
-      //console.log('getVacinasPet: ',dados);
+    getVacinasPet(item.pet.id).then((dados) => {
       setPets(dados);
     });
   }, [isFocused]);
@@ -28,7 +26,7 @@ const VacinasPet = ({ route }) => {
   const renderItem = ({ item }) => (
     <List.Item
       title={item.vacina.descricao}
-      description={'Aplicada em ' + moment(new Date(item.data)).format('DD/MM/YYYY')}
+      description={'Aplicada em ' + moment(item.data).format('DD/MM/YYYY')}
       right={(props) => (
         <Text {...props} style={{ alignSelf: 'center' }}>
           {'Idade: ' + item.idade + ' anos'}
@@ -39,7 +37,7 @@ const VacinasPet = ({ route }) => {
   );
   return (
     <Container>
-      <Header title={`Vacinas d${item.sexo == 0 ? 'o' : 'a'} ${item.nomePet}`} goBack={() => navigation.goBack()}/>
+      <Header title={`Vacinas d${item.pet.sexo == 0 ? 'o' : 'a'} ${item.pet.nomePet}`} goBack={() => navigation.goBack()}/>
       <Body>
         <FlatList
           data={pets}

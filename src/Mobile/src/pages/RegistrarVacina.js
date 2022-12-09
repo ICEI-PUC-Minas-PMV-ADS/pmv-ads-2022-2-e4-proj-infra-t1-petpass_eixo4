@@ -16,6 +16,7 @@ import Body from '../components/Body';
 import Input from '../components/Input';
 
 import { useNavigation } from '@react-navigation/native';
+import { useIsFocused } from '@react-navigation/native';
 
 import { deleteVacina, addVacina, updateVacina } from '../services/pets.services';
 import { getVacinas } from '../services/vacinas.services';
@@ -23,7 +24,6 @@ import { getVacinas } from '../services/vacinas.services';
 const RegistrarVacina = ({ route }) => {
   const navigation = useNavigation();
   const { item } = route.params ? route.params : {};
-  //console.log('Item (route): ', item);
   const [date, setDate] = useState(new Date());
   const [show, setShow] = useState(false);
 
@@ -36,70 +36,55 @@ const RegistrarVacina = ({ route }) => {
   const [titulo, setTitulo] = useState('');
   const [nova, setNova] = useState('');
   const [tipoPet, setTipoPet] = useState();
+  const isFocused = useIsFocused();
 
   useEffect(() => {
-    console.log('Item: ', item);
-    if (item.dataRegistro) { //pet
-      newVacina(item);
-    } else { //RegistroVacina
+    if (item.pet) { 
+      newVacina(item.pet);
+    } else { 
       editVacina(item);
     }
     getVacinasList(tipoPet);
-  }, [tipoPet]);
+  }, [isFocused]);
 
   const newVacina = (item) =>{
-    console.log('Função NewVacina');
-    console.log('Item (newVacina):',item);
     setTipoPet(item.tipo);
     setNova('Add');
-    console.log('nova: ', nova);
     setTitulo(`Vacinar ${item.nomePet}`);
     setPetId(item.id);
-    setData(moment(new Date()).format('DD/MM/YYYY'));
   };
 
   const editVacina = (item) =>{
-    console.log('Função editVacina');
-    console.log('Item (editVacina): ',item);
-    console.log('tipoPet (do item): ', item.vacina.tipoPet);
     setTipoPet(item.vacina.tipoPet);
-    console.log('TipoPet em editVacina: ', tipoPet);
     setNova('Edit');
-    console.log('nova: ', nova);
     setTitulo('Editar vacina');
     setDescricao(item.descricao);
-    setData(moment(new Date(item.data)).format("DD/MM/YYYY"));
+    setData(moment((item.data)).format('DD/MM/YYYY'));
     setIdade(item.idade);
+    setPetId(item.petId);
     setVacinaId(item.vacinaId);
-    //console.log('VacinaId: ', vacinaId);
-
   };
 
 
   const getVacinasList = (tipoPet) => {
     getVacinas().then((dados) => {
-      console.log('Dados antes do Filtro: ', dados);
-      console.log('Filtrar por tipo pet: ', tipoPet);
       if (tipoPet != null || tipoPet == '' || tipoPet == []) {
         let dadosFiltrados = dados.filter(x => x.tipoPet == tipoPet);
-        //console.log('Dados filtrados: ', dadosFiltrados)
         setVacinasList(dadosFiltrados);
       } else {
-        console.log('Dados NÃO filtrados')
         setVacinasList(dados);
       }
-      console.log('vacinaslist: ', vacinasList);
     }
     );
   }
 
   const handleSalvar = () => {
-    //console.log('nova: ', nova);
-    if (nova === 'edit') {
-      console.log('Handlesalvar updateVacina');
+    if (nova === 'Edit') {
+      let dateSplit = data.split("/");
+      let dateToSave=dateSplit[2]+'-'+dateSplit[1]+'-'+dateSplit[0]
       updateVacina({
         vacinaId: vacinaId,
-        data: moment(new Date(data)).format('YYYY-MM-DD'),
+        data: dateToSave,
         petId: petId,
         idade: idade,
         id: item.id,
@@ -107,9 +92,11 @@ const RegistrarVacina = ({ route }) => {
         navigation.goBack();
       });
     } else {
+      let dateSplit = data.split("/");
+      let dateToSave=dateSplit[2]+'-'+dateSplit[1]+'-'+dateSplit[0]
       addVacina({
         vacinaId: vacinaId,
-        data: moment(new Date(data)).format('YYYY-MM-DD'),
+        data: dateToSave,
         petId: petId,
         idade: idade,
       }).then((res) => {
@@ -119,7 +106,6 @@ const RegistrarVacina = ({ route }) => {
   };
 
   const handleExcluir = () => {
-    console.log('handle excluir');
     deleteVacina(item.petId, item.id).then((res) => {
       navigation.goBack();
     });
@@ -155,7 +141,7 @@ const RegistrarVacina = ({ route }) => {
             onTouchCancel={() => setShow(false)}
             onChange={(event, date) => {
               setShow(false);
-              setData(moment(date).format('DD/MM/YYYY'));
+              setData(moment(new Date(date)).format('DD/MM/YYYY'));
             }}
           />
         )}

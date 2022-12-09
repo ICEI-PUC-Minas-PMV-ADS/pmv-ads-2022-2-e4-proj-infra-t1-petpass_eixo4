@@ -26,24 +26,15 @@ const RegistroVacina = () => {
 
   useEffect(() => {
     axios
-<<<<<<< HEAD
-      .get(`http://rodrigopuc-001-site1.htempurl.com/api/Vacinas`)
-      .then((res) => setVacinas(res.data))
-=======
       .get(`https://localhost:7110/api/Vacinas`)
-      .then((res) => {
-        let vacinas = [...res.data].filter(e => e.tipoPet === tipoPet);
-        setVacinas(vacinas);
-      })
->>>>>>> 5fb5b85b36c7626a8a8e9e7ce274b52d39d0c069
+      .then((res) => setVacinas(res.data))
       .catch((err) => console.error(err));
   }, [tipoPet]);
 
   useEffect(() => {
     if (isEditing) {
       axios
-<<<<<<< HEAD
-      .get(`http://rodrigopuc-001-site1.htempurl.com/api/RegistroVacinas/${regId}`)
+      .get(`https://localhost:7110/api/RegistroVacinas/${regId}`)
       .then((res) => {
         const vac = res.data;
         setValue('vacinaId', vac.vacinaId);
@@ -52,17 +43,6 @@ const RegistroVacina = () => {
         setPetId(vac.petId);
       })
       .catch((err) => console.error(err)); 
-=======
-        .get(`https://localhost:7110/api/RegistroVacinas/${regId}`)
-        .then((res) => {
-          const vac = res.data;
-          setValue('vacinaId', vac.vacinaId);
-          setValue('idade', vac.idade);
-          setValue('data', vac.data.split('T')[0]);
-          setPetId(vac.petId);
-        })
-        .catch((err) => console.error(err));
->>>>>>> 5fb5b85b36c7626a8a8e9e7ce274b52d39d0c069
     }
   }, [regId, isEditing, setValue, setPetId]);
 
@@ -77,13 +57,7 @@ const RegistroVacina = () => {
   const onSubmit = (formData) => {
     const params = {
       method: isEditing ? 'PUT' : 'POST',
-<<<<<<< HEAD
-      url: isEditing ? `http://rodrigopuc-001-site1.htempurl.com/api/RegistroVacinas/${regId}` : `http://rodrigopuc-001-site1.htempurl.com/api/RegistroVacinas`,
-=======
-      url: isEditing
-        ? `https://localhost:7110/api/RegistroVacinas/${regId}`
-        : `https://localhost:7110/api/RegistroVacinas`,
->>>>>>> 5fb5b85b36c7626a8a8e9e7ce274b52d39d0c069
+      url: isEditing ? `https://localhost:7110/api/RegistroVacinas/${regId}` : `https://localhost:7110/api/RegistroVacinas`,
       withCredentials: true,
       data: {
         ...formData,
