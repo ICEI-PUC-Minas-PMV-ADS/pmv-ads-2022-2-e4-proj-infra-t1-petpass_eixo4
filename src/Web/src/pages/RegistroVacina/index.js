@@ -59,7 +59,7 @@ const RegistroVacina = () => {
       method: isEditing ? 'PUT' : 'POST',
       url: isEditing
         ? `https://localhost:7110/api/RegistroVacinas/${regId}`
-        : `https://localhost:7110/api/RegistroVacinas`
+        : `https://localhost:7110/api/RegistroVacinas`,
       data: {
         ...formData,
         petId: parseInt(petId),
