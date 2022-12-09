@@ -11,7 +11,6 @@ const Noticias = () => {
   useEffect(() => {
     const params = {
       url: `/api/News/`,
-      withCredentials: true,
     };
 
     requestBackend(params).then((response) => {

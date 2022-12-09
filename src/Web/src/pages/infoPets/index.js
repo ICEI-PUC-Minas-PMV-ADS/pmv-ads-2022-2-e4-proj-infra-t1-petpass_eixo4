@@ -38,7 +38,6 @@ const InfoPets = () => {
     const params = {
       method: 'DELETE',
       url: `https://localhost:7110/api/Pets/${petId}`,
-      withCredentials: true,
       data: {
         petId,
         usuarioId: getAuthenticatedUser(),
@@ -111,7 +110,7 @@ const InfoPets = () => {
               <p key={item.id}>
                 <button
                   className="btn-vaccine"
-                  onClick={() => history.push('/registroVacina', {id: item.id})}
+                  onClick={() => history.push('/registroVacina', {id: item.id, tipoPet: pet.tipo})}
                 >
                   <EditIcon color="action"/> {item.vacina.descricao} - Dose: {item.vacina.dose} - Idade:{' '}
                   {item.idade} - Aplicação:{' '}

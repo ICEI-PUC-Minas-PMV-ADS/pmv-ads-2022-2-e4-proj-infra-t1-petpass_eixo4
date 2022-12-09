@@ -63,7 +63,6 @@ const RegistroVacina = () => {
       url: isEditing
         ? `https://localhost:7110/api/RegistroVacinas/${regId}`
         : `https://localhost:7110/api/RegistroVacinas`,
-      withCredentials: true,
       data: {
         ...formData,
         petId: parseInt(petId),
@@ -86,7 +85,6 @@ const RegistroVacina = () => {
     const params = {
       method: 'DELETE',
       url: `https://localhost:7110/api/RegistroVacinas/${regId}`,
-      withCredentials: true,
       data: {
         regId,
         usuarioId: getAuthenticatedUser(),

@@ -23,7 +23,6 @@ const CadVacina = () => {
     const params = {
       method: 'POST',
       url: `https://localhost:7110/api/Vacinas`,
-      withCredentials: true,
       data: {
         ...formData,
         tipoPet: parseInt(formData['tipoPet']),

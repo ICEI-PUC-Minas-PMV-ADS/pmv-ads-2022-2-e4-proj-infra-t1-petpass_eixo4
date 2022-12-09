@@ -48,7 +48,6 @@ const CadPet = () => {
     const params = {
       method: 'POST',
       url: `https://localhost:7110/api/Pets/${petId}/usuarios`,
-      withCredentials: true,
       data: {
         petId,
         usuarioId: getAuthenticatedUser(),
@@ -65,7 +64,6 @@ const CadPet = () => {
     const params = {
       method: isEditing ? 'PUT' : 'POST',
       url: isEditing ? `https://localhost:7110/api/Pets/${petId}` : `https://localhost:7110/api/Pets`,
-      withCredentials: true,
       data: {
         ...formData,
         tipo: parseInt(formData['tipo']),
