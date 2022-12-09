@@ -59,6 +59,7 @@ axios.interceptors.response.use(
   },
   function (error) {
     if (error.response.status === 401) {
+      console.log('erro: ',error);
       history.push('/auth/login');
     }
     return Promise.reject(error);

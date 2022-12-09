@@ -32,7 +32,7 @@ const CadPet = () => {
         setValue('peso', pet.peso);
         setValue('dataRegistro', pet.dataRegistro.split('T')[0]);
       })
-      .catch((err) => console.error(err)); 
+      .catch((err) => console.log(err)); 
     }
   }, [petId, isEditing, setValue]);
 
@@ -70,6 +70,7 @@ const CadPet = () => {
         ...formData,
         tipo: parseInt(formData['tipo']),
         sexo: parseInt(formData['sexo']),
+        peso: parseInt(formData['peso']),
       },
     };
 
@@ -78,6 +79,8 @@ const CadPet = () => {
     }
 
     setButtonText('Carregando...');
+    console.log('web params: ',formData);
+
     requestBackend(params)
       .then((response) => {
         if (!isEditing) {
@@ -86,7 +89,10 @@ const CadPet = () => {
           finallyRequest(true);
         }
       })
-      .catch(() => setError(true))
+      .catch((error) => {
+        setError(true);
+        console.log(error);
+      })
       .finally(() => setButtonText('Salvar'));
   };
 

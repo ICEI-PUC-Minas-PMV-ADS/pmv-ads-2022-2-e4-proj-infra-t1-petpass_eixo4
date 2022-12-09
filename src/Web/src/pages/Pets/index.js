@@ -76,6 +76,7 @@ export default function Pets() {
   const [rows, setRows] = useState([]);
 
   useEffect(() => {
+    console.log('teste');
     axios
       .get(`https://localhost:7110/api/Usuarios/${getAuthenticatedUser()}/Pets`)
       .then((res) => setRows(res.data.map((d) => d.pet)))

@@ -16,10 +16,8 @@ const Login = () => {
   const navigation = useNavigation();
   const { signed, setSigned, userId, setUserId } = useUser();
 
-  const [email, setEmail] = useState('rodrigo@pucminas.com');
-  const [password, setPassword] = useState('123456');
-
-  //useEffect(()=> {setSigned(true),[]});
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const handleLogin = () => {
     login({

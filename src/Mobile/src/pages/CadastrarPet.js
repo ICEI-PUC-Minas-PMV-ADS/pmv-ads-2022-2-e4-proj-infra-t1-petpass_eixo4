@@ -36,7 +36,7 @@ const CadastrarPet = ({ route }) => {
 
   useEffect(() => {
     if (item) {
-      setDataRegistro(moment(item.pet.dataRegistro).format('DD/MM/YYYY'));
+      setDataRegistro(moment(dataRegistro,'YYYY-MM-DD').format('DD/MM/YYYY'));
       setNome(item.pet.nomePet);
       setTipo(item.pet.tipo == 0 ? 'dog' : 'cat');
       setSexo(item.pet.sexo == 0 ? 'macho' : 'femea');
@@ -49,7 +49,7 @@ const CadastrarPet = ({ route }) => {
     if (item) {
       updatePet({
         tipo: tipo == 'dog' ? 0 : 1,
-        dataRegistro: moment(new Date(dataRegistro)).format('YYYY-MM-DD'),
+        dataRegistro: moment(dataRegistro,'DD/MM/YYYY').format('YYYY-MM-DD'),
         nomePet: nome,
         sexo: sexo == 'macho' ? 0 : 1,
         raca: raca,
@@ -61,7 +61,7 @@ const CadastrarPet = ({ route }) => {
     } else {
       createPet({
         tipo: tipo == 'dog' ? 0 : 1,
-        dataRegistro: moment(new Date(dataRegistro)).format('YYYY-MM-DD'),
+        dataRegistro: moment(dataRegistro,'DD/MM/YYYY').format('YYYY-MM-DD'),
         nomePet: nome,
         sexo: sexo == 'macho' ? 0 : 1,
         raca: raca,
@@ -142,7 +142,8 @@ const CadastrarPet = ({ route }) => {
             onTouchCancel={() => setShow(false)}
             onChange={(event, date) => {
               setShow(false);
-              setDataRegistro(moment(new Date(date)).format('DD/MM/YYYY'));
+              console.log('date: ',date);
+              setDataRegistro(moment(date,'YYYY-MM-DD').format('DD/MM/YYYY'));
             }}
           />
         )}

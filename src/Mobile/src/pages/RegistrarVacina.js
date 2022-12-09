@@ -80,11 +80,9 @@ const RegistrarVacina = ({ route }) => {
 
   const handleSalvar = () => {
     if (nova === 'Edit') {
-      let dateSplit = data.split("/");
-      let dateToSave=dateSplit[2]+'-'+dateSplit[1]+'-'+dateSplit[0]
       updateVacina({
         vacinaId: vacinaId,
-        data: dateToSave,
+        data: moment(data,'DD/MM/YYYY').format('YYYY-MM-DD'),
         petId: petId,
         idade: idade,
         id: item.id,
@@ -92,11 +90,9 @@ const RegistrarVacina = ({ route }) => {
         navigation.goBack();
       });
     } else {
-      let dateSplit = data.split("/");
-      let dateToSave=dateSplit[2]+'-'+dateSplit[1]+'-'+dateSplit[0]
       addVacina({
         vacinaId: vacinaId,
-        data: dateToSave,
+        data: moment(data,'DD/MM/YYYY').format('YYYY-MM-DD'),
         petId: petId,
         idade: idade,
       }).then((res) => {

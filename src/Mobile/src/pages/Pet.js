@@ -23,7 +23,7 @@ const Pet = ({ route }) => {
   const [vacinas, setVacinas] = useState([]);
 
   useEffect(() => {
-      setData(moment(new Date(item.pet.dataRegistro)).format('DD/MM/YYYY'));
+      setData(item.pet.dataRegistro);
       setNome(item.pet.nomePet);
       setTipo(item.pet.tipo == 0 ? 'dog' : 'cat');
       setSexo(item.pet.sexo == 0 ? 'macho' : 'femea');
@@ -46,7 +46,7 @@ const Pet = ({ route }) => {
             </Title>
             <Card.Cover source={{ uri: 'https://picsum.photos/images' }} />
             <Paragraph>Peso: {peso}</Paragraph>
-            <Paragraph>Registrado em: {moment(new Date(data)).format('DD/MM/YYYY')}</Paragraph>
+            <Paragraph>Registrado em: {moment(data).format('DD/MM/YYYY')}</Paragraph>
           </Card.Content>
           <Card.Actions>
             <Button style={styles.button} onPress={()=>navigation.navigate('VacinasPet',{item})}>Ver vacinas</Button>
