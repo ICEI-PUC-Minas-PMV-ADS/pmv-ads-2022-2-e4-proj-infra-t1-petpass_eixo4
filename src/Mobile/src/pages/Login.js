@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { StyleSheet, View, Alert, Text } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Button, Headline } from 'react-native-paper';
@@ -14,21 +14,22 @@ import { login } from '../services/auth.services';
 
 const Login = () => {
   const navigation = useNavigation();
-  const { setSigned, setName } = useUser();
+  const { signed, setSigned, userId, setUserId } = useUser();
 
-  const [email, setEmail] = useState('123@qwe.com');
+  const [email, setEmail] = useState('rodrigo@pucminas.com');
   const [password, setPassword] = useState('123456');
+
+  //useEffect(()=> {setSigned(true),[]});
 
   const handleLogin = () => {
     login({
       email: email,
       password: password,
     }).then((res) => {
-      console.log('res: ',res);
 
-      if (res && res.user) {
+      if (res) {
         setSigned(true);
-        setName(res.user.name);
+        setUserId(res.id);
         AsyncStorage.setItem('@TOKEN_KEY', res.jwtToken).then();
       } else {
         Alert.alert('Atenção', 'Usuário/senha inválidos');
@@ -51,6 +52,8 @@ const Login = () => {
           </Text>
           <Input
             value={email}
+            autoCapitalize="none"
+            keyboardType="email-address"
             onChangeText={(text) => setEmail(text)}
           />
           <Text style={[styles.label, { marginBottom: 12, marginTop: 12 }]}>

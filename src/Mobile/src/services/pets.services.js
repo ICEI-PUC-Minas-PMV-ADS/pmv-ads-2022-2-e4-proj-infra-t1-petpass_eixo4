@@ -18,12 +18,29 @@ export const getPets = async () => {
   }
 };
 
+export const getPetById = async (id) => {
+  try {
+    return await API.get(`${BASE_URL}/Pets/${id}`).then(
+      (response) => {
+        return response.data;
+      },
+      (error) => {
+        console.log(error);
+        return null;
+      }
+    );
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
+};
+
 export const getVacinasPet = async (id) => {
   try {
-    return await API.get(`${BASE_URL}/registroVacinas`).then(
+    return await API.get(`${BASE_URL}/registroVacinas/Pet/${id}`).then(
       (response) => {
         let res = response.data;
-        console.log(res);
+        res=res.filter(x=>x.petId===id);
         return res;
       },
       (error) => {
@@ -121,9 +138,25 @@ export const deleteUsuario = async (id,usuarioId) => {
   }
 };
 
-export const addVacina = async (id,param) => {
+export const addVacina = async (param) => {
   try {
-    return await API.post(`${BASE_URL}/Pets/${id}/vacinas`,param).then(
+    return await API.post(`${BASE_URL}/Pets/${param.petId}/vacinas`,param).then(
+      (response) => {
+        return response.data;
+      },
+      (error) => {
+        return null;
+      }
+    );
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
+};
+
+export const updateVacina = async (param) => {
+  try {
+    return await API.put(`${BASE_URL}/Pets/${param.petId}/vacinas/${param.vacinaId}`,param).then(
       (response) => {
         return response.data;
       },
@@ -138,26 +171,9 @@ export const addVacina = async (id,param) => {
   }
 };
 
-export const updateVacina = async (id,param) => {
+export const deleteVacina = async (petId,registroId) => {
   try {
-    return await API.put(`${BASE_URL}/Pets/${id}/vacinas/${param.id}`,param).then(
-      (response) => {
-        return response.data;
-      },
-      (error) => {
-        console.log(error);
-        return null;
-      }
-    );
-  } catch (error) {
-    console.log(error);
-    return null;
-  }
-};
-
-export const deleteVacina = async (id,registroId) => {
-  try {
-    return await API.delete(`${BASE_URL}/Pets/${id}/vacinas/${registroId}`).then(
+    return await API.delete(`${BASE_URL}/Pets/${petId}/vacinas/${registroId}`).then(
       (response) => {
         return response.data;
       },

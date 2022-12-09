@@ -27,25 +27,22 @@ const RegistroVacina = () => {
   useEffect(() => {
     axios
       .get(`https://localhost:7110/api/Vacinas`)
-      .then((res) => {
-        let vacinas = [...res.data].filter(e => e.tipoPet === tipoPet);
-        setVacinas(vacinas);
-      })
+      .then((res) => setVacinas(res.data))
       .catch((err) => console.error(err));
   }, [tipoPet]);
 
   useEffect(() => {
     if (isEditing) {
       axios
-        .get(`https://localhost:7110/api/RegistroVacinas/${regId}`)
-        .then((res) => {
-          const vac = res.data;
-          setValue('vacinaId', vac.vacinaId);
-          setValue('idade', vac.idade);
-          setValue('data', vac.data.split('T')[0]);
-          setPetId(vac.petId);
-        })
-        .catch((err) => console.error(err));
+      .get(`https://localhost:7110/api/RegistroVacinas/${regId}`)
+      .then((res) => {
+        const vac = res.data;
+        setValue('vacinaId', vac.vacinaId);
+        setValue('idade', vac.idade);
+        setValue('data', vac.data.split('T')[0]);
+        setPetId(vac.petId);
+      })
+      .catch((err) => console.error(err)); 
     }
   }, [regId, isEditing, setValue, setPetId]);
 
@@ -62,7 +59,7 @@ const RegistroVacina = () => {
       method: isEditing ? 'PUT' : 'POST',
       url: isEditing
         ? `https://localhost:7110/api/RegistroVacinas/${regId}`
-        : `https://localhost:7110/api/RegistroVacinas`,
+        : `https://localhost:7110/api/RegistroVacinas`
       data: {
         ...formData,
         petId: parseInt(petId),

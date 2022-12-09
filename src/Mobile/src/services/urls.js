@@ -1,1 +1,1 @@
-export const BASE_URL = 'https://all-olives-lick-201-17-210-215.loca.lt'
+export const BASE_URL = 'https://c54c-2804-14c-5b85-a1eb-30e2-685a-4a83-5e06.ngrok.io/api'

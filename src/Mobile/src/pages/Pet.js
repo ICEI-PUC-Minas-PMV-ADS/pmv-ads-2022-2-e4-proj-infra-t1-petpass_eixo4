@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet } from 'react-native';
 import { Button, Card, Title, Paragraph } from 'react-native-paper';
+import moment from 'moment';
 
 import Header from '../components/Header';
 import Container from '../components/ContainerMain';
@@ -19,37 +20,36 @@ const Pet = ({ route }) => {
   const [raca, setRaca] = useState(null);
   const [peso, setPeso] = useState(null);
   const [data, setData] = useState(null);
-  //const [vacinas, setVacinas] = useState([]);
+  const [vacinas, setVacinas] = useState([]);
 
   useEffect(() => {
-      setData(item.data);
-      setNome(item.nomePet);
-      setTipo(item.tipo == 0 ? 'dog' : 'cat');
-      setSexo(item.sexo == 0 ? 'macho' : 'femea');
-      setRaca(item.raca);
-      setPeso(item.peso);
-    
+      setData(moment(new Date(item.pet.dataRegistro)).format('DD/MM/YYYY'));
+      setNome(item.pet.nomePet);
+      setTipo(item.pet.tipo == 0 ? 'dog' : 'cat');
+      setSexo(item.pet.sexo == 0 ? 'macho' : 'femea');
+      setRaca(item.pet.raca);
+      setPeso(item.pet.peso);
   }, [item]);
 
   return (
     <Container>
-      <Header title={'Meu Pet'} goBack={() => navigation.goBack()}></Header>
+      <Header title={'Meu Pet'} goBack={() => navigation.goBack()}/>
       <Body>
         <Card>
           <Card.Title
-            title={item.nomePet}
-            subtitle={item.tipo === 'dog' ? 'Cachorro' : 'Gato'}
+            title={nome}
+            subtitle={tipo === 'dog' ? 'Cachorro' : 'Gato'}
           />
           <Card.Content>
             <Title>
-              {item.raca} {item.sexo == 'macho' ? 'macho' : 'fêmea'}
+              {raca} {sexo == 'macho' ? 'macho' : 'fêmea'}
             </Title>
             <Card.Cover source={{ uri: 'https://picsum.photos/images' }} />
-            <Paragraph>Peso: {item.peso}</Paragraph>
-            <Paragraph>Registrado em: {item.data}</Paragraph>
+            <Paragraph>Peso: {peso}</Paragraph>
+            <Paragraph>Registrado em: {moment(new Date(data)).format('DD/MM/YYYY')}</Paragraph>
           </Card.Content>
           <Card.Actions>
-            <Button style={styles.button}>Registrar Vacina</Button>
+            <Button style={styles.button} onPress={()=>navigation.navigate('VacinasPet',{item})}>Ver vacinas</Button>
           </Card.Actions>
         </Card>
       </Body>

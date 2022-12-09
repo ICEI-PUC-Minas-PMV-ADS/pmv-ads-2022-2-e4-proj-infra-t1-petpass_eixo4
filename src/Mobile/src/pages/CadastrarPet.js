@@ -17,8 +17,8 @@ import Body from '../components/Body';
 import Input from '../components/Input';
 
 import { useNavigation } from '@react-navigation/native';
-
-import { createPet, updatePet, deletePet } from '../services/pets.services';
+import { useUser } from '../contexts/UserContext';
+import { createPet, updatePet, deletePet, addUsuario } from '../services/pets.services';
 
 const CadastrarPet = ({ route }) => {
   const navigation = useNavigation();
@@ -26,22 +26,22 @@ const CadastrarPet = ({ route }) => {
 
   const [date, setDate] = useState(new Date());
   const [show, setShow] = useState(false);
-
+  const { signed, setSigned, name, setName, userId, setUserId } = useUser();
   const [tipo, setTipo] = useState(null);
   const [nome, setNome] = useState(null);
   const [sexo, setSexo] = useState(null);
   const [raca, setRaca] = useState(null);
-  const [peso, setPeso] = useState(null);
-  const [data, setData] = useState(moment(new Date()).format('DD/MM/YYYY'));
+  const [pesoPet, setPesoPet] = useState('');
+  const [dataRegistro, setDataRegistro] = useState(moment(new Date()).format('DD/MM/YYYY'));
 
   useEffect(() => {
     if (item) {
-      setData(item.data);
-      setNome(item.nomePet);
-      setTipo(item.tipo == 0 ? 'dog' : 'cat');
-      setSexo(item.sexo == 0 ? 'macho' : 'femea');
-      setRaca(item.raca);
-      setPeso(item.peso);
+      setDataRegistro(moment(item.pet.dataRegistro).format('DD/MM/YYYY'));
+      setNome(item.pet.nomePet);
+      setTipo(item.pet.tipo == 0 ? 'dog' : 'cat');
+      setSexo(item.pet.sexo == 0 ? 'macho' : 'femea');
+      setPesoPet('' + item.pet.peso);
+      setRaca(item.pet.raca);
     }
   }, [item]);
 
@@ -49,31 +49,39 @@ const CadastrarPet = ({ route }) => {
     if (item) {
       updatePet({
         tipo: tipo == 'dog' ? 0 : 1,
-        data: data,
+        dataRegistro: moment(new Date(dataRegistro)).format('YYYY-MM-DD'),
         nomePet: nome,
         sexo: sexo == 'macho' ? 0 : 1,
         raca: raca,
-        peso:peso,
-        id: item.id,
+        peso: pesoPet,
+        id: item.petId,
       }).then((res) => {
         navigation.goBack();
       });
     } else {
       createPet({
         tipo: tipo == 'dog' ? 0 : 1,
-        data: data,
+        dataRegistro: moment(new Date(dataRegistro)).format('YYYY-MM-DD'),
         nomePet: nome,
         sexo: sexo == 'macho' ? 0 : 1,
         raca: raca,
-        peso:peso,
+        peso: pesoPet,
       }).then((res) => {
-        navigation.goBack();
+        addUsuario(
+          res.id,          
+        {
+          petId: res.id,
+          UsuarioId: userId,
+        }
+        ).then((resUser) => {
+          navigation.goBack();
+        });
       });
-    }
-  };
+    };
+  }
 
   const handleExcluir = () => {
-    deletePet(item.id).then((res) => {
+    deletePet(item.petId).then((res) => {
       navigation.goBack();
     });
   };
@@ -134,38 +142,33 @@ const CadastrarPet = ({ route }) => {
             onTouchCancel={() => setShow(false)}
             onChange={(event, date) => {
               setShow(false);
-              setData(moment(date).format('DD/MM/YYYY'));
+              setDataRegistro(moment(new Date(date)).format('DD/MM/YYYY'));
             }}
           />
         )}
-
         <TouchableOpacity onPress={() => setShow(true)}>
           <Input
             label="Data"
-            value={data}
-            left={<TextInput.Icon name="calendar" />}
+            value={dataRegistro}
             editable={false}
           />
         </TouchableOpacity>
-
         <Input
           label="Nome"
           value={nome}
           onChangeText={(text) => setNome(text)}
         />
-
         <Input
           label="Raça"
           value={raca}
           onChangeText={(text) => setRaca(text)}
         />
-
         <Input
           label="Peso"
-          value={peso}
-          onChangeText={(text) => setPeso(text)}
+          value={'' + pesoPet}
+          keyboardType='decimal-pad'
+          onChangeText={(text) => setPesoPet(text)}
         />
-
         <Button mode="contained" style={styles.button} onPress={handleSalvar}>
           Salvar
         </Button>
@@ -198,7 +201,7 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: '#0E1647',
-    marginTop:16,
+    marginTop: 16,
     marginBottom: 8,
   },
 });

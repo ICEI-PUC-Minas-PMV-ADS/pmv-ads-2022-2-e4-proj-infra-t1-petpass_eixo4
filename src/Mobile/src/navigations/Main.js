@@ -8,6 +8,8 @@ import Pet from '../pages/Pet';
 import CadastrarVacina from '../pages/CadastrarVacina';
 import News from '../pages/News';
 import ReadNews from '../pages/ReadNews';
+import VacinasPet from '../pages/VacinasPet';
+import RegistrarVacina from '../pages/RegistrarVacina';
 
 const Stack = createNativeStackNavigator();
 
@@ -59,6 +61,20 @@ const Main = () => {
       <Stack.Screen
         name="ReadNews"
         component={ReadNews}
+        options={{
+          header: () => null,
+        }}
+      />
+      <Stack.Screen
+        name="VacinasPet"
+        component={VacinasPet}
+        options={{
+          header: () => null,
+        }}
+      />
+      <Stack.Screen
+        name="RegistrarVacina"
+        component={RegistrarVacina}
         options={{
           header: () => null,
         }}

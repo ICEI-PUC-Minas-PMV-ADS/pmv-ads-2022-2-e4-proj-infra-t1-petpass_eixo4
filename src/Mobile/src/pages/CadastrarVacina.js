@@ -24,14 +24,14 @@ const CadastrarVacina = ({ route }) => {
   const navigation = useNavigation();
   const { item } = route.params ? route.params : {};
 
-  const [tipoVacina, setTipoVacina] = useState(null);
+  const [tipoPet, setTipoPet] = useState(null);
   const [descricao, setDescricao] = useState(null);
   const [dose, setDose] = useState(null);
 
   useEffect(() => {
     if (item) {
       setDescricao(item.descricao);
-      setTipoVacina(item.tipo == 0 ? 'dog' : 'cat');
+      setTipoPet(item.tipoPet == 0 ? 'dog' : 'cat');
       setDose(item.dose);
     }
   }, [item]);
@@ -39,7 +39,7 @@ const CadastrarVacina = ({ route }) => {
   const handleSalvar = () => {
     if (item) {
       updateVacina({
-        tipoVacina: tipoVacina == 'dog' ? 0 : 1,
+        tipoPet: tipoPet == 'dog' ? 0 : 1,
         descricao: descricao,
         dose: dose,
         id: item.id,
@@ -48,7 +48,7 @@ const CadastrarVacina = ({ route }) => {
       });
     } else {
       createVacina({
-        tipoVacina: tipoVacina == 'dog' ? 0 : 1,
+        tipoPet: tipoPet == 'dog' ? 0 : 1,
         descricao: descricao,
         dose: dose,
       }).then((res) => {
@@ -65,7 +65,7 @@ const CadastrarVacina = ({ route }) => {
 
   return (
     <Container>
-      <Header title={'Cadastre seu Vacina'} goBack={() => navigation.goBack()}>
+      <Header title={'Cadastro de Vacina'} goBack={() => navigation.goBack()}>
         <Appbar.Action icon="check" onPress={handleSalvar} />
         {item && <Appbar.Action icon="trash-can" onPress={handleExcluir} />}
       </Header>
@@ -73,18 +73,18 @@ const CadastrarVacina = ({ route }) => {
         <View style={styles.containerRadio}>
           <View style={styles.containerRadioItem}>
             <RadioButton
-              value="tipo"
-              status={tipoVacina === 'dog' ? 'checked' : 'unchecked'}
-              onPress={() => setTipoVacina('dog')}
+              value={tipoPet}
+              status={tipoPet == 'dog' ? 'checked' : 'unchecked'}
+              onPress={() => setTipoPet('dog')}
             />
             <Text>Cachorro</Text>
           </View>
 
           <View style={styles.containerRadioItem}>
             <RadioButton
-              value="tipo"
-              status={tipoVacina === 'cat' ? 'checked' : 'unchecked'}
-              onPress={() => setTipoVacina('cat')}
+              value={tipoPet}
+              status={tipoPet == 'cat' ? 'checked' : 'unchecked'}
+              onPress={() => setTipoPet('cat')}
             />
             <Text>Gato</Text>
           </View>

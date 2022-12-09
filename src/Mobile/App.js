@@ -3,9 +3,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import UserProvider from './src/contexts/UserContext';
 import Route from './src/navigations/Route';
 
-import Register from './src/pages/Register';
-
+import { LogBox } from "react-native";
 const App = () => {
+  LogBox.ignoreLogs(["EventEmitter.removeListener"]);
   return (
     <UserProvider>
       <NavigationContainer>

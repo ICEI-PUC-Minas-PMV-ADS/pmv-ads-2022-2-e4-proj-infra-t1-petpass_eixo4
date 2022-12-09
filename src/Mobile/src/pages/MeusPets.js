@@ -1,59 +1,71 @@
 import React, { useEffect, useState } from 'react';
 import { FlatList, View, StyleSheet } from 'react-native';
-import { List, Text, FAB } from 'react-native-paper';
+import { List, Text, FAB, Appbar } from 'react-native-paper';
 
 import Header from '../components/Header';
 import Container from '../components/ContainerMain';
 import Body from '../components/Body';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { useNavigation } from '@react-navigation/native';
 import { useUser } from '../contexts/UserContext';
 import { getPets } from '../services/pets.services';
+import { GetPetsUsuario, logout } from '../services/auth.services';
 import { useIsFocused } from '@react-navigation/native';
+
 
 const MeusPets = () => {
   const navigation = useNavigation();
   const isFocused = useIsFocused();
-  const { name } = useUser();
+  const { signed, setSigned, name, setName, userId, setUserId } = useUser();
   const [pets, setPets] = useState([]);
 
   useEffect(() => {
-    getPets().then((dados) => {
+    GetPetsUsuario(userId).then((dados) => {
       setPets(dados);
     });
-  }, [isFocused]);
+  }, [pets]);
 
   const renderItem = ({ item }) => (
     <List.Item
-      title={item.nomePet}
-      description={'Peso: ' + item.peso}
+      title={item.pet.nomePet}
+      description={'Peso: ' + item.pet.peso}
       left={(props) => (
         <List.Icon
           {...props}
           color="#949494"
-          icon={item.tipo == 0 ? 'dog' : 'cat'}
+          icon={item.pet.tipo == 0 ? 'dog' : 'cat'}
         />
       )}
       right={(props) => (
         <Text {...props} style={{ alignSelf: 'center' }}>
-          {item.raca}
-          {item.sexo == 0 ? ' macho' : ' femea'}
+          {item.pet.raca}
+          {item.pet.sexo == 0 ? ' macho' : ' femea'}
         </Text>
       )}
       onLongPress={() => navigation.navigate('CadastrarPet', { item })}
       onPress={() => navigation.navigate('Pet', { item })}
     />
   );
+  const handleLogout = () => {
+    logout().then(res => {
+      setSigned(false);
+      AsyncStorage.setItem('@TOKEN_KEY', '').then();
+    });
+  }
+
   return (
     <Container>
-      <Header title={'Meus Pets'} />
+      <Header title={'Meus Pets'} >
+        <Appbar.Action icon="logout" onPress={handleLogout} />
+      </Header>
       <Body>
         <FlatList
           data={pets}
           renderItem={renderItem}
-          keyExtractor={(item) => item.id}
+          keyExtractor={(item) => item.petId}
         />
-                <FAB
+        <FAB
           style={styles.fab}
           small
           icon="plus"
@@ -65,7 +77,7 @@ const MeusPets = () => {
   );
 };
 
-const styles = StyleSheet.create({  
+const styles = StyleSheet.create({
   fab: {
     backgroundColor: '#0E1647',
     position: 'absolute',

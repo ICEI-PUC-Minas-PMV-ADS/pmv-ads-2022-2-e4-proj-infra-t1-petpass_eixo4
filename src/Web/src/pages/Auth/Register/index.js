@@ -23,8 +23,6 @@ const Register = () => {
   const history = useHistory();
 
   const onSubmit = (formData) => {
-    console.log(formData['perfil']);
-
     const data = {
       Nome: formData['username'],
       Password: formData['password'],
@@ -39,13 +37,12 @@ const Register = () => {
 
     requestBackend(params)
       .then((response) => {
-        console.log(response);
         setHasError(false);
         history.replace(from);
       })
       .catch((error) => {
         setHasError(true);
-        console.log('Erro', error);
+        console.log(error);
       });
   };
 
