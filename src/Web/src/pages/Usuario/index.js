@@ -11,7 +11,6 @@ const Users = () => {
   useEffect(() => {
     const params = {
       url: `/api/Usuarios/${getAuthenticatedUser()}/`,
-      withCredentials: true,
     };
 
     requestBackend(params).then((response) => {

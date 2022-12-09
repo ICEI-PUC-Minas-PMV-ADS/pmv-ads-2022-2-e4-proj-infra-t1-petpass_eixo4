@@ -38,7 +38,6 @@ const InfoPets = () => {
     const params = {
       method: 'DELETE',
       url: `https://localhost:7110/api/Pets/${petId}`,
-      withCredentials: true,
       data: {
         petId,
         usuarioId: getAuthenticatedUser(),
